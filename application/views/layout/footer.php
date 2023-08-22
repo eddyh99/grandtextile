@@ -70,6 +70,8 @@
 
 <script src="<?= base_url() ?>assets/plugins/global/plugins.bundle.js"></script>
 <script src="<?= base_url() ?>assets/js/scripts.bundle.js"></script>
+<script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
+<script src="<?= base_url() ?>assets/js/bootstrap.js"></script>
 <script src="<?= base_url() ?>assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
 <script src="<?= base_url() ?>assets/plugins/custom/datatables/datatables.bundle.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -95,6 +97,18 @@ if (isset($extra)) {
 	document.addEventListener("DOMContentReady", function() {
 		$("#notifToast").toast();
 	});
+	document.addEventListener("DOMContentLoaded", function () {
+        const menuLink = document.querySelector(".menu-link");
+        const menuSub = document.querySelector(".menu-sub");
+
+        menuLink.addEventListener("click", function () {
+            if (menuSub.classList.contains("show")) {
+                menuSub.classList.remove("show");
+            } else {
+                menuSub.classList.add("show");
+            }
+        });
+    });
 </script>
 
 </body>

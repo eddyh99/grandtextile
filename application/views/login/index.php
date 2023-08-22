@@ -1,15 +1,15 @@
-        <div class="w-100 vh-100" style="background-color: #202B46;">
+        <div class="w-100 vh-100" style="background-color: #3770C7;">
             <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
             <div class="content">
                 <div class="container ">
                     <div class="row">
                         <div class="col-md-4 col-sm-6 mx-auto col-md-offset-4 col-sm-offset-3">
                             <form action="<?= base_url() ?>auth/auth_login" method="post">
-                                <div id="bg-login" class="card card-login my-10 shadow-lg">
+                                <div id="bg-login" class="card card-login my-10 shadow-lg" style="background-color: #5d7fe8;">
                                     <div class="card-header text-center d-flex justify-content-center">
                                         <h2 class="card-title fs-1 fw-bold">Login Dashboard</h2>
                                     </div>
-                                    <div class="card-body">
+                                    <div class="card-body" style="background-color: #5d7fe8;">
                                         <?php if (!empty($_SESSION["error"])) { ?>
                                             <div class="input-group mx-auto">
                                                 <div class="form-group mx-auto label-floating">
@@ -43,7 +43,9 @@
                                             </div>
                                         </div>
                                         <div class="footer text-center my-5">
-                                            <button type="submit" class="btn btn-letsgo ">Let's go</button>
+                                            <button style="background-color: #ffffff;" type="submit" class="btn btn-letsgo ">
+                                            <a style="color: blue;">Let's go</a>
+                                            </button>
                                         </div>
                                     </div>
                                 </div>

@@ -4,22 +4,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Auth extends CI_Controller
 {
 
-	public function __construct()
-	{
-		parent::__construct();
-		$this->load->model("Mdl_auth", "auth");
-		$this->load->model("admin/Mdl_assignstaff","assignstaff");
-	}
 
 	public function index()
 	{
 		if (isset($_SESSION['logged_status'])) {
 			if ($_SESSION['logged_status']['role'] == 'pengayah') {
-				redirect('reservasi');
+				redirect('home');
 			}elseif ($result->role=='kasir'){
 				redirect('store/penjualan');
 			}
-			redirect("dashboard");
+			redirect("home");
 		}
 
 		$data = array(
@@ -45,27 +39,17 @@ class Auth extends CI_Controller
 		$uname = $this->security->xss_clean($this->input->post('uname'));
 		$pass = $this->security->xss_clean($this->input->post('pass'));
 
-		$result = $this->auth->VerifyLogin($uname, $pass);
+		$result="true";
 		if (!empty($result)) {
 			$session_data = array(
 				'username'  => $uname,
-				'nama'      => $result->nama,
-				'role'      => $result->role,
+				'nama'      => true,
+				'role'      => true,
 				'is_login'  => true
 			);
 			$this->session->set_userdata('logged_status', $session_data);
-			if ($result->role == 'pengayah') {
-				redirect('reservasi');
-			}elseif ($result->role=='kasir'){
-				$store=$this->assignstaff->getStoreID($uname);
-				if (!empty($store)){
-					$_SESSION['logged_status']["storeid"]=$store->storeid;
-					redirect('store/penjualan');	
-				}else{
-					redirect('transaksi');
-				}
-			}
-			redirect('dashboard');
+				
+			redirect('home');
 		} else {
 			$this->session->set_flashdata('error', "username atau password salah, mohon periksa ulang");
 			redirect("/");
