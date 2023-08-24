@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class reseller extends CI_Controller
 {
 
-    public function reseller()
+    public function index()
     {
 
         $sample_reseller_data = array(

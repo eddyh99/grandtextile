@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class barang extends CI_Controller
 {
 
-    public function barang()
+    public function index()
     {
 
         $sample_barang_data = array(

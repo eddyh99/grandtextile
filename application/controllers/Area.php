@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class area extends CI_Controller
 {
 
-    public function area()
+    public function index()
     {
 
         $sample_area_data = array(
