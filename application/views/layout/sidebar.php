@@ -1,16 +1,3 @@
-<style>
-    .menu-arrow {
-        transition: transform 0.3s ease;
-    }
-
-    .collapsed .menu-arrow {
-        transform: rotate(90deg);
-    }
-
-    /* Your other styles */
-</style>
-
-
 <body style="background-color:white" id="kt_app_body" data-kt-app-layout="dark-sidebar" data-kt-app-header-fixed="true" data-kt-app-sidebar-enabled="true" data-kt-app-sidebar-fixed="true" data-kt-app-sidebar-hoverable="true" data-kt-app-sidebar-push-header="true" data-kt-app-sidebar-push-toolbar="true" data-kt-app-sidebar-push-footer="true" data-kt-app-toolbar-enabled="true" class="app-default">
 
     <!-- ====== Start App ====== -->
@@ -90,24 +77,16 @@
     <div id="kt_app_sidebar" class="app-sidebar flex-column" style="background-color: #3770C7;" data-kt-drawer="true" data-kt-drawer-name="app-sidebar" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="225px" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_app_sidebar_mobile_toggle">
 
         <!-- ====== Start Logo Desktop ===== -->
-        <div class="app-sidebar-logo px-6 my-6" id="kt_app_sidebar_logo">
+        <div class="container" style="background-color: #5A93EB" id="kt_app_sidebar_logo">
 
             <!-- ====== Start Logo Desktop ===== -->
             <img alt="Logo" src="<?= base_url() ?>assets/img/woman.png" class="h-70px app-sidebar-logo-default" />
-            <a href="<?=base_url()?>" class="app-sidebar-logo-default  text-white fw-bold"> 
+            <a href="<?=base_url()?>" class="app-sidebar-logo-default text-center text-white fw-bold"> 
             Admin
             </a>
             <!--====== End Logo Desktop ===== -->
 
             <!--====== Start Sidebar Toggle ===== -->
-            <div id="kt_app_sidebar_toggle" class="app-sidebar-toggle btn btn-icon btn-sm h-30px w-30px rotate" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="app-sidebar-minimize">
-                <span class="svg-icon svg-icon-2 rotate-180">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path opacity="0.5" d="M14.2657 11.4343L18.45 7.25C18.8642 6.83579 18.8642 6.16421 18.45 5.75C18.0358 5.33579 17.3642 5.33579 16.95 5.75L11.4071 11.2929C11.0166 11.6834 11.0166 12.3166 11.4071 12.7071L16.95 18.25C17.3642 18.6642 18.0358 18.6642 18.45 18.25C18.8642 17.8358 18.8642 17.1642 18.45 16.75L14.2657 12.5657C13.9533 12.2533 13.9533 11.7467 14.2657 11.4343Z" fill="currentColor" />
-                        <path d="M8.2657 11.4343L12.45 7.25C12.8642 6.83579 12.8642 6.16421 12.45 5.75C12.0358 5.33579 11.3642 5.33579 10.95 5.75L5.40712 11.2929C5.01659 11.6834 5.01659 12.3166 5.40712 12.7071L10.95 18.25C11.3642 18.6642 12.0358 18.6642 12.45 18.25C12.8642 17.8358 12.8642 17.1642 12.45 16.75L8.2657 12.5657C7.95328 12.2533 7.95328 11.7467 8.2657 11.4343Z" fill="currentColor" />
-                    </svg>
-                </span>
-            </div>
             <!--====== End Sidebar Toggle =====-->
 
         </div>
@@ -125,52 +104,6 @@
                 <!-- ====== Start Menu ====== -->
                 <div class="menu menu-column menu-rounded menu-sub-indention fw-semibold px-3" id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
 
-                    <!-- ====== Start Name Login ===== -->
-                    <div data-kt-menu-trigger="click" class="menu-item menu-accordion menu-border-nama pb-3 mb-5 <?= @$h_tc ?>">
-
-                        <!-- ===== Start Menu Name login ===== -->
-                        <span class="menu-link">
-                            <span class="menu-icon">
-                                <span class="svg-icon svg-icon-2">
-                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M35.7303 27.4116C32.769 25.8827 28.7198 25 24 25C13.9927 25 7 28.9684 7 34.6504V44H25V38.142L35.7303 27.4116Z" fill="#B6C2CD" />
-                                        <path d="M31 11.1252C31 7.19005 27.8661 4 24.0003 4C23.7435 4 23.4868 4.01439 23.2315 4.0431C19.3891 4.4753 16.6184 7.99641 17.043 11.9077L17.4947 16.0692C17.8612 19.4451 20.6637 22 24.0003 22C27.3369 22 30.1395 19.4451 30.5059 16.0692L30.9577 11.9077C30.9859 11.6479 31 11.3866 31 11.1252Z" fill="currentColor" />
-                                        <path d="M43.3845 24L47.9999 28.6153L44.923 31.6921L40.3076 27.0768L43.3845 24Z" fill="currentColor" />
-                                        <path d="M38.7692 28.6158L43.3846 33.2311L32.6154 44H28V39.3847L38.7692 28.6158Z" fill="currentColor" />
-                                    </svg>
-
-                                </span>
-                            </span>
-                            <span class="menu-title">
-                                <?= $_SESSION["logged_status"]["nama"] ?>
-                            </span>
-                            <span class="menu-arrow"></span>
-                        </span>
-                        <!--===== End Menu Name login  ===== -->
-
-                        <!-- ======  Start Sub Name Login  ====== -->
-                        <div class="menu-sub menu-sub-accordion">
-
-                            <!-- ======  Start Menu Nama Login ===== -->
-                            <div class="menu-item">
-                                <a class="menu-link" href="<?= base_url() ?>pengguna/ubah/<?= base64_encode($_SESSION["logged_status"]["username"]) ?>">
-                                    <span class="menu-bullet">
-                                        <span class="bullet bullet-dot"></span>
-                                    </span>
-                                    <span class="menu-title">
-                                        Ganti Password
-                                    </span>
-                                </a>
-                            </div>
-                            <!--======  End Menu Nama Login ===== -->
-
-                        </div>
-                        <!--======  End Sub Name Login  ====== -->
-                    </div>
-                    <!--====== End Name Login ===== -->
-
-
-
                     <!--====== Start ALL Side bar ===== -->
             <?php if (($_SESSION["logged_status"]["role"] == "admin")||($_SESSION["logged_status"]["role"] == "GM")||($_SESSION["logged_status"]["role"] == "EAM")) { ?>
                         <!--====== Start Dashboard ===== -->
@@ -179,7 +112,7 @@
 
                         <!--====== Start Master ===== -->
                         <div class="menu-item">
-                            <a class="menu-link <?= ($activeMenu === 'master') ? 'active' : ''; ?>" data-bs-toggle="collapse" href="#masterCollapse" role="button" aria-expanded="false" aria-controls="masterCollapse">
+                            <a class="menu-link <?= ($activeMenu === 'master') ? 'active' : ''; ?>" data-bs-toggle="collaps" href="#" role="button" aria-expanded="false" aria-controls="masterCollapse">
                                 <span style="color: white" class="menu-title">Master</span>
                                 <span class="menu-arrow"></span>
                             </a>
@@ -291,12 +224,12 @@
                     <!--====== End ALL Side bar ===== -->
                     <!-- ====== Start Menu item Logout ====== -->
                     <div class="menu-item menu-accordion">
-                        <!-- ====== Start Menu link ====== -->
-                        <a class="menu-link " href="<?= base_url() ?>Auth/logout">
-                            <span class="menu-icon">
-                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                <span class="svg-icon svg-icon-2">
-                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <!-- ====== Start Menu link ====== -->
+                    <a class="menu-link " href="<?= base_url() ?>Auth/logout">
+                                    <span class="menu-icon">
+                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                        <span class="svg-icon svg-icon-2">
+                                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8 6C6.89543 6 6 6.89543 6 8V40C6 41.1046 6.89543 42 8 42H40C41.1046 42 42 41.1046 42 40V24V8C42 6.89543 41.1046 6 40 6H8ZM42 24L32 32V26H16V22H32V16L42 24Z" fill="currentColor" />
                                         <path d="M32 16L42 24L32 32V26H16V22H32V16Z" fill="#324558" />
                                     </svg>

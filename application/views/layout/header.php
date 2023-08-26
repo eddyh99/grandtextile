@@ -24,6 +24,8 @@
 	<link href="<?= base_url() ?>assets/css/custom.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
+	<!-- Datatables JavaScript -->
+	<script src="<?=base_url() ?>assets/bootstrap/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
 
 	<?php
 	if (isset($extracss)) {

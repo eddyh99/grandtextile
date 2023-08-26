@@ -1,5 +1,5 @@
 <div class="container col-12" style="background: #eaedf7; display: flex; justify-content: center; align-items: center;">
-<div class="container-fluid col-9 bg-white">
+    <div class="container-fluid col-9 bg-white">
         <div class="d-flex justify-content-center mt-5 mb-5">
             <h1>Tambah CP Hotel</h1>
         </div>
@@ -29,16 +29,16 @@
                         <input type="text" class="form-control form-control-lg" id="komisi" name="komisi" required>
                     </div>
                 </div>
-    <div class="row mb-3">
-        <div class="col-md-11 d-flex justify-content-end">
-            <a href="<?php echo site_url('cphotel'); ?>" class="btn btn-secondary me-2">
-                <i class="fas fa-times"></i> Cancel
-            </a>
-            <button type="submit" class="btn btn-primary" style="background-color: #624DE3;">
-                <i class="fas fa-save"></i> Simpan
-            </button>
-        </div>
-    </div>
-</form>
+            <div class="row mb-3">
+                <div class="col-md-11 d-flex justify-content-end">
+                    <a href="<?php echo site_url('cphotel'); ?>" class="btn btn-secondary me-2">
+                        <i class="fas fa-times"></i> Batal
+                    </a>
+                    <button type="submit" class="btn btn-primary" style="background-color: #624DE3;">
+                        <i class="fas fa-save"></i> Simpan
+                    </button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>

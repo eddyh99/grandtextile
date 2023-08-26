@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class clienthotel extends CI_Controller
 {
 
-    public function clienthotel()
+    public function index()
     {
 
         $sample_clienthotel_data = array(

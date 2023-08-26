@@ -93,20 +93,20 @@ if (isset($extra)) {
 		vMax: '99999999999',
 		vMin: '0'
 	});
-
+	
 	document.addEventListener("DOMContentReady", function() {
 		$("#notifToast").toast();
 	});
-	document.addEventListener("DOMContentLoaded", function () {
+	document.addEventListener("DOMContentLoaded", function() {
         const menuLink = document.querySelector(".menu-link");
-        const menuSub = document.querySelector(".menu-sub");
 
-        menuLink.addEventListener("click", function () {
-            if (menuSub.classList.contains("show")) {
-                menuSub.classList.remove("show");
-            } else {
-                menuSub.classList.add("show");
-            }
+        menuLink.addEventListener("click", function(event) {
+            event.preventDefault(); // Prevent default behavior (changing the URL)
+            const targetId = menuLink.getAttribute("aria-controls");
+            const targetCollapse = document.getElementById(targetId);
+            
+            // Toggle the "show" class to expand/collapse the collapsible element
+            targetCollapse.classList.toggle("show");
         });
     });
 </script>

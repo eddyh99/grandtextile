@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class sales extends CI_Controller
 {
 
-    public function sales()
+    public function index()
     {
 
         $sample_sales_data = array(

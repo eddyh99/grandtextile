@@ -4,7 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class pengguna extends CI_Controller
 {
 
-    public function pengguna()
+    public function index()
     {
 
         $sample_pengguna_data = array(
