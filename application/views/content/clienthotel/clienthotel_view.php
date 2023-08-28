@@ -112,7 +112,7 @@
                 </div>
                 <div class="modal-footer justify-content-center" >
                   <button type="button" class="btn btn-danger" style="background-color:gray"data-dismiss="modal">Batal</button>
-                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">Hapus</button>
+                  <button type="button" style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">Hapus</button>
                 </div>
               </div>
             </div>

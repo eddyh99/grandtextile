@@ -1,5 +1,5 @@
-<div class="container col-12" style="background: #eaedf7">
-    <div style="background : white" class="container-fluid col-8 mt-5" style="padding-bottom: 20px">
+<div class="bg-content-container col-12">
+    <div class="content-container col-11 mt-5 ">
        
         <div class="d-flex justify-content-center">
             <h1>Tambah pengguna</h1>

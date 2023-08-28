@@ -1,5 +1,5 @@
-<div class="container col-12" style="background: #eaedf7;padding-bottom:60px">
-    <div class="container-fluid col-9 mt-5" style="background:white;padding-bottom : 20px">
+<div class="bg-content-container col-12">
+    <div class="content-container col-11 mt-5">
 
         <div class="d-flex justify-content-center mt-3" >
             <h1>Tambah Sales</h1>
@@ -7,7 +7,7 @@
 
         <form action="<?php echo base_url('sales'); ?>" method="post">
 
-            <div class="form-group row mt-5 mb-3 align-items-center">
+            <div class="form-group row mt-2 mb-3 align-items-center">
                 <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="nama" name="nama" required>
@@ -36,10 +36,12 @@
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="tgllahihr" class="col-md-2 col-form-label-lg">Tanggal Lahir</label>
-                <div class="col-md-9">
-                    <input type="date" class="form-control form-control-lg" id="tgllahir" name="tgllahir" required>
+              <label for="tgllahir" class="col-md-2 col-form-label-lg">Tanggal Lahir</label>
+              <div class="col-md-9">
+                <div class="input-group">
+                  <input type="text" class="form-control form-control-lg" id="tgllahir" name="tgllahir" placeholder="dd/mm/yyyy"required>
                 </div>
+              </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">

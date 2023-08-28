@@ -1,5 +1,17 @@
 <script>
 $(document).ready(function() {
-    $('#cphotelTable').DataTable(); // Replace 'resellerTable' with the ID of your table
+    $('#cphotelTable').DataTable();
 });
+
+$(document).ready(function() {
+    $('#tgllahir').datepicker({
+      format: 'dd/mm/yyyy', // Set the desired date format
+      autoclose: true
+    });
+    
+    // Disable text input while allowing datepicker
+    $('#tgllahir').on('keydown paste', function(event) {
+      event.preventDefault();
+    });
+  });
 </script>

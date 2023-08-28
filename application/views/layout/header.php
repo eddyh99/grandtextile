@@ -16,23 +16,22 @@
 	<link href="<?= base_url() ?>assets/bootstrap/plugins/fontawesome-free/css/all.min.css" rel="stylesheet" />
 	<link href="<?= base_url() ?>assets/css/google-roboto-300-700.css" rel="stylesheet" />
 	<!--end::Fonts-->
-
-
+	
+	<script src="<?= base_url() ?>assets\bootstrap\plugins\jquery\jquery.min.js"></script>
 	<link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+	
+	<link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
+	
 	<link href="<?= base_url() ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url() ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url() ?>assets/css/custom.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/bootstrap.min.css" />
 	<link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" rel="stylesheet">
-	<!-- Datatables JavaScript -->
-	<script src="<?=base_url() ?>assets/bootstrap/plugins/datatables-bs4/js/dataTables.bootstrap4.js"></script>
-
 	<?php
 	if (isset($extracss)) {
 		$this->load->view($extracss);
 	}
 	?>
-
     <!-- Datatables -->
 
 </head>
