@@ -2,8 +2,11 @@
   "ExpandedNodes": [
     "",
     "\\application",
+    "\\application\\controllers",
     "\\application\\views",
+    "\\application\\views\\content",
     "\\application\\views\\layout"
   ],
+  "SelectedNode": "\\application\\controllers\\Barang.php",
   "PreviewInSolutionExplorer": false
 }

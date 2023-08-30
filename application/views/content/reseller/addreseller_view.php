@@ -1,61 +1,63 @@
-<div class="container col-12" style="background: #eaedf7; display: flex; justify-content: center; align-items: center;padding-bottom:60px">
-    <div class="container-fluid col-10 mt-5" style="padding-bottom: 20px; background:white">
+<div class="bg-content-container col-12">
+    <div class="content-container col-11 mt-5">
         <div class="d-flex justify-content-center">
             <h1>Tambah Reseller</h1>
         </div>
         <form action="<?php echo base_url('reseller'); ?>" method="post">
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Nama</label>
-                <div class="col-md-9 ">
+                <label for="Nama" class="col-lg-2 col-form-label-lg">Nama</label>
+                <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="nama" name="nama" required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Alamat</label>
+                <label for="alamat" class="col-md-2 col-form-label-lg">Alamat</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Kota</label>
+                <label for="kota" class="col-md-2 col-form-label-lg">Kota</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="kota" name="kota" required>
                 </div>
             </div>
     
             <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Telp/WA</label>
+                <label for="telp" class="col-md-2 col-form-label-lg">Telp/WA</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="telp" name="telp" required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Tanggal Lahir</label>
-                <div class="col-md-9">
-                    <input type="date" class="form-control form-control-lg" id="tgllahir" name="tgllahir" required>
+              <label for="tgllahir" class="col-md-2 col-form-label-lg">Tanggal Lahir</label>
+              <div class="col-md-9">
+                <div class="input-group">
+                  <input type="text" class="form-control form-control-lg" id="tgllahir" name="tgllahir" placeholder="dd/mm/yyyy"required>
                 </div>
+              </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Plafon</label>
+                <label for="plafon" class="col-md-2 col-form-label-lg">Plafon</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="plafon" name="plafon" required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Email</label>
+                <label for="email" class="col-md-2 col-form-label-lg">Email</label>
                 <div class="col-md-9">
                     <input type="email" class="form-control form-control-lg" id="email" name="email" required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Password</label>
+                <label for="pass" class="col-md-2 col-form-label-lg">Password</label>
                 <div class="col-md-9">
                     <input type="password" class="form-control form-control-lg" id="pass" name="pass" required>
                 </div>

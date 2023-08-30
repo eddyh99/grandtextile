@@ -19,6 +19,7 @@ class barang extends CI_Controller
                 'ukuran' => 'XL',
                 'cons' => '100',
                 'consdll' => '111',
+                'addOn' => 'bordir',
                 'keterangan' => 'Lampu',
             ),
             array(
@@ -32,6 +33,7 @@ class barang extends CI_Controller
                 'ukuran' => 'M',
                 'cons' => '110',
                 'consdll' => '112',
+                'addOn' => 'bordir',
                 'keterangan' => 'Lampu',
             ),
         );

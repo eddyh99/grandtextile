@@ -117,6 +117,12 @@
                                     </td>
                                 </tr>
                                 <tr>
+                                    <th>Add on</th>
+                                    <td class="col-1">
+                                        <?php echo $row['addOn']; ?>
+                                    </td>
+                                </tr>
+                                <tr>
                                     <th>Keterangan</th>
                                     <td class="col-1">
                                         <?php echo $row['keterangan']; ?>

@@ -1,5 +1,5 @@
-<div class="container-fluid col-12" style="background: #eaedf7; display: flex; justify-content: center; align-items: center;padding-bottom:60px">
-    <div style="background : white" class="container-fluid col-10 mt-5">
+<div class="bg-content-container col-12">
+    <div class="content-container col-11 mt-5 mb-3">
         <div class="d-flex justify-content-center">
             <h1>Tambah Barang</h1>
         </div>
@@ -75,6 +75,14 @@
                             <input type="text" class="form-control form-control-lg" id="gsm" name="gsm" required>
                         </div>
                     </div>
+
+                    <div class="form-group row mb-3 align-items-center">
+                        <label for="gr" class="col-md-2 col-form-label-lg">Gr/Pcs</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-lg" id="gr" name="gr" required>
+                        </div>
+                    </div>
+
                     <div class="form-group row mb-3 align-items-center">
                         <label for="quality" class="col-md-2 col-form-label-lg">Quality</label>
                         <div class="col-md-9">
@@ -91,6 +99,14 @@
                         <label for="cons" class="col-md-2 col-form-label-lg">Cons</label>
                         <div class="col-md-9">
                             <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#consModal">
+                                    <img src="<?= base_url('assets/img/plus.png') ?>" alt="Delete" class="img-fluid" />
+                            </button>
+                        </div> 
+                    </div>
+                    <div class="form-group row mb-3 align-items-center">
+                        <label for="addOn" class="col-md-2 col-form-label-lg">Add On</label>
+                        <div class="col-md-9">
+                            <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#addOnModal">
                                     <img src="<?= base_url('assets/img/plus.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
                         </div>
@@ -199,4 +215,50 @@
             </div>
     </div>
     <!-- End Modal Kategori-->
+    <!-- Start Modal Addon -->
+    <div class="modal fade" id="addOnModal" role="dialog">
+            <div class="modal-dialog">
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header text-center">
+                  <h4 class="modal-title">Tambah Kategori</h4>
+                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body text-center">
+                <div class="form-group row mb-3 align-items-center">
+                    <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
+                        <div class="col-md-10 input-group">
+                            <select class="form-control form-control-lg" id="nama" name="nama" required>
+                                <option value="" disabled selected>Nama</option>
+                                <option value="1">nama 1   </option>
+                                <option value="2">nama 2</option>
+                            </select>
+                         </div>
+                     </div>
+                <div class="form-group row mb-3 align-items-center">
+                    <label for="jumlah" class="col-md-2 col-form-label-lg">Jumlah</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control form-control-lg" id="jumlah" name="jumlah" required>
+                    </div>
+                </div>
+                <div class="form-group row mb-3 align-items-center">
+                    <label for="harga" class="col-md-2 col-form-label-lg">Harga</label>
+                    <div class="col-md-10">
+                        <input type="text" class="form-control form-control-lg" id="harga" name="harga" required>
+                    </div>
+                </div>
+                </div>
+                <div class="modal-footer justify-content-center" >
+                  <button type="button" style="background-color: gray;" class="btn btn-danger" data-dismiss="modal">
+                  <i class="fas fa-times"></i> Batal
+                  </button>
+                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">
+                  <i class="fas fa-save"></i>Simpan
+                  </button>
+                </div>
+               </div>
+            </div>
+    </div>
+    
+    <!-- End Modal addOn-->
 </div>

@@ -1,5 +1,5 @@
-<div class="container col-12" style="background: #eaedf7; display: flex; justify-content: center; align-items: center;padding-bottom:60px">
-    <div class="container-fluid col-10 mt-5" style="padding-bottom: 20px; background:white">
+<div class="bg-content-container col-12">
+    <div class="content-container col-11 mt-5">
 
         <div class="d-flex justify-content-center">
             <h1>Edit Reseller</h1>
@@ -36,10 +36,12 @@
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Tanggal Lahir</label>
-                <div class="col-md-9">
-                    <input type="date" class="form-control form-control-lg" id="tgllahir" name="tgllahir" required>
+              <label for="tgllahir" class="col-md-2 col-form-label-lg">Tanggal Lahir</label>
+              <div class="col-md-9">
+                <div class="input-group">
+                  <input type="text" class="form-control form-control-lg" id="tgllahir" name="tgllahir" placeholder="dd/mm/yyyy"required>
                 </div>
+              </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">

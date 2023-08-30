@@ -1,40 +1,40 @@
-<div class="container col-12" style="background: #eaedf7;padding-bottom:60px">
-    <div style="background : white" class="container-fluid col-8 mt-5" style="padding-bottom: 20px">
-        <div class="d-flex justify-content-center">
-            <h1>Tambah client hotel</h1>
+<div class="bg-content-container col-12">
+    <div class="content-container col-11 mt-5 ">
+        <div class="d-flex justify-content-center mb-3">
+            <h1>Tambah Client Hotel</h1>
         </div>
 
         <form action="<?php echo base_url('clienthotel'); ?>" method="post">
             <div class="form-group row mb-3 align-items-center">
                 <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="nama" name="nama" required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="alamat" class="col-md-2 col-form-label-lg">Alamat</label>
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="kota" class="col-md-2 col-form-label-lg">Kota</label>
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="kota" name="kota" required>
                 </div>
             </div>
     
             <div class="form-group row mb-3 align-items-center">
                 <label for="telp" class="col-md-2 col-form-label-lg">Telp/WA</label>
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="telp" name="telp" required>
                 </div>
             </div>
             <div class="form-group row mb-3 align-items-center d-flex">
             <label for="cp2" class="col-md-2 col-form-label-lg">CP1</label>
-            <div class="col-md-8 input-group">
+            <div class="col-md-9 input-group">
                 <select class="form-control form-control-lg" id="cp1" name="cp1" required>
                     <option value="" disabled selected>Pilih CP</option>
                     <option value="1">CP 1</option>
@@ -49,7 +49,7 @@
             </div>
             <div class="form-group row mb-3 align-items-center d-flex">
                 <label for="cp2" class="col-md-2 col-form-label-lg">CP2</label>
-                <div class="col-md-8 input-group">
+                <div class="col-md-9 input-group">
                     <select class="form-control form-control-lg" id="cp2" name="cp2" required>
                         <option value="" disabled selected>Pilih CP</option>
                         <option value="1">CP 1</option>
@@ -62,7 +62,7 @@
             </div>
             <div class="form-group row mb-3 align-items-center d-flex">
                 <label for="cp3" class="col-md-2 col-form-label-lg">CP2</label>
-                <div class="col-md-8 input-group">
+                <div class="col-md-9 input-group">
                     <select class="form-control form-control-lg" id="cp3" name="cp3" required>
                         <option value="" disabled selected>Pilih CP</option>
                         <option value="1">CP 1</option>
@@ -75,7 +75,7 @@
             </div>
             <div class="form-group row mb-3 align-items-center d-flex">
                 <label for="cp4" class="col-md-2 col-form-label-lg">CP4</label>
-                <div class="col-md-8 input-group">
+                <div class="col-md-9 input-group">
                     <select class="form-control form-control-lg" id="cp4" name="cp4" required>
                         <option value="" disabled selected>Pilih CP</option>
                         <option value="1">CP 1</option>
@@ -88,7 +88,7 @@
             </div>
             <div class="form-group row mb-3 align-items-center d-flex">
                 <label for="cp5" class="col-md-2 col-form-label-lg">CP5</label>
-                <div class="col-md-8 input-group">
+                <div class="col-md-9 input-group">
                     <select class="form-control form-control-lg" id="cp5" name="cp5" required>
                         <option value="" disabled selected>Pilih CP</option>
                         <option value="1">CP 1</option>
@@ -103,7 +103,7 @@
             </div>
             <div class="form-group row mb-3 align-items-center d-flex">
                 <label for="area" class="col-md-2 col-form-label-lg">Area</label>
-                <div class="col-md-8 input-group">
+                <div class="col-md-9 input-group">
                     <select class="form-control form-control-lg" id="area" name="area" required>
                         <option value="" disabled selected>Pilih CP</option>
                         <option value="1">Area 1</option>
@@ -115,8 +115,8 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-12 d-flex justify-content-end">
+            <div class="row">
+                <div class="col-md-11 d-flex justify-content-end">
                     <a href="<?php echo site_url('clienthotel'); ?>" class="btn btn-secondary me-2">
                         <i class="fas fa-times"></i> Batal
                     </a>

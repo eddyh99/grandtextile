@@ -1,7 +1,7 @@
-<div class="container col-12" style="background: #eaedf7;padding-bottom: 60px">
-    <div style="background : white" class="container-fluid col-8 mt-5" >
+<div class="bg-content-container col-12">
+    <div class="content-container col-11 mt-5 mb-3">
 
-        <div class="d-flex justify-content-center">
+        <div class="d-flex justify-content-center mb-3">
             <h1>Edit Pengguna</h1>
         </div>
  
