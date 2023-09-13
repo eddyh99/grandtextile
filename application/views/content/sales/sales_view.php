@@ -54,29 +54,36 @@
                         </tr>
                     </tbody>
                     <tbody>
-                        <?php foreach ($sales_data as $index => $row): ?>
+                        <?php foreach ($sales_data->message as $index => $row): ?>
 
                         <tr class="mt-1">
 
                             <td>
-                            <a class="btn btn-link" data-toggle="collapse" data-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
+                            <a class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
                                 <i class="fas fa-chevron-down"></i>
                             </a>
-                            <?php echo $row['nama']; ?></td>
+                            <?php echo $row->nama; ?></td>
 
-                            <td><?php echo $row['kota']; ?></td>
+                            <td><?php echo $row->kota; ?></td>
 
-                            <td> <?php echo $row['hp']; ?> </td>
+                            <td> <?php echo $row->telp; ?> </td>
 
-                            <td> <?php echo $row['area']; ?></td>
+                            <td> <?php echo $row->area; ?></td>
 
-                            <td> <?php echo $row['komisi']; ?></td>
+                            <td> <?php echo $row->komisi; ?></td>
 
                             <td class="text-right">
-                                <a href="<?= site_url('sales/editsales'); ?>" class="btn btn-link p-0">
+                                <a href="<?= site_url('sales/editsales/' . ($row->id)); ?>" class="btn btn-link p-0">
                                     <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                                 </a>
-                                <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#myModal">
+                                <button
+                                    type="button"
+                                    class="btn btn-link p-0 delete-reseller-button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#myModal"
+                                    data-id="<?= $row->id ?>"
+                                    data-nama="<?= $row->nama ?>"
+                                >
                                     <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                                 </button>
                             </td>
@@ -89,13 +96,13 @@
                                     <tr>
                                         <th>Alamat</th>
                                         <td class="col-1">
-                                            <?php echo $row['alamat']; ?>
+                                            <?php echo $row->alamat; ?>
                                         </td>
                                     </tr>
                                     <tr>
                                         <th>Tanggal Lahir</th>
                                         <td class="col-11">
-                                            <?php echo $row['tanggal_lahir']; ?>
+                                            <?php echo date('d-m-Y', strtotime($row->tgllahir));?>
                                         </td>
 
                                     </tr>
@@ -114,20 +121,21 @@
             <div class="modal-dialog">
     
               <!-- Modal content-->
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h4 class="modal-title">Hapus</h4>
-                      <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    </div>
-                    <div class="modal-body text-center">
-                      <p>Akan Menghapus Sales</p>
-		              <p>Nama</p>
-                    </div>
-                    <div class="modal-footer justify-content-center" >
-                      <button type="button" style="background-color: gray;" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                      <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">Hapus</button>
-                    </div>
-                  </div>
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Hapus</h4>
+                  <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                </div>
 
+                <div class="modal-body text-center">
+                    <p>Akan Menghapus sales</p>
+                    <span id="selectedNama"></span>
+                </div>
+
+                <div class="modal-footer justify-content-center" >
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                  <button type="button" style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">Hapus</button>
+                </div>
+              </div>
             </div>
           </div>

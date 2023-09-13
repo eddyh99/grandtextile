@@ -95,7 +95,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <!-- Add your form fields here to input data -->
+
         <form>
           <div class="form-group">
             <label for="hargaInput">Harga</label>

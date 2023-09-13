@@ -21,10 +21,6 @@
                         <div class="d-flex justify-content-between align-items-center">
                             <span>Username</span>
                     </th>
-                    <th class="col-3">
-                        <div class="d-flex justify-content-between align-items-center">
-                            <span>Password</span>
-                    </th>
                     <th class="col-2">
                         <div class="d-flex justify-content-between align-items-center">
                             <span>Role</span>
@@ -39,30 +35,32 @@
                     <td class="h-5"></td>
                     <td class="h-5"></td>
                     <td class="h-5"></td>
-                    <td class="h-5"></td>
                 </tr>
             </tbody>
 
             <tbody>
-                <?php foreach ($pengguna_data as $index => $row): ?>
+                <?php foreach ($pengguna_data->message as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <?php echo $row['nama']; ?>
+                            <?php echo $row->nama; ?>
                         </td>
                         <td>
-                            <?php echo $row['username']; ?>
+                            <?php echo $row->uname; ?>
                         </td>
                         <td>
-                            <?php echo $row['password']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['role']; ?>
+                            <?php echo $row->role; ?>
                         </td>
                         <td class="text-right">
-                            <a href="<?= site_url('pengguna/editpengguna'); ?>" class="btn btn-link p-0">
+                            <a href="<?= site_url('pengguna/editpengguna/' . ($row->uname)); ?>" class="btn btn-link p-0">
                                 <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                             </a>
-                            <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#myModal">
+                            <button
+                                    type="button"
+                                    class="btn btn-link p-0 delete-reseller-button"
+                                    data-bs-toggle="modal"
+                                    data-bs-target="#myModal"
+                                    data-nama="<?= $row->nama ?>"
+                            >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
                         </td>
@@ -76,22 +74,24 @@
 
     <!-- Modal -->
 <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
+            <div class="modal-dialog">
     
-        <!-- Modal content-->
-        <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Hapus</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body text-center">
-            <p>Akan Menghapus Pengguna</p>
-		    <p>Nama</p>
-        </div>
-        <div class="modal-footer justify-content-center" >
-            <button type="button" class="btn btn-danger" style="background-color:gray"data-dismiss="modal">Batal</button>
-            <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">Hapus</button>
-        </div>
-        </div>
-</div>
-</div>
+              <!-- Modal content-->
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">Hapus</h4>
+                  <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                </div>
+
+                <div class="modal-body text-center">
+                    <p>Akan Menghapus User</p>
+                    <span id="selectedNama"></span>
+                </div>
+
+                <div class="modal-footer justify-content-center" >
+                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                  <button type="button" style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">Hapus</button>
+                </div>
+              </div>
+            </div>
+          </div>

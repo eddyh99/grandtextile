@@ -114,3 +114,12 @@ table.dataTable.table-striped>tbody>tr.even td:nth-child(1) {
 .label{
     font-weight: bold
 }
+.button-simpan {
+    height: 100px;
+    width: 100px;
+    border-radius: 10px;
+}
+
+.button-back {
+    font-size: 8px;
+}

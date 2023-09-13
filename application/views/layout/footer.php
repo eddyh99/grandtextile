@@ -70,8 +70,6 @@
 
 <script src="<?= base_url() ?>assets/plugins/global/plugins.bundle.js"></script>
 <script src="<?= base_url() ?>assets/js/scripts.bundle.js"></script>
-<script src="<?= base_url() ?>assets/js/bootstrap.min.js"></script>
-<script src="<?= base_url() ?>assets/js/bootstrap.js"></script>
 <script src="<?= base_url() ?>assets/bootstrap/plugins/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 <script src="<?= base_url() ?>assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
 <script src="<?= base_url() ?>assets/plugins/custom/datatables/datatables.bundle.js"></script>

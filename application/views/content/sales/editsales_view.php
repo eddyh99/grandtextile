@@ -1,37 +1,37 @@
 <div class="bg-content-container col-12">
     <div class="content-container col-11 mt-5">
 
-            <div class="d-flex justify-content-center mt-3" >
+            <div class="card-header d-flex justify-content-center mt-3" >
                 <h1>Edit Sales</h1>
             </div>
 
-            <form action="<?php echo base_url('sales'); ?>" method="post">
+           <form class="card-body" action="<?php echo base_url('sales/editsales/' . ($sales_data->message->id)); ?>" method="post">
 
                 <div class="form-group row mt-5 mb-3 align-items-center">
                     <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="nama" name="nama" required>
+                        <input type="text" class="form-control form-control-lg" id="nama" name="nama" value="<?php echo htmlspecialchars($sales_data->message->nama); ?>"required>
                     </div>
                 </div>
 
                 <div class="form-group row mb-3 align-items-center">
                     <label for="alamat" class="col-md-2 col-form-label-lg">Alamat</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" required>
+                        <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" value="<?php echo htmlspecialchars($sales_data->message->alamat); ?>"required>
                     </div>
                 </div>
 
                 <div class="form-group row mb-3 align-items-center">
                     <label for="kota" class="col-md-2 col-form-label-lg">Kota</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="kota" name="kota" required>
+                        <input type="text" class="form-control form-control-lg" id="kota" name="kota" value="<?php echo htmlspecialchars($sales_data->message->kota); ?>"required>
                     </div>
                 </div>
     
                 <div class="form-group row mb-3 align-items-center">
                     <label for="telp" class="col-md-2 col-form-label-lg">Telp/WA</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="telp" name="telp" required>
+                        <input type="text" class="form-control form-control-lg" id="telp" name="telp" value="<?php echo htmlspecialchars($sales_data->message->telp); ?>"required>
                     </div>
                 </div>
 
@@ -39,7 +39,7 @@
                   <label for="tgllahir" class="col-md-2 col-form-label-lg">Tanggal Lahir</label>
                   <div class="col-md-9">
                     <div class="input-group">
-                      <input type="text" class="form-control form-control-lg" id="tgllahir" name="tgllahir" placeholder="dd/mm/yyyy"required>
+                      <input type="text" class="form-control form-control-lg" id="tgllahir" name="tgllahir" placeholder="dd/mm/yyyy" value="<?php echo htmlspecialchars($sales_data->message->tgllahir); ?>"required>
                     </div>
                   </div>
                 </div>
@@ -58,7 +58,7 @@
                 <div class="form-group row mb-3 align-items-center">
                     <label for="komisi" class="col-md-2 col-form-label-lg">Komisi</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="komisi" name="komisi" required>
+                        <input type="text" class="form-control form-control-lg" id="komisi" name="komisi" value="<?php echo htmlspecialchars($sales_data->message->komisi); ?>"required>
                     </div>
                 </div>
 

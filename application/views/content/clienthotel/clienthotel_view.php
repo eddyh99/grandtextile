@@ -42,22 +42,22 @@
                 </tr>
             </tbody>
             <tbody>
-                <?php foreach ($clienthotel_data as $index => $row): ?>
+                <?php foreach ($clienthotel_data->message as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <a class="btn btn-link" data-toggle="collapse" data-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
+                            <a class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
                                 <i class="fas fa-chevron-down"></i>
                             </a>
-                            <?php echo $row['namahotel']; ?>
+                            <?php echo $row->nama; ?>
                         </td>
                         <td>
-                            <?php echo $row['kota']; ?>
+                            <?php echo $row->kota; ?>
                         </td>
                         <td>
-                            <?php echo $row['area']; ?>
+                            <?php echo $row->area; ?>
                         </td>
                         <td>
-                            <?php echo $row['alamat']; ?>
+                            <?php echo $row->alamat; ?>
                         </td>
                         <td class="text-right">
                             <a href="<?= site_url('clienthotel/editclienthotel'); ?>" class="btn btn-link p-0">
@@ -75,15 +75,14 @@
                                 <tr>
                                     <th>CP</th>
                                     <td class="col-1">
-                                        <?php echo $row['cp']; ?>
+                                        <?php echo $row->cphotel[0]->nama; ?>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Telp</th>
                                     <td class="col-11">
-                                        <?php echo $row['telp']; ?>
+                                        <?php echo $row->cphotel[0]->telp; ?>
                                     </td>
-
                                 </tr>
                             </table>
                         </td>

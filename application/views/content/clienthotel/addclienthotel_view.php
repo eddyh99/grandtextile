@@ -4,7 +4,7 @@
             <h1>Tambah Client Hotel</h1>
         </div>
 
-        <form action="<?php echo base_url('clienthotel'); ?>" method="post">
+        <form action="<?php echo base_url('clienthotel/addclienthotel'); ?>" method="post">
             <div class="form-group row mb-3 align-items-center">
                 <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
                 <div class="col-md-9">
@@ -33,71 +33,17 @@
                 </div>
             </div>
             <div class="form-group row mb-3 align-items-center d-flex">
-            <label for="cp2" class="col-md-2 col-form-label-lg">CP1</label>
-            <div class="col-md-9 input-group">
-                <select class="form-control form-control-lg" id="cp1" name="cp1" required>
-                    <option value="" disabled selected>Pilih CP</option>
-                    <option value="1">CP 1</option>
-                    <option value="2">CP 2</option>
-                </select>
-                <div class="input-group-append">
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
-                            <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-                    </div>
-            </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
-                <label for="cp2" class="col-md-2 col-form-label-lg">CP2</label>
+                <label for="cphotel" class="col-md-2 col-form-label-lg">CP Hotel</label>
                 <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="cp2" name="cp2" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
-                    </select>
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
-                            <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
-                <label for="cp3" class="col-md-2 col-form-label-lg">CP2</label>
-                <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="cp3" name="cp3" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
-                    </select>
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
-                            <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
-                <label for="cp4" class="col-md-2 col-form-label-lg">CP4</label>
-                <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="cp4" name="cp4" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
-                    </select>
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
-                            <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-            </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
-                <label for="cp5" class="col-md-2 col-form-label-lg">CP5</label>
-                <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="cp5" name="cp5" required>
-                        <option value="" disabled selected>Pilih CP</option>
+                    <select class="form-control form-control-lg" id="cphotel" name="cphotel" required>
+                        <option value="" disabled selected>Pilih CP Hotel</option>
                         <option value="1">CP 1</option>
                         <option value="2">CP 2</option>
                     </select>
                     <div class="input-group-append">
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
+                        <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
                             <i class="fas fa-plus"></i>
-                    </button>
+                        </button>
                     </div>
                 </div>
             </div>
@@ -105,7 +51,7 @@
                 <label for="area" class="col-md-2 col-form-label-lg">Area</label>
                 <div class="col-md-9 input-group">
                     <select class="form-control form-control-lg" id="area" name="area" required>
-                        <option value="" disabled selected>Pilih CP</option>
+                        <option value="" disabled selected>Pilih Area</option>
                         <option value="1">Area 1</option>
                         <option value="2">Area 2</option>
                     </select>

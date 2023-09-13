@@ -1,10 +1,9 @@
 <div class="bg-content-container col-12">
     <div class="content-container col-11 mt-5">
-        <div class="d-flex justify-content-center mt-5 mb-5">
+        <div class="card-header bg-white d-flex justify-content-center mt-3">
             <h1>Tambah CP Hotel</h1>
         </div>
-        <form action="<?php echo base_url('cphotel'); ?>" method="post">
-            <form action="<?php echo base_url('cphotel'); ?>" method="post">
+        <form class="card-body" action="<?php echo base_url('cphotel/addcphotel'); ?>" method="post">
                 <div class="form-group row mb-3 align-items-center">
                     <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
                     <div class="col-md-9">
