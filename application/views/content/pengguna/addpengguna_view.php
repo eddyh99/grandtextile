@@ -5,6 +5,14 @@
             <h1>Tambah pengguna</h1>
         </div>
 
+        <?php if (!empty($_SESSION["message"])): ?>
+            <div class="alert alert-success">
+                <?= $_SESSION["message"]; ?>
+            </div>
+            <?php unset($_SESSION["message"]); ?>
+        <?php endif; ?>
+
+
         <form class="card-body" action="<?php echo base_url('pengguna/addpengguna'); ?>" method="post">
 
             <div class="form-group row mb-3 align-items-center">

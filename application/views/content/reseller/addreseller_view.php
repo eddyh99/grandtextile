@@ -1,8 +1,17 @@
 <div class="bg-content-container col-12">
     <div class="content-container col-11 mt-5">
+
         <div class="card-header bg-white d-flex justify-content-center">
             <h3>Tambah Reseller</h3>
         </div>
+
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
+
         <form class="card-body" action="<?php echo base_url('reseller/addreseller'); ?>" method="post">
 
             <div class="form-group row mb-3 align-items-center">
@@ -52,7 +61,7 @@
             <div class="form-group row mb-3 align-items-center">
                 <label for="email" class="col-md-2 col-form-label-lg">Email</label>
                 <div class="col-md-9">
-                    <input type="email" class="form-control form-control-lg" id="email" name="email" readonly>
+                    <input type="email" class="form-control form-control-lg" id="email" name="email" required>
                 </div>
             </div>
 

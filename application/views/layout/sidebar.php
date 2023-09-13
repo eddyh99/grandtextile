@@ -176,7 +176,7 @@
                             <div class="menu-item">
                                 <a class="menu-link <?= ($activeMenu === 'penjahit') ? 'active' : ''; ?>" href="<?= base_url() ?>penjahit">
                                     <span class="menu-bullet">
-                                        <img src="<?php echo base_url('assets/img/penjahit.png'); ?>" alt="Icon" class="bullet-img">
+                                        <img src="<?php echo base_url('assets/img/iconpen.png'); ?>" alt="Icon" class="bullet-img">
                                     </span>
                                     <span class="menu-title">Penjahit</span>
                                 </a>
@@ -186,7 +186,7 @@
                             <div class="menu-item">
                                 <a class="menu-link <?= ($activeMenu === 'kompenjahit') ? 'active' : ''; ?>" href="<?= base_url() ?>kompenjahit">
                                     <span class="menu-bullet">
-                                        <img src="<?php echo base_url('assets/img/kompenjahit.png'); ?>" alt="Icon" class="bullet-img">
+                                        <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                     </span>
                                     <span class="menu-title">Komisi Penjahit</span>
                                 </a>
@@ -196,7 +196,7 @@
                             <div class="menu-item">
                                 <a class="menu-link <?= ($activeMenu === 'addon') ? 'active' : ''; ?>" href="<?= base_url() ?>addon">
                                     <span class="menu-bullet">
-                                        <img src="<?php echo base_url('assets/img/addon.png'); ?>" alt="Icon" class="bullet-img">
+                                        <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                     </span>
                                     <span class="menu-title">Add On</span>
                                 </a>
@@ -225,7 +225,7 @@
                                 <div class="menu-item ">
                                     <a class="menu-link <?= ($activeMenu === 'quotation') ? 'active' : ''; ?>" href="<?= base_url() ?>quotation">
                                         <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
+                                            <img src="<?php echo base_url('assets/img/iconpen.png'); ?>" alt="Icon" class="bullet-img">
                                         </span>
                                         <span class="menu-title">Quotation</span>
                                     </a>
@@ -236,7 +236,7 @@
                                 <div class="menu-item ">
                                     <a class="menu-link <?= ($activeMenu === 'invoice') ? 'active' : ''; ?>" href="<?= base_url() ?>invoice">
                                         <span class="menu-bullet">
-                                            <span class="bullet bullet-dot"></span>
+                                            <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                         </span>
                                         <span class="menu-title">Invoice</span>
                                     </a>

@@ -8,6 +8,12 @@
             </div>
         </div>   
     <!-- End Button-->
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
     <!-- Start Datatable-->
     <div class="container-fluid">
         <div class="table">
@@ -76,16 +82,17 @@
                                 <a href="<?= site_url('sales/editsales/' . ($row->id)); ?>" class="btn btn-link p-0">
                                     <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                                 </a>
-                                <button
-                                    type="button"
-                                    class="btn btn-link p-0 delete-reseller-button"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#myModal"
-                                    data-id="<?= $row->id ?>"
-                                    data-nama="<?= $row->nama ?>"
-                                >
-                                    <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
-                                </button>
+                               <button
+                                type="button"
+                                class="btn btn-link p-0 delete-sales-button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#myModal"
+                                data-nama="<?= $row->nama ?>"
+                                data-id="<?= $row->id?>"
+                                data-href="<?= site_url('sales/deletesales/') . $row->id ?>"
+                            >
+                                <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
+                            </button>
                             </td>
 
                         </tr>
@@ -116,26 +123,26 @@
         </div>
     </div>
     <!-- End Datatable-->
-             <!-- Modal -->
+               <!-- Modal -->
           <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
-    
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Hapus</h4>
-                  <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-                </div>
 
-                <div class="modal-body text-center">
-                    <p>Akan Menghapus sales</p>
-                    <span id="selectedNama"></span>
-                </div>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hapus</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
 
-                <div class="modal-footer justify-content-center" >
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                  <button type="button" style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">Hapus</button>
+                    <div class="modal-body text-center">
+                        <p>Akan Menghapus Sales</p>
+                        <span id="selectedsales"></span>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <a id="deleteButton" href="#" class="btn btn-primary" style="background-color: #624DE3;">Hapus</a>
+                    </div>
                 </div>
-              </div>
             </div>
           </div>

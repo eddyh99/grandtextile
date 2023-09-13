@@ -28,7 +28,7 @@ class Kategori extends CI_Controller
                 $this->form_validation->set_rules('namakategori'    ,'namakategori'          ,'required|trim');
 
                 if ($this->form_validation->run() === FALSE) {
-                    $this->session->set_flashdata('tambaherror', validation_errors());
+                    $this->session->set_flashdata('message', validation_errors());
                     
                     redirect('kategori/addkategori');
                 return;
@@ -43,19 +43,12 @@ class Kategori extends CI_Controller
 
                 $apiResponse = bedapi($apiUrl, $postData);
                 
-                if ($apiResponse && isset($apiResponse->status) && $apiResponse->status === 'success') {
-                    $this->session->set_flashdata('tambahsuccess', 'kategori added successfully.');
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                    $this->session->set_flashdata('message', 'berhasil menambah kategori.');
                     redirect('kategori');
                 } else {
-                    $data = array(
-                        'title'     => NAMETITLE . ' - Add kategori',
-                        'is_login'  => false,
-                        'content'   => 'content/kategori/addkategori_view',
-                        'extra'     => 'content/kategori/js/js_index',
-                        'activeMenu'=> 'kategori',
-                        'tambaherror'     => 'Gagal Menambah kategori, coba lagi.',
-                    );
-                    $this->load->view('layout/wrapper', $data);
+                    $this->session->set_flashdata('message', 'gagal.');
+                    redirect('kategori/addkategori');
                 }
             } else {
                 $data = array(
@@ -97,9 +90,11 @@ class Kategori extends CI_Controller
                 $apiResponse = bedapi($apiUpdateUrl, $apiUpdateData);
                 
 
-                if ($apiResponse && isset($apiResponse->status) && $apiResponse->status === 'success') {
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                    $this->session->set_flashdata('message', 'berhasil mengubah kategori.');
                     redirect('kategori');
                 } else {
+                    $this->session->set_flashdata('message', 'gagal mengubah kategori.');
                     redirect('kategori/editkategori/' . $id);
                 }
             } else {
@@ -114,5 +109,19 @@ class Kategori extends CI_Controller
 
                 $this->load->view('layout/wrapper', $data);
             }
+        }
+        public function deletekategori($id)
+        {
+            $apiUrl = API_URL . '/v1/kategori/delete_kategori?id=' . ($id);
+
+            $apiResponse = bedapi($apiUrl);
+
+            if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'kategori berhasil di hapus.');
+            } else {
+                $this->session->set_flashdata('message', 'gagal menghapus kategori');
+            }
+
+            redirect('kategori');
         }
 }

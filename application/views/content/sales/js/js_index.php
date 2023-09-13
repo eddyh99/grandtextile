@@ -26,9 +26,11 @@ $(document).ready(function() {
     
         return true;
     });
-    $('.delete-reseller-button').click(function () {
-            var selectedNama = $(this).data('nama');
-            $('#selectedNama').text(selectedNama);
+    $('.delete-sales-button').click(function () {
+            var selectedsales = $(this).data('nama');
+            var deleteUrl = $(this).data('href');
+            $('#selectedsales').text(selectedsales);
+            $('#deleteButton').attr('href', deleteUrl);
         });
   });
 </script>

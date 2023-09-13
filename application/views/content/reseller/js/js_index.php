@@ -41,8 +41,10 @@ $(document).ready(function() {
         return true;
     });
     $('.delete-reseller-button').click(function () {
-            var selectedNama = $(this).data('nama');
-            $('#selectedNama').text(selectedNama);
+            var selectednama = $(this).data('nama');
+            var deleteUrl = $(this).data('href');
+            $('#selectednama').text(selectednama);
+            $('#deleteButton').attr('href', deleteUrl);
         });
 });
 

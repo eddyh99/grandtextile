@@ -1,15 +1,16 @@
 <div class="container col-12" style="background: #eaedf7">
     <div class="container col-11 mt-5" style="background: white;border-radius: 15px;padding : 20px">
+
         <div class="card-header bg-white d-flex justify-content-center mb-3">
             <h1>Tambah Area</h1>
         </div>
 
-        <?php if ($this->session->flashdata('tambahsuccess')): ?>
-            <div class="alert alert-success">
-                <?php echo $this->session->flashdata('tambahsuccess'); ?>
-            </div>
-        <?php endif; ?>
-
+        <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
 
         <div class="row justify-content-center">
             <div class="col-md-10">

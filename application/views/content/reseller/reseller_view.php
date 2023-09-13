@@ -6,6 +6,13 @@
         </a>
     </div>
 </div>
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
+
         <!-- Start Data Table-->
  <div class="container-fluid">
      <table id="resellerTable" class="table table-hover table-striped">
@@ -76,7 +83,8 @@
                                 data-bs-toggle="modal"
                                 data-bs-target="#myModal"
                                 data-email="<?= $row->email ?>"
-                                data-nama="<?= $row->nama ?>"
+                                data-nama="<?= $row->nama?>"
+                                data-href="<?= site_url('reseller/deletereseller/') . $row->email ?>"
                             >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
@@ -106,26 +114,26 @@
     </table>
 </div>
              <!-- Modal -->
-          <div class="modal fade" id="myModal" role="dialog">
+         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
-    
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Hapus</h4>
-                  <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-                </div>
 
-                <div class="modal-body text-center">
-                    <p>Akan Menghapus Reseller</p>
-                    <span id="selectedNama"></span>
-                </div>
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hapus</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
 
-                <div class="modal-footer justify-content-center" >
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                  <button type="button" style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">Hapus</button>
+                    <div class="modal-body text-center">
+                        <p>Akan Menghapus Reseller</p>
+                        <span id="selectednama"></span>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <a id="deleteButton" href="#" class="btn btn-primary" style="background-color: #624DE3;">Hapus</a>
+                    </div>
                 </div>
-              </div>
             </div>
           </div>
 

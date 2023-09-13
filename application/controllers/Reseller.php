@@ -59,19 +59,12 @@ class reseller extends CI_Controller
                 $postData = json_encode($resellerData);
 
                 $apiResponse = bedapi($apiUrl, $postData);
-
-                if ($apiResponse && isset($apiResponse->codes) && $apiResponse->codes === '200') {
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'Berhasil menambah reseller.');
                     redirect('reseller');
                 } else {
-                    $data = array(
-                        'title'     => NAMETITLE . ' - Add Reseller',
-                        'is_login'  => false,
-                        'content'   => 'content/reseller/addreseller_view',
-                        'extra'     => 'content/reseller/js/js_index',
-                        'activeMenu'=> 'reseller',
-                        'tambaherror'     => 'Gagal Menambah Reseller, coba lagi.',
-                    );
-                    $this->load->view('layout/wrapper', $data);
+                $this->session->set_flashdata('message', 'gagal menambah reseller');
+                    redirect('reseller/addreseller/');
                 }
             } else {
                 $data = array(
@@ -121,9 +114,11 @@ class reseller extends CI_Controller
                 $apiUpdateData = json_encode($updated_data);
                 $apiResponse = bedapi($apiUpdateUrl, $apiUpdateData);
 
-                if ($apiResponse && isset($apiResponse->status) && $apiResponse->code ==='200') {
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'reseller berhasil di ubah.');
                     redirect('reseller');
                 } else {
+                $this->session->set_flashdata('message', 'gagal mengubah reseller');
                     redirect('reseller/editreseller/' . $email);
                 }
             } else {
@@ -139,5 +134,18 @@ class reseller extends CI_Controller
                 $this->load->view('layout/wrapper', $data);
             }
         }
+        public function deletereseller($email)
+        {
+            $apiUrl = API_URL . '/v1/reseller/delete_reseller?email=' . ($email);
 
+            $apiResponse = bedapi($apiUrl);
+
+            if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'reseller berhasil di hapus.');
+            } else {
+                $this->session->set_flashdata('message', 'gagal menghapus reseller');
+            }
+
+            redirect('reseller');
+        }
 }

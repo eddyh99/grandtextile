@@ -50,19 +50,12 @@ class cphotel extends CI_Controller
                 $apiResponse = bedapi($apiUrl, $postData);
                 
 
-                if ($apiResponse && isset($apiResponse->status) && $apiResponse->status === 'success') {
-                    $this->session->set_flashdata('tambahsuccess', 'hotel berhasil di tambahkan.');
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                    $this->session->set_flashdata('message', 'CP berhasil di tambahkan.');
                     redirect('cphotel');
                 } else {
-                    $data = array(
-                        'title'     => NAMETITLE . ' - Add cphotel',
-                        'is_login'  => false,
-                        'content'   => 'content/cphotel/addcphotel_view',
-                        'extra'     => 'content/cphotel/js/js_index',
-                        'activeMenu'=> 'cphotel',
-                        'tambaherror'     => 'Gagal Menambah hotel, coba lagi.',
-                    );
-                    $this->load->view('layout/wrapper', $data);
+                    $this->session->set_flashdata('message', 'gagal menambah CP.');
+                    redirect('cphotel/editcphotel/');
                 }
             } else {
                 $data = array(
@@ -106,9 +99,11 @@ class cphotel extends CI_Controller
                 $apiUpdateData = json_encode($updated_data);
                 $apiResponse = bedapi($apiUpdateUrl, $apiUpdateData);
 
-                if ($apiResponse && isset($apiResponse->status) && $apiResponse->status === 'success') {
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'CP berhasil di ubah.');
                     redirect('cphotel');
                 } else {
+                $this->session->set_flashdata('message', 'gagal menghapus CP.');
                     redirect('cphotel/editcphotel/' . $id);
                 }
             } else {
@@ -123,5 +118,19 @@ class cphotel extends CI_Controller
 
                 $this->load->view('layout/wrapper', $data);
             }
+        }
+        public function deletecphotel($id)
+        {
+            $apiUrl = API_URL . '/v1/hotel/delete_cphotel?id=' . ($id);
+
+            $apiResponse = bedapi($apiUrl);
+
+            if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'CP berhasil di hapus.');
+            } else {
+                $this->session->set_flashdata('message', 'gagal menghapus CP');
+            }
+
+            redirect('cphotel');
         }
 }

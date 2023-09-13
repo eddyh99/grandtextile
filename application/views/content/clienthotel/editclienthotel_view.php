@@ -1,117 +1,103 @@
 <div class="bg-content-container col-12">
     <div class="content-container col-11 mt-5 ">
-        <div class="d-flex justify-content-center mb-3">
+        <div class="card-header bg-white d-flex justify-content-center mb-3">
             <h1>Edit Client Hotel</h1>
         </div>
 
-        <form action="<?php echo base_url('clienthotel'); ?>" method="post">
+        <?php if (!empty($_SESSION["message"])): ?>
+            <div class="alert alert-success">
+                <?= $_SESSION["message"]; ?>
+            </div>
+            <?php unset($_SESSION["message"]); ?>
+        <?php endif; ?>
+
+
+        <form class="card-body"action="<?php echo base_url('clienthotel'); ?>" method="post">
             <div class="form-group row mb-3 align-items-center">
                 <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="nama" name="nama" required>
+                    <input type="text" class="form-control form-control-lg" id="nama" name="nama" value="<?php echo htmlspecialchars($clienthotel_data->message->nama); ?>" required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="alamat" class="col-md-2 col-form-label-lg">Alamat</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" required>
+                    <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" value="<?php echo htmlspecialchars($clienthotel_data->message->alamat); ?>"required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="kota" class="col-md-2 col-form-label-lg">Kota</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="kota" name="kota" required>
+                    <input type="text" class="form-control form-control-lg" id="kota" name="kota" value="<?php echo htmlspecialchars($clienthotel_data->message->kota); ?>" required>
                 </div>
             </div>
     
             <div class="form-group row mb-3 align-items-center">
                 <label for="telp" class="col-md-2 col-form-label-lg">Telp/WA</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="telp" name="telp" required>
+                    <input type="text" class="form-control form-control-lg" id="telp" name="telp" value="<?php echo htmlspecialchars($clienthotel_data->message->telp); ?>" required>
                 </div>
             </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
-            <label for="cp2" class="col-md-2 col-form-label-lg">CP1</label>
-            <div class="col-md-9 input-group">
-                <select class="form-control form-control-lg" id="cp1" name="cp1" required>
-                    <option value="" disabled selected>Pilih CP</option>
-                    <option value="1">CP 1</option>
-                    <option value="2">CP 2</option>
-                </select>
-                <div class="input-group-append">
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
-                            <i class="fas fa-plus"></i>
-                    </button>
-                </div>
-                    </div>
-            </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
-                <label for="cp2" class="col-md-2 col-form-label-lg">CP2</label>
-                <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="cp2" name="cp2" required>
+            
+            <div class="form-group row mb-3 align-items-center">
+                <label for="cp1" class="col-md-2 col-form-label-lg">CP 1</label>
+                <div class="col-md-9">
+                    <select class="form-control form-control-lg" id="cphotel" name="cphotel" required>
                         <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
+                        <?php foreach ($cp_data->message as $cp) : ?>
+                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
+                        <?php endforeach; ?>
                     </select>
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
-                            <i class="fas fa-plus"></i>
-                    </button>
                 </div>
             </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
-                <label for="cp3" class="col-md-2 col-form-label-lg">CP2</label>
-                <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="cp3" name="cp3" required>
+
+            <div class="form-group row mb-3 align-items-center">
+                <label for="cp2" class="col-md-2 col-form-label-lg">CP 2</label>
+                <div class="col-md-9">
+                    <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
                         <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
+                        <?php foreach ($cp_data->message as $cp) : ?>
+                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
+                        <?php endforeach; ?>
                     </select>
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
-                            <i class="fas fa-plus"></i>
-                    </button>
                 </div>
             </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
-                <label for="cp4" class="col-md-2 col-form-label-lg">CP4</label>
-                <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="cp4" name="cp4" required>
+
+            <div class="form-group row mb-3 align-items-center">
+                <label for="cp3" class="col-md-2 col-form-label-lg">CP 3</label>
+                <div class="col-md-9">
+                    <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
                         <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
+                        <?php foreach ($cp_data->message as $cp) : ?>
+                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
+                        <?php endforeach; ?>
                     </select>
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
-                            <i class="fas fa-plus"></i>
-                    </button>
                 </div>
             </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
-                <label for="cp5" class="col-md-2 col-form-label-lg">CP5</label>
-                <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="cp5" name="cp5" required>
+
+            <div class="form-group row mb-3 align-items-center">
+                <label for="cp4" class="col-md-2 col-form-label-lg">CP 4</label>
+                <div class="col-md-9">
+                    <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
                         <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
+                        <?php foreach ($cp_data->message as $cp) : ?>
+                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
+                        <?php endforeach; ?>
                     </select>
-                    <div class="input-group-append">
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#cpmodal">
-                            <i class="fas fa-plus"></i>
-                    </button>
-                    </div>
                 </div>
             </div>
-            <div class="form-group row mb-3 align-items-center d-flex">
+
+            <div class="form-group row mb-3 align-items-center">
                 <label for="area" class="col-md-2 col-form-label-lg">Area</label>
-                <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="area" name="area" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">Area 1</option>
-                        <option value="2">Area 2</option>
-                    </select>
-                    <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#areaModal">
-                            <i class="fas fa-plus"></i>
-                    </button>
+                <div class="col-md-9">
+                <select class="form-control form-control-lg" id="area" name="area" required>
+                    <option value="" disabled selected>Pilih Area</option>
+                    <?php foreach ($area_data->message as $area) : ?>
+                        <option value="<?= $area->id; ?>" <?= set_select('area', $area->id); ?>><?= $area->area; ?></option>
+                    <?php endforeach; ?>
+                </select>
                 </div>
             </div>
 

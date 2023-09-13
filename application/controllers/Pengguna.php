@@ -26,11 +26,11 @@ class pengguna extends CI_Controller
         if ($this->input->post()) {
             $this->form_validation->set_rules('nama'    , 'Nama'    , 'required|trim');
             $this->form_validation->set_rules('uname'   , 'Username', 'required|trim');
-            $this->form_validation->set_rules('passwd'  ,'Password' , 'required|trim|min_length[8]|regex_match[/[0-9]/]');
+            $this->form_validation->set_rules('passwd'  , 'Password' , 'required|trim|min_length[8]|regex_match[/[0-9]/]');
             $this->form_validation->set_rules('role'    , 'Role'    , 'required|trim');
 
             if ($this->form_validation->run() === FALSE) {
-                $this->session->set_flashdata('tambaherror', validation_errors());
+                $this->session->set_flashdata('message', validation_errors());
                 redirect('pengguna/addpengguna');
                 return;
             }
@@ -51,18 +51,12 @@ class pengguna extends CI_Controller
 
             $apiResponse = bedapi($apiUrl, $postData);
 
-            if ($apiResponse && isset($apiResponse->status) && $apiResponse->status === 'success') {
+            if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'berhasil menambah pengguna.');
                 redirect('pengguna');
             } else {
-                $data = array(
-                    'title'         => NAMETITLE . ' - Add pengguna',
-                    'is_login'      => false,
-                    'content'       => 'content/pengguna/addpengguna_view',
-                    'extra'         => 'content/pengguna/js/js_index',
-                    'activeMenu'    => 'pengguna',
-                    'tambaherror'   => 'Gagal Menambah pengguna, coba lagi.',
-                );
-                $this->load->view('layout/wrapper', $data);
+                $this->session->set_flashdata('message', 'gagal menambah pengguna.');
+                    redirect('pengguna/addpengguna/');
             }
         } else {
             $data = array(
@@ -107,9 +101,11 @@ class pengguna extends CI_Controller
                 $apiUpdateData = json_encode($updated_data);
                 $apiResponse = bedapi($apiUpdateUrl, $apiUpdateData);
 
-                if ($apiResponse && isset($apiResponse->status) && $apiResponse->status === 'success') {
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'pengguna berhasil di ubah');
                     redirect('pengguna');
                 } else {
+                $this->session->set_flashdata('message', 'gagal merubah pengguna.');
                     redirect('pengguna/editpengguna/' . $uname);
                 }
             } else {
@@ -124,6 +120,19 @@ class pengguna extends CI_Controller
 
                 $this->load->view('layout/wrapper', $data);
             }
+        }
+        public function deletepengguna($uname)
+        {
+            $apiUrl = API_URL . '/v1/pengguna/delete_pengguna?uname=' . ($uname);
+            
+            $apiResponse = bedapi($apiUrl);
+            if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'pengguna berhasil di hapus.');
+            } else {
+                $this->session->set_flashdata('message', 'gagal menghapus pengguna');
+            }
+
+            redirect('pengguna');
         }
 
 }

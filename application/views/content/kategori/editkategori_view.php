@@ -1,8 +1,16 @@
 <div class="container col-12" style="background: #eaedf7">
     <div class="container col-11 mt-5" style="background: white;border-radius: 15px;padding : 20px">
-        <div class="d-flex justify-content-center mb-5">
+        <div class="card-header bg-white d-flex justify-content-center mb-5">
             <h1>Edit Kategori</h1>
         </div>
+        
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
+
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <form class="card-body" action="<?php echo base_url('kategori/editkategori/' . ($kategori_data->message->id)); ?>" method="post">

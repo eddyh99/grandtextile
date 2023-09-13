@@ -24,6 +24,10 @@ class sales extends CI_Controller
     }
     public function addsales()
         {
+            
+            $apiUrl = API_URL . '/v1/area/getArea';
+            $area_data  = bedapi($apiUrl);
+
             if ($this->input->post()) {
 
                 $this->form_validation->set_rules('nama'    ,'Nama'          ,'required|trim');
@@ -58,18 +62,12 @@ class sales extends CI_Controller
 
                 $apiResponse = bedapi($apiUrl, $postData);
 
-                if ($apiResponse && isset($apiResponse->status) && $apiResponse->status === '200') {
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                    $this->session->set_flashdata('message', 'sales berhasil di tambah.');
                     redirect('sales');
                 } else {
-                    $data = array(
-                        'title'         => NAMETITLE . ' - Add sales',
-                        'is_login'      => false,
-                        'content'       => 'content/sales/addsales_view',
-                        'extra'         => 'content/sales/js/js_index',
-                        'activeMenu'    => 'sales',
-                        'tambaherror'   => 'Gagal Menambah sales, coba lagi.',
-                    );
-                    $this->load->view('layout/wrapper', $data);
+                    $this->session->set_flashdata('message', 'gagal menambah sales.');
+                    redirect('sales/editsales/' . $id);
                 }
             } else {
                 $data = array(
@@ -78,12 +76,15 @@ class sales extends CI_Controller
                     'content'       => 'content/sales/addsales_view',
                     'extra'         => 'content/sales/js/js_index',
                     'activeMenu'    => 'sales',
+                    'area_data'     => $area_data,
                 );
                 $this->load->view('layout/wrapper', $data);
             }
         }
     public function editsales($id)
         {
+            $apiUrl = API_URL . '/v1/area/getArea';
+            $area_data  = bedapi($apiUrl);
             $apiUrl = API_URL . '/v1/sales/getby_id?id=' . ($id);
             $sales_data = bedapi($apiUrl);
 
@@ -119,9 +120,11 @@ class sales extends CI_Controller
                 
                 $apiUpdateData = json_encode($updated_data);
                 $apiResponse = bedapi($apiUpdateUrl, $apiUpdateData);
-                if ($apiResponse && isset($apiResponse->status) && $apiResponse->status === 'success') {
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                    $this->session->set_flashdata('message', 'sales berhasil di ubah.');
                     redirect('sales');
                 } else {
+                    $this->session->set_flashdata('message', 'gagal merubah sales.');
                     redirect('sales/editsales/' . $id);
                 }
             } else {
@@ -131,10 +134,25 @@ class sales extends CI_Controller
                     'content'       => 'content/sales/editsales_view',
                     'extra'         => 'content/sales/js/js_index',
                     'activeMenu'    => 'sales',
-                    'sales_data' => $sales_data,
+                    'sales_data'    => $sales_data,
+                    'area_data'     => $area_data,
                 );
 
                 $this->load->view('layout/wrapper', $data);
             }
+        }
+        public function deletesales($id)
+        {
+            $apiUrl = API_URL . '/v1/sales/delete_sales?id=' . ($id);
+
+            $apiResponse = bedapi($apiUrl);
+
+            if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                $this->session->set_flashdata('message', 'sales berhasil di hapus.');
+            } else {
+                $this->session->set_flashdata('message', 'gagal menghapus sales');
+            }
+
+            redirect('sales');
         }
 }

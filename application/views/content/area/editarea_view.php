@@ -3,6 +3,15 @@
         <div class="card-header bg-white d-flex justify-content-center mb-3">
             <h1>Edit Area</h1>
         </div>
+        
+
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
+
         <div class="row justify-content-center">
             <div class="col-md-10">
                 <form class="card-body" action="<?php echo base_url('area/editarea/' . ($area_data->message->id)); ?>" method="post">

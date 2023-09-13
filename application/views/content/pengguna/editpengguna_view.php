@@ -4,8 +4,15 @@
         <div class="card-header bg-white d-flex justify-content-center mb-3">
             <h1>Edit Pengguna</h1>
         </div>
- 
-        <form class="card-body" action="<?php echo base_url('pengguna/editpengguna/' . ($pengguna_data->message->uname)); ?>" method="post">
+
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
+        
+            <form class="card-body" action="<?php echo base_url('pengguna/editpengguna/' . ($pengguna_data->message->uname)); ?>" method="post">
 
             <div class=" form-group row mb-3 align-items-center">
                 <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
