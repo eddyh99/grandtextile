@@ -1,37 +1,44 @@
 <div class="bg-content-container col-12">
     <div class="content-container col-11 mt-5">
 
-            <div class="d-flex justify-content-center mt-3" >
-                <h1>Edit Sales</h1>
+            <div class="card-header bg-white d-flex justify-content-center mt-3" >
+                <h3>Edit Sales</h3>
             </div>
 
-            <form action="<?php echo base_url('sales'); ?>" method="post">
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
 
-                <div class="form-group row mt-5 mb-3 align-items-center">
+           <form class="card-body" action="<?php echo base_url('sales/editsales/' . ($sales_data->message->id)); ?>" method="post">
+
+                <div class="form-group row mb-3 align-items-center">
                     <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="nama" name="nama" required>
+                        <input type="text" class="form-control form-control-lg" id="nama" name="nama" value="<?php echo htmlspecialchars($sales_data->message->nama); ?>"required>
                     </div>
                 </div>
 
                 <div class="form-group row mb-3 align-items-center">
                     <label for="alamat" class="col-md-2 col-form-label-lg">Alamat</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" required>
+                        <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" value="<?php echo htmlspecialchars($sales_data->message->alamat); ?>"required>
                     </div>
                 </div>
 
                 <div class="form-group row mb-3 align-items-center">
                     <label for="kota" class="col-md-2 col-form-label-lg">Kota</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="kota" name="kota" required>
+                        <input type="text" class="form-control form-control-lg" id="kota" name="kota" value="<?php echo htmlspecialchars($sales_data->message->kota); ?>"required>
                     </div>
                 </div>
     
                 <div class="form-group row mb-3 align-items-center">
                     <label for="telp" class="col-md-2 col-form-label-lg">Telp/WA</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="telp" name="telp" required>
+                        <input type="text" class="form-control form-control-lg" id="telp" name="telp" value="<?php echo htmlspecialchars($sales_data->message->telp); ?>"required>
                     </div>
                 </div>
 
@@ -39,7 +46,7 @@
                   <label for="tgllahir" class="col-md-2 col-form-label-lg">Tanggal Lahir</label>
                   <div class="col-md-9">
                     <div class="input-group">
-                      <input type="text" class="form-control form-control-lg" id="tgllahir" name="tgllahir" placeholder="dd/mm/yyyy"required>
+                      <input type="text" class="form-control form-control-lg" id="tgllahir" name="tgllahir" placeholder="dd/mm/yyyy" value="<?php echo htmlspecialchars($sales_data->message->tgllahir); ?>"required>
                     </div>
                   </div>
                 </div>
@@ -48,17 +55,19 @@
                     <label for="cp3" class="col-md-2 col-form-label-lg">Area</label>
                     <div class="col-md-9">
                         <select class="form-control form-control-lg" id="area" name="area" required>
-                            <option value="" disabled selected>Pilih Area</option>
-                            <option value="1">Seminyak</option>
-                            <option value="2">Senyamuk</option>
+                            <option value="" disabled selected><?php echo htmlspecialchars($sales_data->message->area); ?></option>
+                            <?php foreach ($area_data->message as $area) : ?>
+                                <option value="<?= $area->id; ?>"><?= $area->area; ?></option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
 
+
                 <div class="form-group row mb-3 align-items-center">
                     <label for="komisi" class="col-md-2 col-form-label-lg">Komisi</label>
                     <div class="col-md-9">
-                        <input type="text" class="form-control form-control-lg" id="komisi" name="komisi" required>
+                        <input type="number" class="form-control form-control-lg" id="komisi" name="komisi" value="<?php echo htmlspecialchars($sales_data->message->komisi); ?>"required>
                     </div>
                 </div>
 

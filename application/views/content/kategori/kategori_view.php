@@ -6,6 +6,13 @@
                 </a>
             </div>
        </div>
+       
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
 
     <div class="container-fluid">
         <div class="table">
@@ -34,22 +41,29 @@
                     </tr>
                 </tbody>
                 <tbody>
-                    <?php foreach ($kategori_data as $index => $row): ?>
+                    <?php foreach ($kategori_data->message as $index => $row): ?>
                         <tr class="mt-1">
                             <td>
-                                <?php echo $row['kategori']; ?>
+                                <?php echo $row->namakategori; ?>
                             </td>
                             <td>
-                                <?php echo $row['barang']; ?>
+                                <?php echo $row->barang; ?>
                             </td>
                             <td class="text-right">
-                                <a href="<?= site_url('kategori/editkategori'); ?>" class="btn btn-link p-0">
+                            <a href="<?= site_url('kategori/editkategori/' . ($row->id)); ?>" class="btn btn-link p-0">
                                     <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                                 </a>
-
-                                <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#myModal">
-                                    <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
-                                </button>
+                                <button
+                                type="button"
+                                class="btn btn-link p-0 delete-kategori-button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#myModal"
+                                data-namakategori="<?= $row->namakategori ?>"
+                                data-id="<?= $row->id?>"
+                                data-href="<?= site_url('kategori/deletekategori/') . $row->id ?>"
+                            >
+                                <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
+                            </button>
                             </td>
 
                         </tr>
@@ -60,23 +74,27 @@
         </div>
      </div>
              <!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
     
-        <!-- Modal content-->
-        <div class="modal-content">
-        <div class="modal-header">
-            <h4 class="modal-title">Hapus</h4>
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-        </div>
-        <div class="modal-body text-center">
-            <p>Akan Menghapus Kategori</p>
-		    <p>Nama</p>
-        </div>
-        <div class="modal-footer justify-content-center" >
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-            <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">Hapus</button>
-        </div>
-        </div>
-    </div>
-</div>
+         <!-- Modal -->
+          <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hapus</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <p>Akan Menghapus Kategori</p>
+                        <span id="selectedkategori"></span>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <a id="deleteButton" href="#" class="btn btn-primary" style="background-color: #624DE3;">Hapus</a>
+                    </div>
+                </div>
+            </div>
+          </div>

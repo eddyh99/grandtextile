@@ -3,14 +3,34 @@ $(document).ready(function() {
     $('#salesTable').DataTable();
 });
 $(document).ready(function() {
-    $('#tgllahir').datepicker({
-      format: 'dd/mm/yyyy', // Set the desired date format
-      autoclose: true
-    });
+    //Datepicker
+       $('#tgllahir').datepicker({
+        format: 'dd/mm/yyyy',
+        autoclose: true,
+        startDate: '01/01/1950',
+        });
+     
+        $('#tgllahir').on('keydown paste', function(event) {
+            event.preventDefault();
+        });
+        $('form').submit(function() {
+        var inputValue = $('#tgllahir').val();
     
-    // Disable text input while allowing datepicker
-    $('#tgllahir').on('keydown paste', function(event) {
-      event.preventDefault();
+        var parts = inputValue.split('/');
+    
+        if (parts.length === 3) {
+            var formattedDate = parts[2] + '/' + parts[1] + '/' + parts[0];
+        
+            $('#tgllahir').val(formattedDate);
+        }
+    
+        return true;
     });
+    $('.delete-sales-button').click(function () {
+            var selectedsales = $(this).data('nama');
+            var deleteUrl = $(this).data('href');
+            $('#selectedsales').text(selectedsales);
+            $('#deleteButton').attr('href', deleteUrl);
+        });
   });
 </script>

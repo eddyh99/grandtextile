@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-	<title>Kain</title>
+	<title>Ervi Bed & Bath</title>
 	<meta charset="utf-8" />
 	<meta name="description" content="The most advanced Bootstrap Admin Theme on Bootstrap Market trusted by over 4,000 beginners and professionals." />
 	<meta name="keywords" content=" bootstrap, bootstrap 5, bootstrap 4, admin themes, web design, figma, web development, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
@@ -18,10 +18,10 @@
 	<!--end::Fonts-->
 	
 	<script src="<?= base_url() ?>assets\bootstrap\plugins\jquery\jquery.min.js"></script>
-	<link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
 	
 	<link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
 	
+	<link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
 	<link href="<?= base_url() ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url() ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url() ?>assets/css/custom.css" rel="stylesheet" type="text/css" />

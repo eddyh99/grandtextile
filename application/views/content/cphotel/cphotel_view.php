@@ -7,6 +7,14 @@
             </div>
         </div>       
        
+
+        <?php if (!empty($_SESSION["message"])): ?>
+            <div class="alert alert-success">
+                <?= $_SESSION["message"]; ?>
+            </div>
+            <?php unset($_SESSION["message"]); ?>
+        <?php endif; ?>
+
     <div class="container-fluid">
         <div class="table">
         <table id="cphotelTable"class="table table-hover table-striped">
@@ -46,25 +54,33 @@
                 </tr>
             </tbody>
             <tbody>
-                <?php foreach ($cphotel_data as $index => $row): ?>
+                <?php foreach ($cphotel_data->message as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <?php echo $row['nama']; ?>
+                            <?php echo $row->nama; ?>
                         </td>
                         <td>
-                            <?php echo $row['tanggal_lahir']; ?>
+                            <?php echo date('d-m-Y', strtotime($row->tgllahir));?>
                         </td>
                         <td>
-                            <?php echo $row['hp']; ?>
+                            <?php echo $row->telp; ?>
                         </td>
                         <td>
-                            <?php echo $row['komisi']; ?>
+                            <?php echo $row->komisi; ?>
                         </td>
                         <td class="text-right">
-                            <a href="<?= site_url('cphotel/editcphotel'); ?>" class="btn btn-link p-0">
+                                <a href="<?= site_url('cphotel/editcphotel/' . ($row->id)); ?>" class="btn btn-link p-0">
                                 <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                             </a>
-                            <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#myModal">
+                            <button
+                                type="button"
+                                class="btn btn-link p-0 delete-cp-button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#myModal"
+                                data-nama="<?= $row->nama ?>"
+                                data-id="<?= $row->id?>"
+                                data-href="<?= site_url('cphotel/deletecphotel/') . $row->id ?>"
+                            >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
                         </td>
@@ -74,25 +90,27 @@
             </tbody>
 
         </table>
-            </div>
-             <!-- Modal -->
+    </div>
+            <!-- Modal -->
           <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
-    
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Hapus</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hapus</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <p>Akan Menghapus CP Hotel</p>
+                        <span id="selectednama"></span>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <a id="deleteButton" href="#" class="btn btn-primary" style="background-color: #624DE3;">Hapus</a>
+                    </div>
                 </div>
-                <div class="modal-body text-center">
-                  <p>Akan menghapus CP Hotel</p>
-		          <p>Nama</p>
-                </div>
-                <div class="modal-footer justify-content-center" >
-                  <button type="button" class="btn btn-danger"style="background-color: gray;" data-dismiss="modal">Batal</button>
-                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">Hapus</button>
-                </div>
-              </div>
             </div>
           </div>

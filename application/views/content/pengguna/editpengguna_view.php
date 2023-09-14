@@ -1,102 +1,40 @@
 <div class="bg-content-container col-12">
     <div class="content-container col-11 mt-5 mb-3">
 
-        <div class="d-flex justify-content-center mb-3">
+        <div class="card-header bg-white d-flex justify-content-center mb-3">
             <h1>Edit Pengguna</h1>
         </div>
- 
-        <form action="<?php echo base_url('pengguna'); ?>" method="post">
 
-            <div class="form-group row mb-3 align-items-center">
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
+        
+            <form class="card-body" action="<?php echo base_url('pengguna/editpengguna/' . ($pengguna_data->message->uname)); ?>" method="post">
+
+            <div class=" form-group row mb-3 align-items-center">
                 <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control form-control-lg" id="nama" name="nama" required>
+                    <input type="text" class="form-control form-control-lg" id="nama" name="nama" value="<?php echo htmlspecialchars($pengguna_data->message->nama); ?>"required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="alamat" class="col-md-2 col-form-label-lg">Alamat</label>
+                <label for="uname" class="col-md-2 col-form-label-lg">Username</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" required>
+                    <input type="text" class="form-control form-control-lg" id="uname" name="uname" value="<?php echo htmlspecialchars($pengguna_data->message->uname); ?>"readonly>
                 </div>
             </div>
 
-            <div class="form-group row mb-3 align-items-center">
-                <label for="kota" class="col-md-2 col-form-label-lg">Kota</label>
+           <div class="form-group row mb-3 align-items-center">
+                <label for="role" class="col-md-2 col-form-label-lg">Role</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control form-control-lg" id="kota" name="kota" required>
-                </div>
-            </div>
-    
-            <div class="form-group row mb-3 align-items-center">
-                <label for="telp" class="col-md-2 col-form-label-lg">Telp/WA</label>
-                <div class="col-md-10">
-                    <input type="text" class="form-control form-control-lg" id="telp" name="telp" required>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp1" class="col-md-2 col-form-label-lg">CP1</label>
-                <div class="col-md-10">
-                    <select class="form-control form-control-lg" id="cp1" name="cp1" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp2" class="col-md-2 col-form-label-lg">CP2</label>
-                <div class="col-md-10">
-                    <select class="form-control form-control-lg" id="cp2" name="cp2" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp3" class="col-md-2 col-form-label-lg">CP3</label>
-                <div class="col-md-10">
-                    <select class="form-control form-control-lg" id="cp3" name="cp3" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp4" class="col-md-2 col-form-label-lg">CP4</label>
-                <div class="col-md-10">
-                    <select class="form-control form-control-lg" id="cp4" name="cp4" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp5" class="col-md-2 col-form-label-lg">CP5</label>
-                <div class="col-md-10">
-                    <select class="form-control form-control-lg" id="cp5" name="cp5" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <option value="1">CP 1</option>
-                        <option value="2">CP 2</option>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Area</label>
-                <div class="col-md-10">
-                    <select class="form-control form-control-lg" id="area" name="area" required>
-                        <option value="" disabled selected>Select an area</option>
-                        <option value="1">Area 1</option>
-                        <option value="2">Area 2</option>
+                    <select class="form-control form-control-lg" id="role" name="role" value="<?php echo htmlspecialchars($pengguna_data->message->role); ?>"required>
+                        <option value="" disabled selected>Pilih Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
                     </select>
                 </div>
             </div>

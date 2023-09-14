@@ -1,11 +1,19 @@
 <div class="bg-content-container col-12">
     <div class="content-container col-11 mt-5 ">
        
-        <div class="d-flex justify-content-center">
+        <div class="card-header bg-white d-flex justify-content-center">
             <h1>Tambah pengguna</h1>
         </div>
 
-        <form action="<?php echo base_url('pengguna'); ?>" method="post">
+        <?php if (!empty($_SESSION["message"])): ?>
+            <div class="alert alert-success">
+                <?= $_SESSION["message"]; ?>
+            </div>
+            <?php unset($_SESSION["message"]); ?>
+        <?php endif; ?>
+
+
+        <form class="card-body" action="<?php echo base_url('pengguna/addpengguna'); ?>" method="post">
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
@@ -15,29 +23,30 @@
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="username" class="col-md-2 col-form-label-lg">Username</label>
+                <label for="uname" class="col-md-2 col-form-label-lg">Username</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control form-control-lg" id="username" name="username" required>
+                    <input type="text" class="form-control form-control-lg" id="uname" name="uname" required>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="pass" class="col-md-2 col-form-label-lg">Password</label>
+                <label for="passwd" class="col-md-2 col-form-label-lg">Password</label>
                 <div class="col-md-10">
-                    <input type="text" class="form-control form-control-lg" id="pass" name="pass" required>
+                    <input type="text" class="form-control form-control-lg" id="passwd" name="passwd" required>
                 </div>
             </div>
 
-            <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Role</label>
+           <div class="form-group row mb-3 align-items-center">
+                <label for="role" class="col-md-2 col-form-label-lg">Role</label>
                 <div class="col-md-10">
                     <select class="form-control form-control-lg" id="role" name="role" required>
-                        <option value="" disabled selected>pilih role</option>
-                        <option value="1">Admin</option>
-                        <option value="2">User</option>
+                        <option value="" disabled selected>Pilih Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="user">User</option>
                     </select>
                 </div>
             </div>
+
 
             <div class="row mb-3">
                 <div class="col-md-12 d-flex justify-content-end">

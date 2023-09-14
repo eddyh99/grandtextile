@@ -1,11 +1,19 @@
-        <div class="container-fluid mt-5">
-            <div class="d-flex justify-content-end mb-3">
-                <a href="<?php echo site_url('clienthotel/addclienthotel'); ?>" class="btn btn-primary" style="background-color: #624DE3;">
-                    <i class="fas fa-plus"></i>
-                    Add Client Hotel
-                </a>
-            </div>
-        </div>       
+<div class="container-fluid mt-5">
+    <div class="d-flex justify-content-end mb-3">
+        <a href="<?php echo site_url('clienthotel/addclienthotel'); ?>" class="btn btn-primary" style="background-color: #624DE3;">
+            <i class="fas fa-plus"></i>
+            Add Client Hotel
+        </a>
+    </div>
+</div> 
+
+    <?php if (!empty($_SESSION["message"])): ?>
+        <div class="alert alert-success">
+            <?= $_SESSION["message"]; ?>
+        </div>
+        <?php unset($_SESSION["message"]); ?>
+    <?php endif; ?>
+      
        
     <div class="container-fluid">
         <div class="table-fluid">
@@ -42,28 +50,36 @@
                 </tr>
             </tbody>
             <tbody>
-                <?php foreach ($clienthotel_data as $index => $row): ?>
+                <?php foreach ($clienthotel_data->message as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <a class="btn btn-link" data-toggle="collapse" data-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
+                            <a class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
                                 <i class="fas fa-chevron-down"></i>
                             </a>
-                            <?php echo $row['namahotel']; ?>
+                            <?php echo $row->nama; ?>
                         </td>
                         <td>
-                            <?php echo $row['kota']; ?>
+                            <?php echo $row->kota; ?>
                         </td>
                         <td>
-                            <?php echo $row['area']; ?>
+                            <?php echo $row->area; ?>
                         </td>
                         <td>
-                            <?php echo $row['alamat']; ?>
+                            <?php echo $row->alamat; ?>
                         </td>
                         <td class="text-right">
-                            <a href="<?= site_url('clienthotel/editclienthotel'); ?>" class="btn btn-link p-0">
+                            <a href="<?= site_url('clienthotel/editclienthotel/' . ($row->id)); ?>" class="btn btn-link p-0">
                                 <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                             </a>
-                            <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#myModal">
+                            <button
+                                type="button"
+                                class="btn btn-link p-0 delete-client-button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#myModal"
+                                data-nama="<?= $row->nama ?>"
+                                data-id="<?= $row->id?>"
+                                data-href="<?= site_url('clienthotel/deleteclienthotel/') . $row->id ?>"
+                            >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
                         </td>
@@ -75,15 +91,14 @@
                                 <tr>
                                     <th>CP</th>
                                     <td class="col-1">
-                                        <?php echo $row['cp']; ?>
+                                        <?php echo $row->cphotel[0]->nama; ?>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>Telp</th>
                                     <td class="col-11">
-                                        <?php echo $row['telp']; ?>
+                                        <?php echo $row->cphotel[0]->telp; ?>
                                     </td>
-
                                 </tr>
                             </table>
                         </td>
@@ -94,26 +109,28 @@
             </tbody>
 
         </table>
-            </div>
-            </div>
-             <!-- Modal -->
+    </div>
+</div>
+                 <!-- Modal -->
           <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
-    
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Hapus</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hapus</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <p>Akan Menghapus Client</p>
+                        <span id="selectedclient"></span>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <a id="deleteButton" href="#" class="btn btn-primary" style="background-color: #624DE3;">Hapus</a>
+                    </div>
                 </div>
-                <div class="modal-body text-center">
-                  <p>Akan Menghapus clienthotel</p>
-		          <p>Nama</p>
-                </div>
-                <div class="modal-footer justify-content-center" >
-                  <button type="button" class="btn btn-danger" style="background-color:gray"data-dismiss="modal">Batal</button>
-                  <button type="button" style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">Hapus</button>
-                </div>
-              </div>
             </div>
           </div>

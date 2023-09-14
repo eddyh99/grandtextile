@@ -1,11 +1,18 @@
 <div class="bg-content-container col-12">
     <div class="content-container col-11 mt-5">
 
-        <div class="d-flex justify-content-center mt-3" >
+        <div class="card-header bg-white d-flex justify-content-center mt-3" >
             <h1>Tambah Sales</h1>
         </div>
 
-        <form action="<?php echo base_url('sales'); ?>" method="post">
+            <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
+
+        <form c;ass="card-body" action="<?php echo base_url('sales/addsales'); ?>" method="post">
 
             <div class="form-group row mt-2 mb-3 align-items-center">
                 <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
@@ -45,22 +52,24 @@
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="cp3" class="col-md-2 col-form-label-lg">Area</label>
-                <div class="col-md-9">
-                    <select class="form-control form-control-lg" id="area" name="area" required>
-                        <option value="" disabled selected>Pilih Area</option>
-                        <option value="1">Seminyak</option>
-                        <option value="2">Senyamuk</option>
-                    </select>
+                    <label for="cp3" class="col-md-2 col-form-label-lg">Area</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-control-lg" id="area" name="area" required>
+                            <option value="" disabled selected>Pilih Area</option>
+                            <?php foreach ($area_data->message as $area) : ?>
+                                <option value="<?= $area->id; ?>"><?= $area->area; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="komisi" class="col-md-2 col-form-label-lg">Komisi</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="komisi" name="komisi" required>
+                    <input type="text" class="form-control form-control-lg" id="komisi" name="komisi" placeholder="0.01" required>
                 </div>
             </div>
+
 
             <div class="row mb-3">
                 <div class="col-md-11 d-flex justify-content-end">

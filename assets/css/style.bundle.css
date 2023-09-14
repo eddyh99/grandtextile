@@ -48597,6 +48597,9 @@ body,
   color: #8D98AF;
 }
 [data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link .menu-title {
+  color: #ffffff;
+}
+[data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link .menu-title:hover {
   color: #8D98AF;
 }
 [data-kt-app-layout=dark-sidebar] .app-sidebar .menu .menu-item .menu-link .menu-icon,
