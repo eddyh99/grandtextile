@@ -1,19 +1,19 @@
 <div class="bg-content-container col-12">
     <div class="content-container col-11 mt-5 mb-3">
-        <div class="d-flex justify-content-center">
+        <div class="card-header bg-white d-flex justify-content-center">
             <h1>Edit Barang</h1>
         </div>
-        <form action="<?php echo base_url('barang'); ?>" method="post">
+        <form class="card-body" action="<?php echo base_url('barang'); ?>" method="post">
                     <div class="form-group row mb-3 align-items-center">
                     <label for="kategori" class="col-md-2 col-form-label-lg">Kategori</label>
                         <div class="col-md-9 input-group">
-                            <select class="form-control form-control-lg" id="kategori" name="kategori" required>
+                            <select class="form-control form-control-lg" id="kategori" name="kategori" readonly>
                                 <option value="" disabled selected>Pilih barang</option>
                                 <option value="1">barang 1</option>
                                 <option value="2">barang 2</option>
                             </select>
                             <div class="input-group-append">
-                                <button class="btn btn btn-secondary me-2" type="button" data-toggle="modal" data-target="#katModal">
+                                <button class="btn btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#katModal">
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
@@ -22,7 +22,7 @@
                     <div class="form-group row mb-3 align-items-center">
                         <label for="nambarang" class="col-md-2 col-form-label-lg">Nama Barang</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control form-control-lg" id="nambarang" name="nambarang" required>
+                            <input type="text" class="form-control form-control-lg" id="nambarang" name="nambarang" readonly>
                         </div>
                     </div>
                     <div class="form-group row mb-3 align-items-center">
@@ -46,8 +46,14 @@
                         </div>
                     </div>
                     <div class="form-group row mb-3 align-items-center">
+                        <label for="minorder" class="col-md-2 col-form-label-lg">Min Order</label>
+                        <div class="col-md-9">
+                            <input type="text" class="form-control form-control-lg" id="minorder" name="minorder" required>
+                        </div>
+                    </div>
+                    <div class="form-group row mb-3 align-items-center">
                         <label for="ukuran" class="col-md-2 col-form-label-lg">Ukuran</label>
-                        <div class="col-md-4">
+                        <div class="col-md-3">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
@@ -57,7 +63,7 @@
                                 <input type="text" class="form-control form-control-lg" id="ukuran_p" name="ukuran_p" required>
                             </div>
                         </div>
-                        <div class="col-md-5">
+                        <div class="col-md-3">
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">
@@ -65,6 +71,15 @@
                                     </span>
                                 </div>
                                 <input type="text" class="form-control form-control-lg" id="ukuran_l" name="ukuran_l" required>
+                            </div>
+                        </div><div class="col-md-3">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-t"></i>
+                                    </span>
+                                </div>
+                                <input type="text" class="form-control form-control-lg" id="ukuran_t" name="ukuran_t" required>
                             </div>
                         </div>
                     </div>
@@ -98,15 +113,15 @@
                     <div class="form-group row mb-3 align-items-center">
                         <label for="cons" class="col-md-2 col-form-label-lg">Cons</label>
                         <div class="col-md-9">
-                            <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#consModal">
+                            <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#consModal">
                                     <img src="<?= base_url('assets/img/plus.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
-                        </div>
+                        </div> 
                     </div>
                     <div class="form-group row mb-3 align-items-center">
                         <label for="addOn" class="col-md-2 col-form-label-lg">Add On</label>
                         <div class="col-md-9">
-                            <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#addOnModal">
+                            <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#addOnModal">
                                     <img src="<?= base_url('assets/img/plus.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
                         </div>
@@ -138,7 +153,7 @@
               <div class="modal-content">
                 <div class="modal-header text-center">
                   <h4 class="modal-title">Tambah Cons</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body text-center">
                 <div class="form-group row mb-3 align-items-center">
@@ -175,16 +190,17 @@
                 </div>
                 </div>
                 <div class="modal-footer justify-content-center" >
-                  <button type="button" style="background-color: gray;" class="btn btn-danger" data-dismiss="modal">
+                  <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
                   <i class="fas fa-times"></i> Batal
                   </button>
-                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">
+                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">
                   <i class="fas fa-save"></i>Simpan
                   </button>
                 </div>
                </div>
             </div>
     </div>
+    <!-- End Modal Cons -->
     
     <!-- Start Modal Kategori-->
     <div class="modal fade" id="katModal" role="dialog">
@@ -193,7 +209,7 @@
               <div class="modal-content">
                 <div class="modal-header text-center">
                   <h4 class="modal-title">Tambah Kategori</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                  <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body text-center">
                 <div class="form-group row mb-3 align-items-center">
@@ -204,10 +220,10 @@
                 </div>
                 </div>
                 <div class="modal-footer justify-content-center" >
-                  <button type="button" style="background-color: gray;" class="btn btn-danger" data-dismiss="modal">
+                  <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
                   <i class="fas fa-times"></i> Batal
                   </button>
-                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">
+                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">
                   <i class="fas fa-save"></i>Simpan
                   </button>
                 </div>
@@ -216,49 +232,48 @@
     </div>
     <!-- End Modal Kategori-->
     <!-- Start Modal Addon -->
-    <div class="modal fade" id="addOnModal" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header text-center">
-                  <h4 class="modal-title">Tambah Kategori</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+    <div class="modal fade" id="addOnModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="modal-title">Tambah Kategori</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="mb-3 row">
+                    <label for="nama" class="col-md-2 col-form-label">Nama</label>
+                    <div class="col-md-10">
+                        <select class="form-select form-control-lg" id="nama" name="nama" required>
+                            <option value="" disabled selected>Nama</option>
+                            <option value="1">nama 1</option>
+                            <option value="2">nama 2</option>
+                        </select>
+                    </div>
                 </div>
-                <div class="modal-body text-center">
-                <div class="form-group row mb-3 align-items-center">
-                    <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
-                        <div class="col-md-10 input-group">
-                            <select class="form-control form-control-lg" id="nama" name="nama" required>
-                                <option value="" disabled selected>Nama</option>
-                                <option value="1">nama 1   </option>
-                                <option value="2">nama 2</option>
-                            </select>
-                         </div>
-                     </div>
-                <div class="form-group row mb-3 align-items-center">
-                    <label for="jumlah" class="col-md-2 col-form-label-lg">Jumlah</label>
+                <div class="mb-3 row">
+                    <label for="jumlah" class="col-md-2 col-form-label">Jumlah</label>
                     <div class="col-md-10">
                         <input type="text" class="form-control form-control-lg" id="jumlah" name="jumlah" required>
                     </div>
                 </div>
-                <div class="form-group row mb-3 align-items-center">
+                <div class="mb-3 row">
                     <label for="harga" class="col-md-2 col-form-label-lg">Harga</label>
                     <div class="col-md-10">
                         <input type="text" class="form-control form-control-lg" id="harga" name="harga" required>
                     </div>
                 </div>
-                </div>
-                <div class="modal-footer justify-content-center" >
-                  <button type="button" style="background-color: gray;" class="btn btn-danger" data-dismiss="modal">
-                  <i class="fas fa-times"></i> Batal
-                  </button>
-                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">
-                  <i class="fas fa-save"></i>Simpan
-                  </button>
-                </div>
-               </div>
             </div>
+            <div class="modal-footer justify-content-center">
+                <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
+                    <i class="fas fa-times"></i> Batal
+                </button>
+                <button type="button" style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">
+                    <i class="fas fa-save"></i> Simpan
+                </button>
+            </div>
+        </div>
     </div>
-    
+</div>
+
     <!-- End Modal addOn-->
 </div>
