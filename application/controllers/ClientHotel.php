@@ -142,18 +142,4 @@ class clienthotel extends CI_Controller
                 $this->load->view('layout/wrapper', $data);
             }
         }
-        public function deleteclienthotel($id)
-        {
-            $apiUrl = API_URL . '/v1/hotel/delete_hotel?id=' . ($id);
-
-            $apiResponse = bedapi($apiUrl);
-
-            if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
-                $this->session->set_flashdata('message', 'hotel berhasil di hapus.');
-            } else {
-                $this->session->set_flashdata('message', 'gagal menghapus hotel');
-            }
-
-            redirect('hotel');
-        }
 }

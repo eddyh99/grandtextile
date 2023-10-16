@@ -5,7 +5,7 @@
         </div>
         <div class="card-body row justify-content-center">
             <div class="col-md-10">
-                <form action="<?php echo base_url('area'); ?>" method="post">
+                <form action="<?php echo base_url('quotation'); ?>" method="post">
                     <div class="row row-cols-3">
                         <div class="col">
                             <div class="form-group">
@@ -51,9 +51,9 @@
                                 <tfoot>
                                     <tr>
                                         <td colspan="5" class="text-center">
-                                        <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#addDataModal">
-                                                <img src="<?= base_url('assets/img/plus.png') ?>" alt="Delete" class="img-fluid" />
-                                        </button>
+                                        <a href="<?php echo site_url('quotation/barangquotation'); ?>" type="button" class="btn btn-link p-0">
+                                                <img src="<?= base_url('assets/img/plus.png') ?>" alt="plus" class="img-fluid" />
+                                        </a>
                                         </td>
                                     </tr>
                                 </tfoot>

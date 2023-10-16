@@ -56,7 +56,7 @@
                 <?php foreach ($barang_data as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <a class="btn btn-link" data-toggle="collapse" data-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
+                            <a class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
                                 <i class="fas fa-chevron-down"></i>
                             </a>
                             <?php echo $row['kategori']; ?>
@@ -131,7 +131,6 @@
                             </table>
                         </td>
                     </tr>
-
 
                 <?php endforeach; ?>
             </tbody>

@@ -114,6 +114,10 @@ table.dataTable.table-striped>tbody>tr.even td:nth-child(1) {
 .label{
     font-weight: bold
 }
+.textreg {
+    background-color: #f5f5f5;
+    color: white;
+}
 .button-simpan {
     height: 100px;
     width: 100px;
@@ -122,4 +126,13 @@ table.dataTable.table-striped>tbody>tr.even td:nth-child(1) {
 
 .button-back {
     font-size: 8px;
+}
+.btn-confirm {
+    height: 38px; /* Adjust the height as needed */
+    line-height: 1; /* Center text vertically */
+    font-size: 14px; /* Adjust the font size as needed */
+}
+.btn-bordered {
+    border: 1px solid #007BFF; /* You can adjust the border color and thickness */
+    margin: 5px; /* Add margin for spacing */
 }

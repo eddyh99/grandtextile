@@ -2,11 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\application",
-    "\\application\\controllers",
     "\\application\\views",
     "\\application\\views\\content",
+    "\\application\\views\\content\\clienthotel",
+    "\\application\\views\\content\\clienthotel\\js",
+    "\\application\\views\\content\\kategori",
+    "\\application\\views\\content\\sales",
+    "\\application\\views\\content\\sales\\js",
     "\\application\\views\\layout"
   ],
-  "SelectedNode": "\\application\\controllers\\Reseller.php",
   "PreviewInSolutionExplorer": false
 }

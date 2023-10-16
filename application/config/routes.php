@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller']	= 'auth';
 $route['404_override']			= '';
 $route['translate_uri_dashes']	= FALSE;
+
 $route['reseller']				= 'reseller/index';
 $route['area']					= 'area/index';
 $route['barang']				= 'barang/index';
@@ -60,3 +61,21 @@ $route['cphotel']				= 'cphotel/index';
 $route['kategori']				= 'kategori/index';
 $route['pengguna']				= 'pengguna/index';
 $route['sales']					= 'sales/index';
+
+/*$master_controllers = ['addon',
+'area',
+'bahanbaku',
+'reseller',
+'clienthotel',
+'cphotel',
+'kategori',
+'pengguna',
+'sales',
+'retailer',
+'outsource',
+'suplier'];
+foreach ($master_controllers as $controller) {
+    $route[$controller] = "master/$controller/index";
+    $route["$controller/(:any)"] = "master/$controller/$1";
+}
+*/
