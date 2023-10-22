@@ -12,6 +12,7 @@ class kompenjahit extends CI_Controller
                 'jenis' => 'Cuya',
                 'katbarang' => 'Kota 1',
                 'fee' => 'HP 1',
+                'Alamat' => 'frisman gampang katanya',
             ),
             array(
                 'jenis' => 'Aldi',

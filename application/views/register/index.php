@@ -43,7 +43,7 @@
                                         <span class="fas fa-user"></span>
                                     </div>
                                 </div>
-                                <input type="text" name="uname" class="form-control" placeholder="Full Name" required>
+                                <input type="text" name="nama" class="form-control" placeholder="Full Name" required>
                             </div>
 
                             <div class="input-group mb-3">

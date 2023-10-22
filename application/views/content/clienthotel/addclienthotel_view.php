@@ -43,42 +43,6 @@
             <div class="form-group row mb-3 align-items-center">
                 <label for="cp1" class="col-md-2 col-form-label-lg">CP 1</label>
                 <div class="col-md-9">
-                    <select class="form-control form-control-lg" id="cphotel" name="cphotel" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <?php foreach ($cp_data->message as $cp) : ?>
-                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp2" class="col-md-2 col-form-label-lg">CP 2</label>
-                <div class="col-md-9">
-                    <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <?php foreach ($cp_data->message as $cp) : ?>
-                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp3" class="col-md-2 col-form-label-lg">CP 3</label>
-                <div class="col-md-9">
-                    <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <?php foreach ($cp_data->message as $cp) : ?>
-                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp4" class="col-md-2 col-form-label-lg">CP 4</label>
-                <div class="col-md-9">
                     <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
                         <option value="" disabled selected>Pilih CP</option>
                         <?php foreach ($cp_data->message as $cp) : ?>

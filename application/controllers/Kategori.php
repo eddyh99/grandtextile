@@ -21,7 +21,7 @@ class Kategori extends CI_Controller
         );
         $this->load->view('layout/wrapper', $data);
     }
-     public function addkategori()
+    public function addkategori()
         {
             if ($this->input->post()) {
 

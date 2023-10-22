@@ -48,27 +48,34 @@
                         <th class="col-1 text-center align-middle">Action</th>
                     </tr>
                 </thead>
-                    <!-- Dummy Body-->
-                    <tbody style="border: none;background-color : white;">
-                        <tr>
-                            <td class="h-5"></td>
-                            <td class="h-5"></td>
-                            <td class="h-5"></td>
-                            <td class="h-5"></td>
-                            <td class="h-5"></td>
-                            <td class="h-5"></td>
-                        </tr>
-                    </tbody>
+                    
                     <tbody>
                         <?php foreach ($sales_data->message as $index => $row): ?>
 
                         <tr class="mt-1">
 
                             <td>
-                            <a class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
+                            <a class="btn btn-link" data-bs-toggle="collapse" href="#collapse-<?php echo $index; ?>" role="button" aria-expanded="false" aria-controls="collapse-<?php echo $index; ?>">
                                 <i class="fas fa-chevron-down"></i>
                             </a>
-                            <?php echo $row->nama; ?></td>
+                            <?php echo $row->nama; ?>
+                            <div class="collapse" id="collapse-<?php echo $index; ?>">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Alamat</th>
+                                        <td>
+                                            <?php echo $row->alamat; ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tanggal Lahir</th>
+                                        <td>
+                                            <?php echo date('d-m-Y', strtotime($row->tgllahir));?>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </td>
 
                             <td><?php echo $row->kota; ?></td>
 
@@ -95,26 +102,6 @@
                             </button>
                             </td>
 
-                        </tr>
-
-                        <tr id="details-<?php echo $index; ?>" class="collapse">
-                            <td colspan="6">
-                                <table class="table table-bordered">
-                                    <tr>
-                                        <th>Alamat</th>
-                                        <td class="col-1">
-                                            <?php echo $row->alamat; ?>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th>Tanggal Lahir</th>
-                                        <td class="col-11">
-                                            <?php echo date('d-m-Y', strtotime($row->tgllahir));?>
-                                        </td>
-
-                                    </tr>
-                                </table>
-                            </td>
                         </tr>
 
                         <?php endforeach; ?>

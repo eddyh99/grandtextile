@@ -43,16 +43,6 @@
                     <th class="col-1 text-center">Action</th>
                 </tr>
             </thead> 
-            <!-- Dummy Body-->
-            <tbody style="border: none;background-color : white;">
-                <tr>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td
-                </tr>
-            </tbody>
             <tbody>
                 <?php foreach ($cphotel_data->message as $index => $row): ?>
                     <tr class="mt-1">

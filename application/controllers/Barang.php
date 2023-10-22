@@ -50,6 +50,34 @@ class barang extends CI_Controller
     }
     public function addbarang()
     {
+        
+        $apiUrl = API_URL . '/v1/kategori/getKategori';
+        $kat_data = bedapi ($apiUrl);
+
+        if ($this->input->post()) {
+
+                $this->form_validation->set_rules('namakategori'    ,'namakategori'          ,'required|trim');
+
+                if ($this->form_validation->run() === FALSE) {
+                    $this->session->set_flashdata('message', validation_errors());
+                    
+                    redirect('kategori/addkategori');
+                return;
+                };
+
+                $kategoriData = array(
+                    'namakategori'      => $this->security->xss_clean($this->input->post('namakategori')),
+            );
+                $apiUrl = API_URL . '/v1/kategori/add_kategori';
+
+                $postData = json_encode($kategoriData);
+
+                $apiResponse = bedapi($apiUrl, $postData);
+                if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
+                    $this->session->set_flashdata('message', 'berhasil menambah kategori.');
+                    redirect('barang/addbarang');
+                }
+        }
 
         $data = array(
             'title'     => NAMETITLE . ' - barang',
@@ -57,6 +85,7 @@ class barang extends CI_Controller
             'content'   => 'content/barang/addbarang_view',
             'extra'     => 'content/barang/js/js_index',
             'activeMenu'  => 'barang',
+            'kat_data'     => $kat_data,
         );
         $this->load->view('layout/wrapper', $data);
     }

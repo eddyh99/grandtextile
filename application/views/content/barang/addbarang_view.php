@@ -7,11 +7,12 @@
                     <div class="form-group row mb-3 align-items-center">
                     <label for="kategori" class="col-md-2 col-form-label-lg">Kategori</label>
                         <div class="col-md-9 input-group">
-                            <select class="form-control form-control-lg" id="kategori" name="kategori" required>
-                                <option value="" disabled selected>Pilih barang</option>
-                                <option value="1">barang 1</option>
-                                <option value="2">barang 2</option>
-                            </select>
+                            <select class="form-control form-control-lg" id="kategori" name="namakategori" required>
+                        <option value="" disabled selected>Pilih Kategori</option>
+                        <?php foreach ($kat_data->message as $kat) : ?>
+                            <option value="<?= $kat->id; ?>"><?= $kat->namakategori; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                             <div class="input-group-append">
                                 <button class="btn btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#katModal">
                                     <i class="fas fa-plus"></i>
@@ -203,32 +204,34 @@
     <!-- End Modal Cons -->
     
     <!-- Start Modal Kategori-->
-    <div class="modal fade" id="katModal" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
+   <div class="modal fade" id="katModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
                 <div class="modal-header text-center">
-                  <h4 class="modal-title">Tambah Kategori</h4>
-                  <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Tambah Kategori</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                 </div>
-                <div class="modal-body text-center">
-                <div class="form-group row mb-3 align-items-center">
-                    <label for="kategori" class="col-md-2 col-form-label-lg">Kategori</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control form-control-lg" id="kategori" name="kategori" required>
+                <form calss="modal-body" action="<?php echo base_url('barang/addbarang'); ?>" method="post">
+                    <div class="form-group row mb-3 align-items-center">
+                        <label for="kategori" class="col-md-2 col-form-label col-form-label-lg">
+                        Kategori</label>
+                        <div class="col-md-9 mt-2">
+                            <input type="text" class="form-control form-control-lg" id="namakategori" name="namakategori" required>
+                        </div>
                     </div>
-                </div>
-                </div>
-                <div class="modal-footer justify-content-center" >
-                  <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
-                  <i class="fas fa-times"></i> Batal
-                  </button>
-                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">
-                  <i class="fas fa-save"></i>Simpan
-                  </button>
-                </div>
-               </div>
+
+                    <div class="d-flex justify-content-end">
+                        <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
+                            <i class="fas fa-times"></i> Batal
+                        </button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #624DE3;">
+                            <i class="fas fa-save"></i> Simpan
+                        </button>
+                    </div>
+                </form>
             </div>
+        </div>
     </div>
     <!-- End Modal Kategori-->
     <!-- Start Modal Addon -->

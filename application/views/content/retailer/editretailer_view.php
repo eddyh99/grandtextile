@@ -12,32 +12,32 @@
                 <?php unset($_SESSION["message"]); ?>
             <?php endif; ?>
 
-        <form class="card-body" action="<?php echo base_url('retailer/editretailer'); ?>" method="post">
+        <form class="card-body" action="<?php echo base_url('retailer/editretailer/' . ($retailer_data->message->email)); ?>" method="post">
             <div class="form-group row mb-3 align-items-center">
                 <label for="area" class="col-md-2 col-form-label-lg">Nama</label>
                 <div class="col-md-9 ">
-                    <input type="text" class="form-control form-control-lg" id="nama" name="nama" required >
+                    <input type="text" class="form-control form-control-lg" id="nama" name="nama" required value="<?php echo htmlspecialchars($retailer_data->message->nama); ?>" >
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="area" class="col-md-2 col-form-label-lg">Alamat</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" required >
+                    <input type="text" class="form-control form-control-lg" id="alamat" name="alamat" required value="<?php echo htmlspecialchars($retailer_data->message->alamat); ?>" >
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="area" class="col-md-2 col-form-label-lg">Kota</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="kota" name="kota" required >
+                    <input type="text" class="form-control form-control-lg" id="kota" name="kota" required value="<?php echo htmlspecialchars($retailer_data->message->kota); ?>">
                 </div>
             </div>
     
             <div class="form-group row mb-3 align-items-center">
                 <label for="area" class="col-md-2 col-form-label-lg">Telp/WA</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="telp" name="telp" required>
+                    <input type="text" class="form-control form-control-lg" id="telp" name="telp" required value="<?php echo htmlspecialchars($retailer_data->message->telp); ?>">
                 </div>
             </div>
 
@@ -45,7 +45,7 @@
               <label for="tgllahir" class="col-md-2 col-form-label-lg">Tanggal Lahir</label>
               <div class="col-md-9">
                 <div class="input-group">
-                  <input type="text" class="form-control form-control-lg" id="tgllahir" name="tgllahir" required>
+                  <input type="text" class="form-control form-control-lg" id="tgllahir" name="tgllahir" required value="<?php echo htmlspecialchars($retailer_data->message->tgllahir); ?>">
                 </div>
               </div>
             </div>
@@ -54,16 +54,10 @@
             <div class="form-group row mb-3 align-items-center">
                 <label for="area" class="col-md-2 col-form-label-lg">Email</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="email" name="email" readonly >
+                    <input type="text" class="form-control form-control-lg" id="email" name="email" readonly value="<?php echo htmlspecialchars($retailer_data->message->email); ?>">
                 </div>
             </div>
 
-            <div class="form-group row mb-3 align-items-center">
-                <label for="passwd" class="col-md-2 col-form-label-lg">Password</label>
-                <div class="col-md-9">
-                    <input type="password" class="form-control form-control-lg" id="passwd" name="passwd" readonly>
-                </div>
-            </div>
 
             <div class="row mb-3">
                 <div class="col-md-11 d-flex justify-content-end">

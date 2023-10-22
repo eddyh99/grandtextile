@@ -1,5 +1,6 @@
 <script>
 $(document).ready(function() {
+    //DataTables
     $('#penggunaTable').DataTable();
     //Datepicker
        $('#tgllahir').datepicker({
@@ -31,4 +32,5 @@ $(document).ready(function() {
             $('#deleteButton').attr('href', deleteUrl);
         });
 });
+
 </script>

@@ -41,51 +41,16 @@
                     <th class="col-1 text-center align-middle">Action</th>
                 </tr>
             </thead>
-            <!-- Dummby Body-->
-            <tbody style="border: none;background-color : white;">
-                <tr>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>                
-                  <td class="h-5"></td>
-                </tr>
-            </tbody>
             <tbody>
                 <?php foreach ($barang_data as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <a class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
+                            <a class="btn btn-link" data-bs-toggle="collapse" href="#collapse-<?php echo $index; ?>" role="button" aria-expanded="false" aria-controls="collapse-<?php echo $index; ?>">
                                 <i class="fas fa-chevron-down"></i>
                             </a>
                             <?php echo $row['kategori']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['namabarang']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['design']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['quality']; ?>
-                        </td>
-                        <td>
-                            <?php echo $row['color']; ?>
-                        </td>
-                        <td class="text-right">
-                            <a href="<?= site_url('barang/editbarang'); ?>" class="btn btn-link p-0">
-                                <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
-                            </a>
-                            <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#myModal">
-                                <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
-                            </button>
-                        </td>
-
-                    </tr>
-                    <tr id="details-<?php echo $index; ?>" class="collapse">
-                        <td colspan="6">
-                            <table class="table table-bordered">
+                            <div class="collapse" id="collapse-<?php echo $index; ?>">
+                                <table class="table table-bordered">
                                 <tr>
                                     <th>GSM</th>
                                     <td class="col-1">
@@ -129,9 +94,31 @@
                                     </td>
                                 </tr>
                             </table>
+                            </div>
                         </td>
-                    </tr>
+                        <td>
+                            <?php echo $row['namabarang']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['design']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['quality']; ?>
+                        </td>
+                        <td>
+                            <?php echo $row['color']; ?>
+                        </td>
+                        <td class="text-right">
+                            <a href="<?= site_url('barang/editbarang'); ?>" class="btn btn-link p-0">
+                                <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
+                            </a>
+                            <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#myModal">
+                                <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
+                            </button>
+                        </td>
 
+                    </tr>
+                    
                 <?php endforeach; ?>
             </tbody>
 

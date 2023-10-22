@@ -48,19 +48,21 @@ class clienthotel extends CI_Controller
                 
 
                 $clienthotelData = array(
-                    'nama' => $this->security->xss_clean($this->input->post('nama')),
-                    'alamat' => $this->security->xss_clean($this->input->post('alamat')),
-                    'kota' => $this->security->xss_clean($this->input->post('kota')),
-                    'telp' => $this->security->xss_clean($this->input->post('telp')),
-                    'area' => $this->security->xss_clean($this->input->post('area')),
-                    'cphotel[0][cp_id]'   => $this->security->xss_clean($this->input->post('cphotel[0][cp_id]')), 
-                );
+                'nama' => $this->security->xss_clean($this->input->post('nama')),
+                'alamat' => $this->security->xss_clean($this->input->post('alamat')),
+                'kota' => $this->security->xss_clean($this->input->post('kota')),
+                'telp' => $this->security->xss_clean($this->input->post('telp')),
+                'area' => $this->security->xss_clean($this->input->post('area')),
+                'cphotel' => [
+                ['cp_id' => $this->security->xss_clean($this->input->post('cphotel[0][cp_id]'))]
+            ]
+        );
+
 
                 $apiUrl = API_URL . '/v1/hotel/add_hotel';
 
                 $postData = json_encode($clienthotelData);
                 $apiResponse = bedapi($apiUrl, $postData);
-
 
                 if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
                     $this->session->set_flashdata('message', 'sukses');
@@ -95,11 +97,11 @@ class clienthotel extends CI_Controller
                 return;
             }
             if ($this->input->post()) {
-                $this->form_validation->set_rules('nama'    ,'Nama'          ,'required|trim');
-                $this->form_validation->set_rules('alamat'  ,'Alamat'        ,'required|trim');
-                $this->form_validation->set_rules('kota'    ,'Kota'          ,'required|trim');
-                $this->form_validation->set_rules('telp'    ,'Telp'          ,'required|trim');
-                $this->form_validation->set_rules('area'    ,'Area'          ,'required|trim');
+                $this->form_validation->set_rules('nama', 'Nama', 'required|trim');
+                $this->form_validation->set_rules('alamat', 'Alamat', 'required|trim');
+                $this->form_validation->set_rules('kota', 'Kota', 'required|trim');
+                $this->form_validation->set_rules('telp', 'Telp', 'required|trim');
+                $this->form_validation->set_rules('area', 'Area', 'required|trim');
                 $this->form_validation->set_rules('cphotel[0][cp_id]' ,'CpHotel'       ,'required|trim');
                 
                 if ($this->form_validation->run() === FALSE) {
@@ -109,14 +111,16 @@ class clienthotel extends CI_Controller
                 }
 
                 $updated_data = array(
-                    'nama'      => $this->security->xss_clean($this->input->post('nama')),
-                    'alamat'    => $this->security->xss_clean($this->input->post('alamat')),
-                    'kota'      => $this->security->xss_clean($this->input->post('kota')),
-                    'telp'      => $this->security->xss_clean($this->input->post('telp')),
-                    'area'      => $this->security->xss_clean($this->input->post('area')),
-                    'cphotel[0][cp_id]'   => $this->security->xss_clean($this->input->post('cphotel[0][cp_id]')), 
+                'nama' => $this->security->xss_clean($this->input->post('nama')),
+                'alamat' => $this->security->xss_clean($this->input->post('alamat')),
+                'kota' => $this->security->xss_clean($this->input->post('kota')),
+                'telp' => $this->security->xss_clean($this->input->post('telp')),
+                'area' => $this->security->xss_clean($this->input->post('area')),
+                'cphotel' => [
+                ['cp_id' => $this->security->xss_clean($this->input->post('cphotel[0][cp_id]'))]
+            ]
                 );
-                $apiUpdateUrl = API_URL . '/v1/clienthotel/update_clienthotel?id=' . ($id);
+                $apiUpdateUrl = API_URL . '/v1/hotel/update_hotel?id=' . ($id);
                 $apiUpdateData = json_encode($updated_data);
                 $apiResponse = bedapi($apiUpdateUrl, $apiUpdateData);
 
@@ -125,7 +129,7 @@ class clienthotel extends CI_Controller
                     redirect('clienthotel');
                 } else {
                     $this->session->set_flashdata('messeage', 'gagal');
-                    redirect('clienthotel/edit');
+                    redirect('clienthotel/editclienthotel/' . ($id));
                 }
             } else {
                 $data = array(

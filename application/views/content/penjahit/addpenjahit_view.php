@@ -3,7 +3,7 @@
         <div class="card-header bg-white d-flex justify-content-center">
             <h3>Tambah penjahit</h3>
         </div>
-        <form class="card-body" action="<?php echo base_url('penjahit'); ?>" method="post">
+        <form class="card-body" action="<?php echo base_url('penjahit/addpenjahit'); ?>" method="post">
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="Nama" class="col-lg-2 col-form-label-lg">Nama</label>
@@ -22,7 +22,7 @@
             <div class="form-group row mb-3 align-items-center">
                 <label for="whatsapp" class="col-md-2 col-form-label-lg">Whatsapp</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="whatsapp" name="whatsapp" required>
+                    <input type="text" class="form-control form-control-lg" id="telp" name="telp" required>
                 </div>
             </div>
     
@@ -31,8 +31,8 @@
                 <div class="col-md-9 input-group">
                     <select class="form-control form-control-lg" id="jenis" name="jenis" required>
                         <option value="" disabled selected>Jenis</option>
-                        <option value="1">satu</option>
-                        <option value="2">dua</option>
+                        <option value="1">Borongan Luar</option>
+                        <option value="2">Borongan Dalam</option>
                     </select>
                 </div>
             </div>

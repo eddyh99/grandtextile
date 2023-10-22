@@ -10,10 +10,8 @@
             </div>
             <?php unset($_SESSION["message"]); ?>
         <?php endif; ?>
-
-
-        <form class="card-body"action="<?php echo base_url('clienthotel'); ?>" method="post">
-            <div class="form-group row mb-3 align-items-center">
+        
+           <form class="card-body" action="<?php echo base_url('clienthotel/editclienthotel/' . ($clienthotel_data->message->id)); ?>" method="post">   <div class="form-group row mb-3 align-items-center">
                 <label for="nama" class="col-md-2 col-form-label-lg">Nama</label>
                 <div class="col-md-9">
                     <input type="text" class="form-control form-control-lg" id="nama" name="nama" value="<?php echo htmlspecialchars($clienthotel_data->message->nama); ?>" required>
@@ -44,18 +42,6 @@
             <div class="form-group row mb-3 align-items-center">
                 <label for="cp1" class="col-md-2 col-form-label-lg">CP 1</label>
                 <div class="col-md-9">
-                    <select class="form-control form-control-lg" id="cphotel" name="cphotel" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <?php foreach ($cp_data->message as $cp) : ?>
-                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp2" class="col-md-2 col-form-label-lg">CP 2</label>
-                <div class="col-md-9">
                     <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
                         <option value="" disabled selected>Pilih CP</option>
                         <?php foreach ($cp_data->message as $cp) : ?>
@@ -66,40 +52,16 @@
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="cp3" class="col-md-2 col-form-label-lg">CP 3</label>
-                <div class="col-md-9">
-                    <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <?php foreach ($cp_data->message as $cp) : ?>
-                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
-                        <?php endforeach; ?>
-                    </select>
+                    <label for="cp3" class="col-md-2 col-form-label-lg">Area</label>
+                    <div class="col-md-9">
+                        <select class="form-control form-control-lg" id="area" name="area" required>
+                            <option value="" disabled selected><?php echo htmlspecialchars($clienthotel_data->message->area); ?></option>
+                            <?php foreach ($area_data->message as $area) : ?>
+                                <option value="<?= $area->id; ?>"><?= $area->area; ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
                 </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="cp4" class="col-md-2 col-form-label-lg">CP 4</label>
-                <div class="col-md-9">
-                    <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
-                        <option value="" disabled selected>Pilih CP</option>
-                        <?php foreach ($cp_data->message as $cp) : ?>
-                            <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
-                        <?php endforeach; ?>
-                    </select>
-                </div>
-            </div>
-
-            <div class="form-group row mb-3 align-items-center">
-                <label for="area" class="col-md-2 col-form-label-lg">Area</label>
-                <div class="col-md-9">
-                <select class="form-control form-control-lg" id="area" name="area" required>
-                    <option value="" disabled selected>Pilih Area</option>
-                    <?php foreach ($area_data->message as $area) : ?>
-                        <option value="<?= $area->id; ?>" <?= set_select('area', $area->id); ?>><?= $area->area; ?></option>
-                    <?php endforeach; ?>
-                </select>
-                </div>
-            </div>
 
             <div class="row">
                 <div class="col-md-11 d-flex justify-content-end">

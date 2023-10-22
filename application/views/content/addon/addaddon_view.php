@@ -3,7 +3,14 @@
         <div class="card-header bg-white d-flex justify-content-center">
             <h3>Tambah addon</h3>
         </div>
-        <form class="card-body" action="<?php echo base_url('addon'); ?>" method="post">
+        <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
+
+        <form class="card-body" action="<?php echo base_url('addon/addaddon'); ?>" method="post">
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="namaaddon" class="col-lg-2 col-form-label-lg">Nama Addon</label>

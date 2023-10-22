@@ -32,14 +32,6 @@
                         </th>
                     </tr>
                 </thead>
-                <!-- Dummby Body-->
-                <tbody style="border: none;background-color : white;">
-                    <tr>
-                      <td class="h-5"></td>
-                      <td class="h-5"></td>
-                      <td class="h-5"></td>
-                    </tr>
-                </tbody>
                 <tbody>
                     <?php foreach ($kategori_data->message as $index => $row): ?>
                         <tr class="mt-1">

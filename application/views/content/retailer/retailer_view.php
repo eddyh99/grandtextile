@@ -41,32 +41,38 @@
                     <th class="col-1 text-center align-middle">Action</th>
                 </tr>
             </thead>
-            <!-- Dummy Body-->
-            <tbody style="border: none;background-color : white;">
-                <tr>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                </tr>
-            </tbody>
 
             <tbody style="margin-top: 20px;">
-                <?php foreach ($retailer_data as $index => $row): ?>
+                <?php foreach ($retailer_data->message as $index => $row): ?>
                     <tr class="mt-1">
-                        <td>
-                            <a class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
+                         <td>
+                            <a class="btn btn-link" data-bs-toggle="collapse" href="#collapse-<?php echo $index; ?>" role="button" aria-expanded="false" aria-controls="collapse-<?php echo $index; ?>">
                                 <i class="fas fa-chevron-down"></i>
                             </a>
-                            <?php echo $row['nama']; ?>
+                            <?php echo $row->nama; ?>
+                            <div class="collapse" id="collapse-<?php echo $index; ?>">
+                                <table class="table table-bordered">
+                                    <tr>
+                                        <th>Alamat</th>
+                                        <td>
+                                            <?php echo $row->alamat; ?>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Tanggal Lahir</th>
+                                        <td>
+                                            <?php echo date('d-m-Y', strtotime($row->tgllahir));?>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
                         </td>
-                        <td><?php echo $row['kota']; ?></td>
-                        <td><?php echo $row['telp']; ?></td>
-                        <td><?php echo $row['email']; ?></td>
+                        <td><?php echo $row->kota; ?></td>
+                        <td><?php echo $row->telp; ?></td>
+                        <td><?php echo $row->email; ?></td>
                        
                         <td class="text-right">
-                            <a href="<?= site_url('retailer/editretailer/'); ?>" class="btn btn-link p-0">
+                            <a href="<?= site_url('retailer/editretailer/' . ($row->email)); ?>" class="btn btn-link p-0">
                                 <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                             </a>
                             <button
@@ -74,31 +80,12 @@
                                 class="btn btn-link p-0 delete-retailer-button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#myModal"
-                                data-email="<?= $row['email'] ?>"
-                                data-nama="<?= $row['nama']?>"
-                                data-href="<?= site_url('retailer/deleteretailer/') . $row['email'] ?>"
+                                data-email="<?= $row->email ?>"
+                                data-nama="<?= $row->nama?>"
+                                data-href="<?= site_url('retailer/deleteretailer/') . $row->email  ?>"
                             >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
-                        </td>
-                    </tr>
-                    <tr id="details-<?php echo $index; ?>" class="collapse">
-                        <td colspan="6">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>Alamat</th>
-                                    <td class="col-1">
-                                        <?php echo $row['alamat']; ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Tanggal Lahir</th>
-                                    <td class="col-11">
-                                        <?php echo date('d-m-Y', strtotime($row['nama']));?>
-                                    </td>
-
-                                </tr>
-                            </table>
                         </td>
                     </tr>
                 <?php endforeach; ?>

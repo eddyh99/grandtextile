@@ -34,16 +34,7 @@
                     </th>
                     <th class="col-1 text-center align-middle">Action</th>
                 </tr>
-            </thead>  
-
-            <tbody style="border: none;background-color : white;">
-                <tr>
-                    <td class="h-5"></td>
-                    <td class="h-5"></td>
-                    <td class="h-5"></td>
-                    <td class="h-5"></td>
-                </tr>
-            </tbody>
+            </thead>
 
             <tbody>
                 <?php foreach ($pengguna_data->message as $index => $row): ?>
@@ -62,14 +53,13 @@
                                 <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                             </a>
                             <button
-                                    type="button"
-                                    class="btn btn-link p-0 delete-pengguna-button"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#myModal"
-                                    data-nama="<?= $row->nama ?>"
-                                    data-uname="<? $row->uname?>"
-                                    data-href="<?= site_url('pengguna/deletepengguna/') . $row->uname ?>"
-                                    
+                                type="button"
+                                class="btn btn-link p-0 delete-pengguna-button"
+                                data-bs-toggle="modal"
+                                data-bs-target="#myModal"
+                                data-nama="<?= $row->nama ?>"
+                                data-uname="<?= $row->uname?>"
+                                data-href="<?= site_url('pengguna/deletepengguna/') . $row->uname ?>"
                             >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>

@@ -41,32 +41,19 @@
                     <th class="col-2 text-center align-middle">Action</th>
                 </tr>
             </thead>
-            <!-- Dummy Body-->
-            <tbody >
-                <tr>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                </tr>
-            </tbody>
 
             <tbody style="margin-top: 20px;">
-                <?php foreach ($outsource_data as $index => $row): ?>
+                <?php foreach ($outsource_data->message as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <a class="btn btn-link" data-bs-toggle="collapse" data-bs-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
-                            <?php echo $row['nama']; ?>
+                            <?php echo $row->nama; ?>
                         </td>
-                        <td><?php echo $row['alamat']; ?></td>
-                        <td><?php echo $row['telp']; ?></td>
-                        <td><?php echo $row['keterangan']; ?></td>
+                        <td><?php echo $row->alamat; ?></td>
+                        <td><?php echo $row->telp; ?></td>
+                        <td><?php echo $row->keterangan; ?></td>
                       
                         <td class="text-right">
-                            <a href="<?= site_url('outsource/editoutsource/'); ?>" class="btn btn-link p-0">
+                            <a href="<?= site_url('outsource/editoutsource/' . ($row->id)); ?>" class="btn btn-link p-0">
                                 <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                             </a>
                             <button
@@ -74,9 +61,9 @@
                                 class="btn btn-link p-0 delete-outsource-button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#myModal"
-                                data-alamat="<?= $row['alamat'] ?>"
-                                data-nama="<?= $row['nama']?>"
-                                data-href="<?= site_url('outsource/deleteoutsource/') . $row['alamat'] ?>"
+                                data-id="<?= $row->id ?>"
+                                data-nama="<?= $row->nama?>"
+                                data-href="<?= site_url('outsource/deleteoutsource/') . $row->id ?>"
                             >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>

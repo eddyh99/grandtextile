@@ -36,15 +36,6 @@
                     <th class="col-2 text-center align-middle">Action</th>
                 </tr>
             </thead>
-            <!-- Dummy Body-->
-            <tbody >
-                <tr>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                </tr>
-            </tbody>
 
             <tbody style="margin-top: 20px;">
                 <?php foreach ($suplier_data as $index => $row): ?>

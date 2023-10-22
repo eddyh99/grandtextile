@@ -23,14 +23,7 @@
                         </th>
                     </tr>
                 </thead>
-                <!-- Dummby Body-->
-                <tbody>
-                    <tr>
-                      <td class="h-5"></td>
-                      <td class="h-5"></td>
-                      <td class="h-5"></td>
-                    </tr>
-                </tbody>
+                
                 <tbody>
                     <?php foreach ($stok_data as $index => $row): ?>
                         <tr class="mt-1">

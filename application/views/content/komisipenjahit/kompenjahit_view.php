@@ -29,23 +29,11 @@
                     <th class="col-1 text-center align-middle">Action</th>
                 </tr>
             </thead>
-            <!-- Dummy Body-->
-            <tbody style="border: none;background-color : white;">
-                <tr>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                  <td class="h-5"></td>
-                </tr>
-            </tbody>
 
             <tbody style="margin-top: 20px;">
                 <?php foreach ($kompenjahit_data as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <a class="btn btn-link" data-toggle="collapse" data-target="#details-<?php echo $index; ?>" aria-expanded="false" aria-controls="details-<?php echo $index; ?>">
-                                <i class="fas fa-chevron-down"></i>
-                            </a>
                             <?php echo $row['jenis']; ?>
                         </td>
                         <td>
@@ -64,25 +52,7 @@
                         </td>
 
                     </tr>
-                    <tr id="details-<?php echo $index; ?>" class="collapse">
-                        <td colspan="6">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <th>Alamat</th>
-                                    <td class="col-1">
-                                        <?php echo $row['alamat']; ?>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th>Tanggal Lahir</th>
-                                    <td class="col-11">
-                                        <?php echo $row['tanggal_lahir']; ?>
-                                    </td>
-
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
+                   
                 <?php endforeach; ?>
             </tbody>
     </table>
