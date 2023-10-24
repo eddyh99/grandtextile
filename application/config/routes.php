@@ -53,14 +53,14 @@ $route['default_controller']	= 'auth';
 $route['404_override']			= '';
 $route['translate_uri_dashes']	= FALSE;
 
-$route['reseller']				= 'reseller/index';
-$route['area']					= 'area/index';
-$route['barang']				= 'barang/index';
-$route['clienthotel']			= 'clienthotel/index';
-$route['cphotel']				= 'cphotel/index';
-$route['kategori']				= 'kategori/index';
-$route['pengguna']				= 'pengguna/index';
-$route['sales']					= 'sales/index';
+// $route['reseller']				= 'reseller/index';
+// $route['area']					= 'area/index';
+// $route['barang']				= 'barang/index';
+// $route['clienthotel']			= 'clienthotel/index';
+// $route['cphotel']				= 'cphotel/index';
+// $route['kategori']				= 'kategori/index';
+// $route['pengguna']				= 'pengguna/index';
+// $route['sales']					= 'sales/index';
 
 /*$master_controllers = ['addon',
 'area',
