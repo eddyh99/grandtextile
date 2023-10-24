@@ -3,29 +3,31 @@
         <div class="card-header bg-white d-flex justify-content-center">
             <h3>Tambah Komisi</h3>
         </div>
-        <form class="card-body" action="<?php echo base_url('kompenjahit'); ?>" method="post">
+        <form class="card-body" action="<?php echo base_url('kompenjahit/addkompenjahit'); ?>" method="post">
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="jenis" class="col-lg-2 col-form-label-lg">Jenis Penjahit</label>
-                 <div class="col-md-9 input-group">
+                <label for="jenis" class="col-md-2 col-form-label-lg">Jenis</label>
+                <div class="col-md-9 input-group">
                     <select class="form-control form-control-lg" id="jenis" name="jenis" required>
                         <option value="" disabled selected>Jenis</option>
-                        <option value="1">satu</option>
-                        <option value="2">dua</option>
+                        <option value="1">Borongan Luar</option>
+                        <option value="2">Borongan Dalam</option>
                     </select>
                 </div>
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                <label for="katbarang" class="col-md-2 col-form-label-lg">Kategori Barang</label>
-                <div class="col-md-9 input-group">
-                    <select class="form-control form-control-lg" id="katbarang" name="katbarang" required>
-                        <option value="" disabled selected>Kategori</option>
-                        <option value="1">satu</option>
-                        <option value="2">dua</option>
-                    </select>
+                <label for="area" class="col-md-2 col-form-label-lg">Kategori</label>
+                <div class="col-md-9">
+                <select class="form-control form-control-lg" id="id_kategori" name="id_kategori" required>
+                    <option value="" disabled selected>Pilih Kategori</option>
+                    <?php foreach ($katbarang->message as $barang) : ?>
+                            <option value="<?= $barang->id; ?>"><?= $barang->namakategori; ?></option>
+                    <?php endforeach; ?>
+                </select>
                 </div>
             </div>
+
             <div class="form-group row mb-3 align-items-center">
                 <label for="fee" class="col-md-2 col-form-label-lg">Fee</label>
                 <div class="col-md-9">

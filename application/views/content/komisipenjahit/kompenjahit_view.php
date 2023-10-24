@@ -31,19 +31,19 @@
             </thead>
 
             <tbody style="margin-top: 20px;">
-                <?php foreach ($kompenjahit_data as $index => $row): ?>
+                <?php foreach ($kompenjahit_data->message as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <?php echo $row['jenis']; ?>
+                            <?php echo $row->jenis; ?>
                         </td>
                         <td>
-                            <?php echo $row['katbarang']; ?>
+                            <?php echo $row->id_kategori; ?>
                         </td>
                         <td>
-                            <?php echo $row['fee']; ?>
+                            <?php echo $row->fee; ?>
                         </td>
                         <td class="text-right">
-                            <a href="<?= site_url('kompenjahit/editkompenjahit'); ?>" class="btn btn-link p-0">
+                            <a href="<?= site_url('kompenjahit/editkompenjahit/' . $row->jenis . '/' . $row->id_kategori); ?>" class="btn btn-link p-0">
                                 <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                             </a>
                             <button type="button" class="btn btn-link p-0" data-toggle="modal" data-target="#myModal">

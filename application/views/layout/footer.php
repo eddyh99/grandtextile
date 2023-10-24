@@ -92,21 +92,20 @@ if (isset($extra)) {
 		vMax: '99999999999',
 		vMin: '0'
 	});
-	
-	document.addEventListener("DOMContentReady", function() {
-		$("#notifToast").toast();
-	});
-	document.addEventListener("DOMContentLoaded", function() {
-        const menuLink = document.querySelector(".menu-link");
-
-        menuLink.addEventListener("click", function(event) {
-            event.preventDefault(); // Prevent default behavior (changing the URL)
-            const targetId = menuLink.getAttribute("aria-controls");
-            const targetCollapse = document.getElementById(targetId);
-            
-            // Toggle the "show" class to expand/collapse the collapsible element
-            targetCollapse.classList.toggle("show");
+	function closeOtherMenus(clickedMenu) {
+        var allMenus = document.querySelectorAll('.menu-sub');
+        allMenus.forEach(function(menu) {
+            if (menu !== clickedMenu && menu.classList.contains('show')) {
+                menu.classList.remove('show');
+            }
         });
+    }
+	document.addEventListener('DOMContentLoaded', function() {
+        const activeMenu = '<?php echo $activeMenu; ?>'; // Assuming $activeMenu is set correctly in your PHP code
+        if (activeMenu === 'active') {
+            const menuSubAccordion = document.querySelector('.menu-sub-accordion');
+            menuSubAccordion.style.display = 'flex';
+        }
     });
 </script>
 

@@ -2,13 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\application",
-    "\\application\\controllers",
-    "\\application\\views",
     "\\application\\views\\content",
-    "\\application\\views\\content\\clienthotel\\js",
-    "\\application\\views\\content\\sales\\js",
     "\\application\\views\\register"
   ],
-  "SelectedNode": "\\application\\views\\register\\index.php",
   "PreviewInSolutionExplorer": false
 }

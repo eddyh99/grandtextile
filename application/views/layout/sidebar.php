@@ -42,20 +42,35 @@
 
                     <!--====== Start ALL Side bar ===== -->
             <?php if (($_SESSION["logged_status"]["role"] == "admin")||($_SESSION["logged_status"]["role"] == "GM")||($_SESSION["logged_status"]["role"] == "EAM")) { ?>
-                        <!--====== Start Dashboard ===== -->
-                        
-                        <!--====== Start Master ===== -->
-                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= @$colmas ?> <?= @$h_tc . ' ' . @$h_rsv ?>">
 
+                        <!--====== Start Master ===== -->
+                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= @$colmas ?> <?= @$h_tc . ' ' . @$h_rsv ?> <?= ($activeMenu === 'reseller' || $activeMenu === 'area' || $activeMenu === 'sales' || $activeMenu === 'cphotel' || $activeMenu === 'clienthotel' || $activeMenu === 'kategori' || $activeMenu === 'barang' || $activeMenu === 'pengguna' || $activeMenu === 'bahanbaku' || $activeMenu === 'stok' || $activeMenu === 'penjahit' || $activeMenu === 'kompenjahit' || $activeMenu === 'addon' || $activeMenu === 'retailer' || $activeMenu === 'outsource' || $activeMenu === 'suplier') ? 'show' : ''; ?>">
+                            
                             <!-- ===== Start Sub Link Master ===== -->
-                            <a class="menu-link <?= ($activeMenu === 'master'||'reseller') ? 'active' : ''; ?>" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="masterCollapse">
+                            <span class="menu-link <?= (
+                                   $activeMenu === 'reseller' 
+                                || $activeMenu === 'area' 
+                                || $activeMenu === 'sales' 
+                                || $activeMenu === 'cphotel' 
+                                || $activeMenu === 'clienthotel' 
+                                || $activeMenu === 'kategori' 
+                                || $activeMenu === 'barang' 
+                                || $activeMenu === 'pengguna' 
+                                || $activeMenu === 'bahanbaku' 
+                                || $activeMenu === 'stok' 
+                                || $activeMenu === 'penjahit' 
+                                || $activeMenu === 'kompenjahit' 
+                                || $activeMenu === 'addon' 
+                                || $activeMenu === 'retailer' 
+                                || $activeMenu === 'outsource' 
+                                || $activeMenu === 'suplier') ? 'active' : ''; ?>">
                                 <span class="menu-title">Master</span>
                                 <span class="menu-arrow"></span>
-                            </a>
+                            </span>
                             <!--===== End Sub Link Master  ===== -->
 
                             <!-- ======  Start Sub Master  ====== -->
-                            <div class="menu-sub menu-sub-accordion" id="masterCollapse">
+                            <div class="menu-sub menu-sub-accordion">
 
                                 <!-- Start Menu Reseller -->
                             <div class="menu-item">
@@ -68,7 +83,7 @@
                             </div>
                             <!-- End Menu Reseller -->
 
-                            <!-- Start Menu Area -->
+                                <!-- Start Menu Area -->
                             <div class="menu-item">
                                 <a class="menu-link <?= ($activeMenu === 'area') ? 'active' : '';  ?>" href="<?= base_url() ?>area">
                                     <span class="menu-bullet">
@@ -144,6 +159,7 @@
                                 </a>
                             </div>
                             <!-- End Menu Pengguna -->
+
                             <!-- Start Menu Bahan Baku -->
                             <div class="menu-item">
                                 <a class="menu-link <?= ($activeMenu === 'bahanbaku') ? 'active' : ''; ?>" href="<?= base_url() ?>bahanbaku">
@@ -154,6 +170,7 @@
                                 </a>
                             </div>
                             <!-- End Menu Bahan Baku -->
+
                             <!-- Start Menu Stok -->
                             <div class="menu-item">
                                 <a class="menu-link <?= ($activeMenu === 'stok') ? 'active' : ''; ?>" href="<?= base_url() ?>stok">
@@ -175,6 +192,7 @@
                                 </a>
                             </div>
                             <!-- End Menu Penjahit -->
+
                             <!-- Start Menu Komisi Penjahit -->
                             <div class="menu-item">
                                 <a class="menu-link <?= ($activeMenu === 'kompenjahit') ? 'active' : ''; ?>" href="<?= base_url() ?>kompenjahit">
@@ -185,6 +203,7 @@
                                 </a>
                             </div>
                             <!-- End Menu Komisi Penjahit -->
+
                             <!-- Start Menu Addon -->
                             <div class="menu-item">
                                 <a class="menu-link <?= ($activeMenu === 'addon') ? 'active' : ''; ?>" href="<?= base_url() ?>addon">
@@ -229,27 +248,27 @@
                             </div>
                             <!-- End Menu Supplier -->
 
-
                             </div>
                             <!--======  End Sub Master  ====== -->
                         </div>
-                        <!-- End Menu Master -->
+                        <!--====== End Master ===== -->
 
-                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= @$colmas ?> <?= @$h_tc . ' ' . @$h_rsv ?>">
-
-                            <!-- ===== Start Sub Link Master ===== -->
-                            <a class="menu-link <?= ($activeMenu === 'transaksi'||'') ? 'active' : ''; ?>" data-bs-toggle="collapse" href="#" role="button" aria-expanded="false" aria-controls="masterCollapse">
+                        <!--====== START Transaksi ===== -->
+                        <div data-kt-menu-trigger="click" class="menu-item menu-accordion <?= @$colmas_lp ?> <?= @$h_tc . ' ' . @$h_rsv ?> <?= ($activeMenu === 'transaksi' || $activeMenu === 'proses' || $activeMenu === 'delivery' || $activeMenu === 'pembayaran' || $activeMenu === 'pesananreseller' || $activeMenu === 'jadwalpotong' || $activeMenu === 'quotation' || $activeMenu === 'invoice' || $activeMenu === 'workorder' || $activeMenu === 'settings') ? 'show' : ''; ?>">
+                            
+                            <!-- ===== Start Sub Link Transaksi ===== -->
+                            <span class="menu-link <?= ($activeMenu === 'transaksi' || $activeMenu === 'proses' || $activeMenu === 'delivery' || $activeMenu === 'pembayaran' || $activeMenu === 'pesananreseller' || $activeMenu === 'jadwalpotong' || $activeMenu === 'quotation' || $activeMenu === 'invoice' || $activeMenu === 'workorder' || $activeMenu === 'settings') ? 'active' : ''; ?>">
                                 <span class="menu-title">Transaksi</span>
                                 <span class="menu-arrow"></span>
-                            </a>
-                            <!--===== End Sub Link Master  ===== -->
+                            </span>
+                            <!--===== End Sub Link Transaksi  ===== -->
 
-                            <!-- ======  Start Sub Master  ====== -->
+                            <!-- ======  Start Sub Transaksi  ====== -->
                             <div class="menu-sub menu-sub-accordion">
 
-                            <!-- ======  Start Menu Proses ===== -->
+                                <!-- ======  Start Menu Proses ===== -->
                                 <div class="menu-item ">
-                                    <a class="menu-link <?= ($activeMenu === '') ? 'active' : ''; ?>" href="<?= base_url() ?>proses">
+                                    <a class="menu-link <?= ($activeMenu === 'proses') ? 'active' : ''; ?>" href="<?= base_url() ?>proses">
                                         <span class="menu-bullet">
                                             <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                         </span>
@@ -260,7 +279,7 @@
 
                                 <!-- ======  Start Menu Delivery ===== -->
                                 <div class="menu-item ">
-                                    <a class="menu-link <?= ($activeMenu === '') ? 'active' : ''; ?>" href="<?= base_url() ?>delivery">
+                                    <a class="menu-link <?= ($activeMenu === 'delivery') ? 'active' : ''; ?>" href="<?= base_url() ?>delivery">
                                         <span class="menu-bullet">
                                             <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                         </span>
@@ -271,7 +290,7 @@
 
                                 <!-- ======  Start Menu Pembayaran ===== -->
                                 <div class="menu-item ">
-                                    <a class="menu-link <?= ($activeMenu === '') ? 'active' : ''; ?>" href="<?= base_url() ?>pembayaran">
+                                    <a class="menu-link <?= ($activeMenu === 'pembayaran') ? 'active' : ''; ?>" href="<?= base_url() ?>pembayaran">
                                         <span class="menu-bullet">
                                             <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                         </span>
@@ -282,7 +301,7 @@
 
                                 <!-- ======  Start Menu Pesanan Reseller ===== -->
                                 <div class="menu-item ">
-                                    <a class="menu-link <?= ($activeMenu === '') ? 'active' : ''; ?>" href="<?= base_url() ?>pesananreseller">
+                                    <a class="menu-link <?= ($activeMenu === 'pesananreseller') ? 'active' : ''; ?>" href="<?= base_url() ?>pesananreseller">
                                         <span class="menu-bullet">
                                             <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                         </span>
@@ -293,7 +312,7 @@
 
                                 <!-- ======  Start Menu Jadwal Potong ===== -->
                                 <div class="menu-item ">
-                                    <a class="menu-link <?= ($activeMenu === '') ? 'active' : ''; ?>" href="<?= base_url() ?>jadwalpotong">
+                                    <a class="menu-link <?= ($activeMenu === 'jadwalpotong') ? 'active' : ''; ?>" href="<?= base_url() ?>jadwalpotong">
                                         <span class="menu-bullet">
                                             <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                         </span>
@@ -315,7 +334,7 @@
 
                                 <!-- ======  Start Menu Invoice ===== -->
                                 <div class="menu-item ">
-                                    <a class="menu-link <?= ($activeMenu === '') ? 'active' : ''; ?>" href="<?= base_url() ?>invoice">
+                                    <a class="menu-link <?= ($activeMenu === 'invoice') ? 'active' : ''; ?>" href="<?= base_url() ?>invoice">
                                         <span class="menu-bullet">
                                             <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                         </span>
@@ -323,16 +342,19 @@
                                     </a>
                                 </div>
                                 <!--======  End Menu Invoice ===== -->
+
                                 <!-- ======  Start Menu Work Order ===== -->
                                 <div class="menu-item ">
-                                    <a class="menu-link <?= ($activeMenu === '') ? 'active' : ''; ?>" href="<?= base_url() ?>workorder">
+                                    <a class="menu-link <?= ($activeMenu === 'workorder') ? 'active' : ''; ?>" href="<?= base_url() ?>workorder">
                                         <span class="menu-bullet">
                                             <img src="<?php echo base_url('assets/img/kompen.png'); ?>" alt="Icon" class="bullet-img">
                                         </span>
                                         <span class="menu-title">Work Order</span>
                                     </a>
                                 </div>
+                                <!--======  End Menu Work Order ===== -->
 
+                                <!--======  Start Menu Settings ===== -->
                                 <div class="menu-item ">
                                     <a class="menu-link <?= ($activeMenu === '') ? 'active' : ''; ?>" href="<?= base_url() ?>settings">
                                         <span class="menu-bullet">
@@ -341,30 +363,29 @@
                                         <span class="menu-title">Settings</span>
                                     </a>
                                 </div>
-                                <!--======  End Menu Work Order ===== -->
+                                <!--======  Start Menu Settings ===== -->
 
                             </div>
-                            <!--======  End Sub Master  ====== -->
+                            <!--======  End Sub Transaksi  ====== -->
                         </div>
-                        <!--====== End Master ===== -->
-
+                        <!--====== End transaksi ===== -->
             <?php }?>
                     <!--====== End ALL Side bar ===== -->
                     <!-- ====== Start Menu item Logout ====== -->
                     <div class="menu-item menu-accordion">
-                    <!-- ====== Start Menu link ====== -->
-                    <a class="menu-link " href="<?= base_url() ?>Auth/logout">
-                                    <span class="menu-icon">
-                                        <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
-                                        <span class="svg-icon svg-icon-2">
-                                            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <!-- ====== Start Menu link ====== -->
+                        <a class="menu-link " href="<?= base_url() ?>Auth/logout">
+                            <span class="menu-icon">
+                                <!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+                                <span class="svg-icon svg-icon-2">
+                                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M8 6C6.89543 6 6 6.89543 6 8V40C6 41.1046 6.89543 42 8 42H40C41.1046 42 42 41.1046 42 40V24V8C42 6.89543 41.1046 6 40 6H8ZM42 24L32 32V26H16V22H32V16L42 24Z" fill="currentColor" />
                                         <path d="M32 16L42 24L32 32V26H16V22H32V16Z" fill="#324558" />
                                     </svg>
                                 </span>
                                 <!--end::Svg Icon-->
                             </span>
-                            <span style="color : white" class="menu-title">Logout</span>
+                            <span class="menu-title">Logout</span>
                         </a>
                         <!--====== End Menu link ====== -->
 

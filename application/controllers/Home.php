@@ -10,7 +10,7 @@ class home extends CI_Controller {
             'is_login'  => false,
             'content'   => 'dashboard',
             'extra'     => 'dashboard',
-            'activeMenu'  => 'master',
+            'activeMenu'=> 'master',
 
         );
 		$this->load->view('layout/wrapper', $data);

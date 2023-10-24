@@ -38,16 +38,16 @@
             </thead>
 
             <tbody style="margin-top: 20px;">
-                <?php foreach ($suplier_data as $index => $row): ?>
+                <?php foreach ($suplier_data->message as $index => $row): ?>
                     <tr class="mt-1">
                         <td>
-                            <?php echo $row['namasup']; ?>
+                            <?php echo $row->nama; ?>
                         </td>
-                        <td><?php echo $row['alamat']; ?></td>
-                        <td><?php echo $row['telp']; ?></td>
+                        <td><?php echo $row->alamat; ?></td>
+                        <td><?php echo $row->telp; ?></td>
                       
                         <td class="text-right">
-                            <a href="<?= site_url('suplier/editsuplier/'); ?>" class="btn btn-link p-0">
+                            <a href="<?= site_url('suplier/editsuplier/'. $row->id); ?>" class="btn btn-link p-0">
                                 <img src="<?= base_url('assets/img/edit.png'); ?>" alt="edit" class="img-fluid" />
                             </a>
                             <button
@@ -55,9 +55,9 @@
                                 class="btn btn-link p-0 delete-suplier-button"
                                 data-bs-toggle="modal"
                                 data-bs-target="#myModal"
-                                data-alamat="<?= $row['alamat'] ?>"
-                                data-nama="<?= $row['namasup']?>"
-                                data-href="<?= site_url('suplier/deletesuplier/') . $row['alamat'] ?>"
+                                data-id="<?=$row->id?>"
+                                data-nama="<?= $row->nama?>"
+                                data-href="<?= site_url('suplier/deletesuplier/') . $row->id ?>"
                             >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>

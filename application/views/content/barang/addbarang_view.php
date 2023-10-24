@@ -212,7 +212,7 @@
                     <h4 class="modal-title">Tambah Kategori</h4>
                     <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                 </div>
-                <form calss="modal-body" action="<?php echo base_url('barang/addbarang'); ?>" method="post">
+                <form class="modal-body" action="<?php echo base_url('barang/addbarang'); ?>" method="post">
                     <div class="form-group row mb-3 align-items-center">
                         <label for="kategori" class="col-md-2 col-form-label col-form-label-lg">
                         Kategori</label>
@@ -221,7 +221,7 @@
                         </div>
                     </div>
 
-                    <div class="d-flex justify-content-end">
+                    <div class="d-flex justify-content-center">
                         <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
                             <i class="fas fa-times"></i> Batal
                         </button>
