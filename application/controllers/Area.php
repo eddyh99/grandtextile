@@ -15,7 +15,9 @@ class area extends CI_Controller
             'content'   => 'content/area/area_view',
             'extra'     => 'content/area/js/js_index',
             'area_data' => $apiData,
-            'activeMenu'  => 'area',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side2'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -48,11 +50,13 @@ class area extends CI_Controller
             }
         } else {
             $data = array(
-                'title' => NAMETITLE . ' - Add area',
-                'is_login' => false,
-                'content' => 'content/area/addarea_view',
-                'extra' => 'content/area/js/js_index',
-                'activeMenu' => 'area',
+                'title'         => NAMETITLE . ' - Add area',
+                'is_login'      => false,
+                'content'       => 'content/area/addarea_view',
+                'extra'         => 'content/area/js/js_index',
+                'colmas'        => 'show',
+                'menmas'        => 'active',
+                'side2'         => 'active',
             );
             $this->load->view('layout/wrapper', $data);
         }
@@ -98,8 +102,10 @@ class area extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/area/editarea_view',
                     'extra'         => 'content/area/js/js_index',
-                    'activeMenu'    => 'area',
-                    'area_data' => $area_data,
+                    'area_data'     => $area_data,
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side2'         => 'active',
                 );
 
                 $this->load->view('layout/wrapper', $data);

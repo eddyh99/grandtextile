@@ -2,14 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\application",
+    "\\application\\config",
     "\\application\\views",
     "\\application\\views\\content",
-    "\\application\\views\\content\\komisipenjahit\\js",
     "\\application\\views\\content\\pengguna",
     "\\application\\views\\content\\suplier",
     "\\application\\views\\content\\suplier\\js",
     "\\application\\views\\register"
   ],
-  "SelectedNode": "\\application\\views\\content\\suplier\\js\\js_index.php",
+  "SelectedNode": "\\application\\config\\constants.php",
   "PreviewInSolutionExplorer": false
 }

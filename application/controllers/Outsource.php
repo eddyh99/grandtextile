@@ -16,7 +16,9 @@ class outsource extends CI_Controller
             'content'   => 'content/outsource/outsource_view',
             'extra'     => 'content/outsource/js/js_index',
             'outsource_data' => $apiData,
-            'activeMenu'  => 'outsource',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side15'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -59,7 +61,9 @@ class outsource extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/outsource/addoutsource_view',
                     'extra'         => 'content/outsource/js/js_index',
-                    'activeMenu'    => 'outsource',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side15'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -108,7 +112,9 @@ class outsource extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/outsource/editoutsource_view',
                     'extra'         => 'content/outsource/js/js_index',
-                    'activeMenu'    => 'outsource',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side15'         => 'active',
                     'outsource_data' => $outsource_data,
                 );
 

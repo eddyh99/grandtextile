@@ -36,7 +36,9 @@ class workorder extends CI_Controller
             'content'   => 'content/workorder/workorder_view',
             'extra'     => 'content/workorder/js/js_index',
             'workorder_data' => $sample_workorder_data,
-            'activeMenu'  => 'workorder',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side24'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -94,7 +96,9 @@ class workorder extends CI_Controller
             'content'   => 'content/workorder/addworkorder_view',
             'extra'     => 'content/workorder/js/js_index',
             'barang_data' => $sample_barang_data,
-            'activeMenu'  => 'workorder',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side24'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -152,7 +156,9 @@ class workorder extends CI_Controller
             'content'   => 'content/workorder/editworkorder_view',
             'extra'     => 'content/workorder/js/js_index',
             'barang_data' => $sample_barang_data,
-            'activeMenu'  => 'workorder',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side24'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

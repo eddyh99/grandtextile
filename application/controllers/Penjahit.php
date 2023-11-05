@@ -16,7 +16,9 @@ class penjahit extends CI_Controller
             'content'   => 'content/penjahit/penjahit_view',
             'extra'     => 'content/penjahit/js/js_index',
             'penjahit_data' => $apiData,
-            'activeMenu'  => 'penjahit',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side11'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -59,7 +61,9 @@ class penjahit extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/penjahit/addpenjahit_view',
                     'extra'         => 'content/penjahit/js/js_index',
-                    'activeMenu'    => 'penjahit',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side11'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -108,7 +112,9 @@ class penjahit extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/penjahit/editpenjahit_view',
                     'extra'         => 'content/penjahit/js/js_index',
-                    'activeMenu'    => 'penjahit',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side11'         => 'active',
                     'penjahit_data' => $penjahit_data,
                 );
 

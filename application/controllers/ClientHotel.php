@@ -17,7 +17,9 @@ class clienthotel extends CI_Controller
             'content'   => 'content/clienthotel/clienthotel_view',
             'extra'     => 'content/clienthotel/js/js_index',
             'clienthotel_data' => $apiData,
-            'activeMenu'  => 'clienthotel',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side5'         => 'active',
             
         );
         $this->load->view('layout/wrapper', $data);
@@ -77,7 +79,9 @@ class clienthotel extends CI_Controller
                     'is_login' => false,
                     'content' => 'content/clienthotel/addclienthotel_view',
                     'extra' => 'content/clienthotel/js/js_index',
-                    'activeMenu' => 'clienthotel',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side5'         => 'active',
                     'area_data'     => $area_data,
                     'cp_data'     => $cp_data,
                 );
@@ -137,7 +141,9 @@ class clienthotel extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/clienthotel/editclienthotel_view',
                     'extra'         => 'content/clienthotel/js/js_index',
-                    'activeMenu'    => 'clienthotel',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side5'         => 'active',
                     'clienthotel_data' => $clienthotel_data,
                     'area_data'     => $area_data,
                     'cp_data'     => $cp_data,

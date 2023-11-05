@@ -17,7 +17,9 @@ class cphotel extends CI_Controller
             'content'   => 'content/cphotel/cphotel_view',
             'extra'     => 'content/cphotel/js/js_index',
             'cphotel_data' => $apiData,
-            'activeMenu'  => 'cphotel',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side4'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -63,7 +65,9 @@ class cphotel extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/cphotel/addcphotel_view',
                     'extra'         => 'content/cphotel/js/js_index',
-                    'activeMenu'    => 'cphotel',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side4'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -112,7 +116,9 @@ class cphotel extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/cphotel/editcphotel_view',
                     'extra'         => 'content/cphotel/js/js_index',
-                    'activeMenu'    => 'cphotel',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side4'         => 'active',
                     'cphotel_data' => $cphotel_data,
                 );
 

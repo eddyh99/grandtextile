@@ -17,7 +17,9 @@ class retailer extends CI_Controller
             'content'   => 'content/retailer/retailer_view',
             'extra'     => 'content/retailer/js/js_index',
             'retailer_data' => $apiData,
-            'activeMenu'  => 'retailer',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side14'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -68,7 +70,9 @@ class retailer extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/retailer/addretailer_view',
                     'extra'         => 'content/retailer/js/js_index',
-                    'activeMenu'    => 'retailer',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side14'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -121,7 +125,9 @@ class retailer extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/retailer/editretailer_view',
                     'extra'         => 'content/retailer/js/js_index',
-                    'activeMenu'    => 'retailer',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side14'         => 'active',
                     'retailer_data' => $retailer_data,
                 );
 

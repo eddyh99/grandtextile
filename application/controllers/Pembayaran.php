@@ -30,7 +30,9 @@ class pembayaran extends CI_Controller
             'content'   => 'content/pembayaran/pembayaran_view',
             'extra'     => 'content/pembayaran/js/js_index',
             'pembayaran_data' => $sample_pembayaran_data,
-            'activeMenu'  => 'pembayaran',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side19'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -42,7 +44,9 @@ class pembayaran extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/pembayaran/addpembayaran_view',
             'extra'     => 'content/pembayaran/js/js_index',
-            'activeMenu'  => 'pembayaran',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side19'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -54,7 +58,9 @@ class pembayaran extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/pembayaran/editpembayaran_view',
             'extra'     => 'content/pembayaran/js/js_index',
-            'activeMenu'  => 'pembayaran',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side19'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

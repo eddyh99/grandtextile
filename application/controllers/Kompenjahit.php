@@ -15,7 +15,9 @@ class kompenjahit extends CI_Controller
             'content'   => 'content/komisipenjahit/kompenjahit_view',
             'extra'     => 'content/komisipenjahit/js/js_index',
             'kompenjahit_data' => $apiData,
-            'activeMenu'  => 'kompenjahit',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side12'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -60,7 +62,9 @@ class kompenjahit extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/komisipenjahit/addkompenjahit_view',
                     'extra'         => 'content/komisipenjahit/js/js_index',
-                    'activeMenu'    => 'kompenjahit',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side12'         => 'active',
                     'katbarang'     => $katbarang,
                 );
                 $this->load->view('layout/wrapper', $data);
@@ -105,7 +109,9 @@ class kompenjahit extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/komisipenjahit/editkompenjahit_view',
                     'extra'         => 'content/komisipenjahit/js/js_index',
-                    'activeMenu'    => 'kompenjahit',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side12'         => 'active',
                     'kompenjahit_data' => $kompenjahit_data,
                     'katbarang'     => $katbarang,
                 );
@@ -115,16 +121,15 @@ class kompenjahit extends CI_Controller
         }
         public function deletekompenjahit($jenis,$id)
         {
-            $apiUrl = API_URL . '/v1/kompenjahit/delete_kompenjahit?id='. $jenis . 'id_kategori=' . $id;
-
+            $apiUrl = API_URL . '/v1/penjahit/deletefee_penjahit?jenis='. $jenis .'&'. 'id_kategori=' . $id;
+            
             $apiResponse = bedapi($apiUrl);
-
             if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
                 $this->session->set_flashdata('message', 'kompenjahit berhasil di hapus.');
             } else {
                 $this->session->set_flashdata('message', 'gagal menghapus kompenjahit');
             }
 
-            redirect('penjahit');
+            redirect('kompenjahit');
         }
 }

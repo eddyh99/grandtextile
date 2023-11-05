@@ -30,7 +30,9 @@ class invoice extends CI_Controller
             'content'   => 'content/invoice/invoice_view',
             'extra'     => 'content/invoice/js/js_index',
             'invoice_data' => $sample_invoice_data,
-            'activeMenu'  => 'invoice',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side23'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -42,7 +44,9 @@ class invoice extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/invoice/addinvoice_view',
             'extra'     => 'content/invoice/js/js_index',
-            'activeMenu'  => 'invoice',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side23'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     } 
@@ -54,7 +58,9 @@ class invoice extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/invoice/editinvoice_view',
             'extra'     => 'content/invoice/js/js_index',
-            'activeMenu'  => 'invoice',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side23'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

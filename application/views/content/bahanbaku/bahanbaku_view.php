@@ -49,7 +49,6 @@
                                 data-bs-target="#myModal"
                                 data-id="<?= $row->id ?>"
                                 data-nama="<?= $row->namabahan?>"
-                                data-href="<?= site_url('bahanbaku/deletebahanbaku/') . $row->id ?>"
                             >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
@@ -80,7 +79,7 @@
 
                     <div class="modal-footer justify-content-center">
                         <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
-                        <a id="deleteButton" href="#" class="btn btn-primary" style="background-color: #624DE3;">Hapus</a>
+                        <a id="deleteButton" href="<?= site_url('bahanbaku/deletebahanbaku/') . $row->id ?>" class="btn btn-primary" style="background-color: #624DE3;">Hapus</a>
                     </div>
                 </div>
             </div>

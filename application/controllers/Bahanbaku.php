@@ -17,7 +17,9 @@ class bahanbaku extends CI_Controller
             'content'   => 'content/bahanbaku/bahanbaku_view',
             'extra'     => 'content/bahanbaku/js/js_index',
             'bahanbaku_data' => $apiData,
-            'activeMenu'  => 'bahanbaku',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side9'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -59,7 +61,9 @@ class bahanbaku extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/bahanbaku/addbahanbaku_view',
                     'extra'         => 'content/bahanbaku/js/js_index',
-                    'activeMenu'    => 'bahanbaku',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side9'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -107,7 +111,9 @@ class bahanbaku extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/bahanbaku/editbahanbaku_view',
                     'extra'         => 'content/bahanbaku/js/js_index',
-                    'activeMenu'    => 'bahanbaku',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side9'         => 'active',
                     'bahanbaku_data' => $bahanbaku_data,
                 );
 

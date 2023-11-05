@@ -54,7 +54,6 @@
                                 data-bs-target="#myModal"
                                 data-id="<?= $row->id ?>"
                                 data-nama="<?= $row->namaaddon?>"
-                                data-href="<?= site_url('addon/deleteaddon/') . $row->id ?>"
                             >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
@@ -67,23 +66,25 @@
     </table>
 </div>
              <!-- Modal -->
-          <div class="modal fade" id="myModal" role="dialog">
+         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
-    
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">Hapus</h4>
-                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Hapus</h4>
+                        <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    </div>
+
+                    <div class="modal-body text-center">
+                        <p>Akan Menghapus Addon</p>
+                        <span id="selectednama"></span>
+                    </div>
+
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
+                        <a id="deleteButton" href="<?= site_url('addon/deleteaddon/') . $row->id ?>" class="btn btn-primary" style="background-color: #624DE3;">Hapus</a>
+                    </div>
                 </div>
-                <div class="modal-body text-center">
-                  <p>Akan Menghapus addon</p>
-		          <p>Nama</p>
-                </div>
-                <div class="modal-footer justify-content-center" >
-                  <button type="button" class="btn btn-danger" data-dismiss="modal">Batal</button>
-                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-dismiss="modal">Hapus</button>
-                </div>
-              </div>
             </div>
           </div>

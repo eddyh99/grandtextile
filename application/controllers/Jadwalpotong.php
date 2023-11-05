@@ -25,7 +25,9 @@ class jadwalpotong extends CI_Controller
             'content'   => 'content/jadwalpotong/jadwalpotong_view',
             'extra'     => 'content/jadwalpotong/js/js_index',
             'jadwalpotong_data' => $sample_jadwalpotong_data,
-            'activeMenu'  => 'jadwalpotong',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side21'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -37,7 +39,9 @@ class jadwalpotong extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/jadwalpotong/addjadwalpotong_view',
             'extra'     => 'content/jadwalpotong/js/js_index',
-            'activeMenu'  => 'jadwalpotong',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side21'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -49,7 +53,9 @@ class jadwalpotong extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/jadwalpotong/editjadwalpotong_view',
             'extra'     => 'content/jadwalpotong/js/js_index',
-            'activeMenu'  => 'jadwalpotong',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side21'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

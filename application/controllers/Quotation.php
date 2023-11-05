@@ -26,7 +26,9 @@ class quotation extends CI_Controller
             'content'   => 'content/quotation/quotation_view',
             'extra'     => 'content/quotation/js/js_index',
             'quotation_data' => $sample_quotation_data,
-            'activeMenu'  => 'quotation',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side22'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -38,7 +40,9 @@ class quotation extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/quotation/addquotation_view',
             'extra'     => 'content/quotation/js/js_index',
-            'activeMenu'  => 'quotation',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side22'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     } 
@@ -50,7 +54,9 @@ class quotation extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/quotation/editquotation_view',
             'extra'     => 'content/quotation/js/js_index',
-            'activeMenu'  => 'quotation',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side22'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -109,7 +115,9 @@ class quotation extends CI_Controller
             'content'   => 'content/quotation/barangquotation_view',
             'extra'     => 'content/quotation/js/js_index',
             'barang_data' => $sample_barang_data,
-            'activeMenu'  => 'quotation',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side22'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

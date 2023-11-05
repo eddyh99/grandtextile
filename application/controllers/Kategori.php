@@ -17,7 +17,9 @@ class Kategori extends CI_Controller
             'content'   => 'content/kategori/kategori_view',
             'extra'     => 'content/kategori/js/js_index',
             'kategori_data' => $apiData,
-            'activeMenu'  => 'kategori',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side6'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -56,7 +58,9 @@ class Kategori extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/kategori/addkategori_view',
                     'extra'         => 'content/kategori/js/js_index',
-                    'activeMenu'    => 'kategori',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side6'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -103,7 +107,9 @@ class Kategori extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/kategori/editkategori_view',
                     'extra'         => 'content/kategori/js/js_index',
-                    'activeMenu'    => 'kategori',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side6'         => 'active',
                     'kategori_data' => $kategori_data,
                 );
 

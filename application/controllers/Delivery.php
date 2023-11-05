@@ -28,7 +28,9 @@ class delivery extends CI_Controller
             'content'   => 'content/delivery/delivery_view',
             'extra'     => 'content/delivery/js/js_index',
             'delivery_data' => $sample_delivery_data,
-            'activeMenu'  => 'delivery',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side18'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -40,7 +42,9 @@ class delivery extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/delivery/adddelivery_view',
             'extra'     => 'content/delivery/js/js_index',
-            'activeMenu'  => 'delivery',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side18'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -52,7 +56,9 @@ class delivery extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/delivery/editdelivery_view',
             'extra'     => 'content/delivery/js/js_index',
-            'activeMenu'  => 'delivery',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side18'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

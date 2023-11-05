@@ -28,9 +28,7 @@ $(document).ready(function() {
     });
     $('.delete-sales-button').click(function () {
             var selectedsales = $(this).data('nama');
-            var deleteUrl = $(this).data('href');
             $('#selectedsales').text(selectedsales);
-            $('#deleteButton').attr('href', deleteUrl);
         });
   });
 </script>

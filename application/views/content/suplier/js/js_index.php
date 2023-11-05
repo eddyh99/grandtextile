@@ -2,6 +2,21 @@
 $(document).ready(function() {
     //DataTables
     $('#suplierTable').DataTable();
+    $('#suplierTable tbody').on('click', 'td.details-control', function() {
+        var tr = $(this).closest('tr');
+        var row = table.row(tr);
+
+        if (row.child.isShown()) {
+            // This row is already open - close it
+            row.child.hide();
+            tr.removeClass('shown');
+            tr.next('.child-row').remove();
+        } else {
+            // Open this row
+            row.child(tr.next('.child-row').html()).show();
+            tr.addClass('shown');
+        }
+    });
     //Datepicker
        $('#tgllahir').datepicker({
         format: 'dd/mm/yyyy',
@@ -27,9 +42,7 @@ $(document).ready(function() {
     });
     $('.delete-suplier-button').click(function () {
             var selectednama = $(this).data('nama');
-            var deleteUrl = $(this).data('href');
             $('#selectednama').text(selectednama);
-            $('#deleteButton').attr('href', deleteUrl);
         });
 });
 

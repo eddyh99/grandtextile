@@ -18,7 +18,9 @@ class sales extends CI_Controller
             'content'   => 'content/sales/sales_view',
             'extra'     => 'content/sales/js/js_index',
             'sales_data' => $apiData,
-            'activeMenu'  => 'sales',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side3'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -77,6 +79,9 @@ class sales extends CI_Controller
                     'extra'         => 'content/sales/js/js_index',
                     'activeMenu'    => 'sales',
                     'area_data'     => $area_data,
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side3'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -133,9 +138,11 @@ class sales extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/sales/editsales_view',
                     'extra'         => 'content/sales/js/js_index',
-                    'activeMenu'    => 'sales',
                     'sales_data'    => $sales_data,
                     'area_data'     => $area_data,
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side3'         => 'active',
                 );
 
                 $this->load->view('layout/wrapper', $data);

@@ -24,7 +24,9 @@ class stok extends CI_Controller
             'content'   => 'content/stok/stok_view',
             'extra'     => 'content/stok/js/js_index',
             'stok_data' => $sample_stok_data,
-            'activeMenu'  => 'stok',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side10'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -52,7 +54,9 @@ class stok extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/stok/addstok_view',
             'extra'     => 'content/stok/js/js_index',
-            'activeMenu'  => 'stok',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side10'         => 'active',
             'stok_data' => $sample_stok_data,
         );
         $this->load->view('layout/wrapper', $data);
@@ -65,7 +69,9 @@ class stok extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/stok/editstok_view',
             'extra'     => 'content/stok/js/js_index',
-            'activeMenu'  => 'stok',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side10'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

@@ -12,12 +12,15 @@ class pengguna extends CI_Controller
         $apiData = bedapi($apiUrl);
 
         $data = array(
-            'title'     => NAMETITLE . ' - pengguna',
-            'is_login'  => false,
-            'content'   => 'content/pengguna/pengguna_view',
-            'extra'     => 'content/pengguna/js/js_index',
+            'title'         => NAMETITLE . ' - pengguna',
+            'is_login'      => false,
+            'content'       => 'content/pengguna/pengguna_view',
+            'extra'         => 'content/pengguna/js/js_index',
             'pengguna_data' => $apiData,
-            'activeMenu'  => 'pengguna',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side8'         => 'active',
+    );
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -64,7 +67,9 @@ class pengguna extends CI_Controller
                 'is_login'      => false,
                 'content'       => 'content/pengguna/addpengguna_view',
                 'extra'         => 'content/pengguna/js/js_index',
-                'activeMenu'    => 'pengguna',
+                'colmas'        => 'show',
+                'menmas'        => 'active',
+                'side8'         => 'active',
             );
             $this->load->view('layout/wrapper', $data);
         }
@@ -114,7 +119,9 @@ class pengguna extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/pengguna/editpengguna_view',
                     'extra'         => 'content/pengguna/js/js_index',
-                    'activeMenu'    => 'pengguna',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side8'         => 'active',
                     'pengguna_data' => $pengguna_data,
                 );
 
@@ -126,6 +133,8 @@ class pengguna extends CI_Controller
             $apiUrl = API_URL . '/v1/pengguna/delete_pengguna?uname=' . ($uname);
             
             $apiResponse = bedapi($apiUrl);
+            print_r($apiResponse);
+            die;
             if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
                 $this->session->set_flashdata('message', 'pengguna berhasil di hapus.');
             } else {

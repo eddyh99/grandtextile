@@ -44,7 +44,9 @@ class barang extends CI_Controller
             'content'   => 'content/barang/barang_view',
             'extra'     => 'content/barang/js/js_index',
             'barang_data' => $sample_barang_data,
-            'activeMenu'  => 'barang',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side7'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -84,7 +86,9 @@ class barang extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/barang/addbarang_view',
             'extra'     => 'content/barang/js/js_index',
-            'activeMenu'  => 'barang',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side7'         => 'active',
             'kat_data'     => $kat_data,
         );
         $this->load->view('layout/wrapper', $data);
@@ -97,7 +101,9 @@ class barang extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/barang/editbarang_view',
             'extra'     => 'content/barang/js/js_index',
-            'activeMenu'  => 'barang',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side7'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

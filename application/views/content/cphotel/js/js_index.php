@@ -26,9 +26,7 @@ $(document).ready(function() {
     });
     $('.delete-cp-button').click(function () {
             var selectednama = $(this).data('nama');
-            var deleteUrl = $(this).data('href');
             $('#selectednama').text(selectednama);
-            $('#deleteButton').attr('href', deleteUrl);
         });
 });
 </script>

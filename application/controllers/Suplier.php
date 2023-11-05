@@ -17,7 +17,9 @@ class suplier extends CI_Controller
             'content'   => 'content/suplier/suplier_view',
             'extra'     => 'content/suplier/js/js_index',
             'suplier_data' => $apiData,
-            'activeMenu'  => 'suplier',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side16'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -60,7 +62,9 @@ class suplier extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/suplier/addsuplier_view',
                     'extra'         => 'content/suplier/js/js_index',
-                    'activeMenu'    => 'suplier',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side16'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -111,7 +115,9 @@ class suplier extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/suplier/editsuplier_view',
                     'extra'         => 'content/suplier/js/js_index',
-                    'activeMenu'    => 'suplier',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side16'         => 'active',
                     'suplier_data' => $suplier_data,
                 );
 

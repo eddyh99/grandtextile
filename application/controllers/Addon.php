@@ -16,7 +16,9 @@ class addon extends CI_Controller
             'content'   => 'content/addon/addon_view',
             'extra'     => 'content/addon/js/js_index',
             'addon_data' => $apiData,
-            'activeMenu'  => 'addon',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side13'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -55,7 +57,9 @@ class addon extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/addon/addaddon_view',
                     'extra'         => 'content/addon/js/js_index',
-                    'activeMenu'    => 'addon',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side13'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -100,7 +104,9 @@ class addon extends CI_Controller
                     'is_login'      => false,
                     'content'       => 'content/addon/editaddon_view',
                     'extra'         => 'content/addon/js/js_index',
-                    'activeMenu'    => 'addon',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side13'         => 'active',
                     'addon_data' => $addon_data,
                 );
 

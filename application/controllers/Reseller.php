@@ -17,7 +17,9 @@ class reseller extends CI_Controller
             'content'       => 'content/reseller/reseller_view',
             'extra'         => 'content/reseller/js/js_index',
             'reseller_data' => $apiData,
-            'activeMenu'    => 'reseller',
+            'colmas'        => 'show',
+            'menmas'        => 'active',
+            'side1'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -73,6 +75,9 @@ class reseller extends CI_Controller
                     'content'       => 'content/reseller/addreseller_view',
                     'extra'         => 'content/reseller/js/js_index',
                     'activeMenu'    => 'reseller',
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side1'         => 'active',
                 );
                 $this->load->view('layout/wrapper', $data);
             }
@@ -129,6 +134,9 @@ class reseller extends CI_Controller
                     'extra'         => 'content/reseller/js/js_index',
                     'activeMenu'    => 'reseller',
                     'reseller_data' => $reseller_data,
+                    'colmas'        => 'show',
+                    'menmas'        => 'active',
+                    'side1'         => 'active',
                 );
 
                 $this->load->view('layout/wrapper', $data);

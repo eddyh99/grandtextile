@@ -24,7 +24,9 @@ class settings extends CI_Controller
             'content'   => 'content/settings/settings_view',
             'extra'     => 'content/settings/js/js_index',
             'settings_data' => $sample_settings_data,
-            'activeMenu'  => 'settings',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side25'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -46,7 +48,9 @@ class settings extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/settings/addsettings_view',
             'extra'     => 'content/settings/js/js_index',
-            'activeMenu'  => 'settings',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side25'         => 'active',
             'settings_data' => $sample_settings_data,
         );
         $this->load->view('layout/wrapper', $data);
@@ -59,7 +63,9 @@ class settings extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/settings/editsettings_view',
             'extra'     => 'content/settings/js/js_index',
-            'activeMenu'  => 'settings',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side25'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

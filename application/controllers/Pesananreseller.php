@@ -26,7 +26,9 @@ class pesananreseller extends CI_Controller
             'content'   => 'content/pesananreseller/pesananreseller_view',
             'extra'     => 'content/pesananreseller/js/js_index',
             'pesananreseller_data' => $sample_pesananreseller_data,
-            'activeMenu'  => 'pesananreseller',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side20'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -38,7 +40,9 @@ class pesananreseller extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/pesananreseller/addpesananreseller_view',
             'extra'     => 'content/pesananreseller/js/js_index',
-            'activeMenu'  => 'pesananreseller',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side20'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }
@@ -50,7 +54,9 @@ class pesananreseller extends CI_Controller
             'is_login'  => false,
             'content'   => 'content/pesananreseller/editpesananreseller_view',
             'extra'     => 'content/pesananreseller/js/js_index',
-            'activeMenu'  => 'pesananreseller',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side20'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

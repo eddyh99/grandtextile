@@ -7,7 +7,12 @@ class Auth extends CI_Controller
 
 	public function index()
 	{
-		if (isset($_SESSION['logged_status'])) {			
+		if (isset($_SESSION['logged_status'])) {
+			if ($_SESSION['logged_status']['role'] == 'pengayah') {
+				redirect('home');
+			}elseif ($result->role=='kasir'){
+				redirect('store/penjualan');
+			}
 			redirect("home");
 		}
 
@@ -34,20 +39,13 @@ class Auth extends CI_Controller
 		$uname = $this->security->xss_clean($this->input->post('uname'));
 		$pass = $this->security->xss_clean($this->input->post('pass'));
 
-		$mdata=array(
-			"uname"		=> $uname,
-			"passwd"	=> sha1($pass)
-		);
-
-		$apiUrl = API_URL . '/v1/auth/signin';
-
-		$postData = json_encode($mdata);
-		$apiResponse = bedapi($apiUrl, $postData);
-
-		if ($apiResponse->code=="200") {
+		$result="true";
+		if (!empty($result)) {
 			$session_data = array(
-				'uname'  	=> $uname,
-				'role'      => $apiResponse->message->role,
+				'username'  => $uname,
+				'nama'      => true,
+				'role'      => true,
+				'is_login'  => true
 			);
 			$this->session->set_userdata('logged_status', $session_data);
 				

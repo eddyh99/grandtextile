@@ -28,7 +28,9 @@ class proses extends CI_Controller
             'content'   => 'content/proses/proses_view',
             'extra'     => 'content/proses/js/js_index',
             'proses_data' => $sample_proses_data,
-            'activeMenu'  => 'proses',
+            'coltrans'        => 'show',
+            'mentrans'        => 'active',
+            'side17'         => 'active',
         );
         $this->load->view('layout/wrapper', $data);
     }

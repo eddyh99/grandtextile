@@ -1,6 +1,8 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+//Defined APIURL
+defined('API_URL') || define('API_URL', 'https://api-grandtextile.softwarebali.com');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
@@ -86,11 +88,30 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 
 define('NAMETITLE','Bed and Bath');
 
-// API
-if (stripos($_SERVER['HTTP_HOST'], 'localhost') > 0) {
-    define('API_URL', 'https://api-grandtextile.softwarebali.com');
-}elseif (stripos($_SERVER['HTTP_HOST'], 'local') > 0) {
-    define('API_URL', 'http://api-grandtextile.local');
-}else{
-    define('API_URL', 'https://api.softwarebali.com');
-}
+//defined database table
+define("PENGGUNA",'pengguna');
+define("GUIDE",'guide');
+define("PENGAYAH",'pengayah');
+
+define("ITEMS",'items');
+define("ITEMS_HARGA",'items_harga');
+define("ITEMS_PROMO",'items_promo');
+
+define("PRODUK",'produk');
+define("PRODUK_HARGA",'produk_harga');
+define("PRODUK_DETAIL",'produk_detail');
+define("PRODUK_PROMO",'produk_promo');
+
+define("PAKET",'paket');
+define("PAKET_HARGA",'paket_harga');
+define("PAKET_DETAIL",'paket_detail');
+define("PAKET_PROMO",'paket_promo');
+
+define("STORE",'store');
+define("ASSIGNSTORE",'assignstore');
+define("PENGUNJUNG",'pengunjung');
+define("KAS",'kas');
+
+define("PENYESUAIAN",'penyesuaian');
+define("PENJUALAN_PENGUNJUNG",'penjualan_pengunjung');
+define("PENJUALAN_DETAIL",'penjualan_detail');

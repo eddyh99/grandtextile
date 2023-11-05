@@ -27,9 +27,7 @@ $(document).ready(function() {
     });
     $('.delete-pengguna-button').click(function () {
             var selectednama = $(this).data('nama');
-            var deleteUrl = $(this).data('href');
             $('#selectednama').text(selectednama);
-            $('#deleteButton').attr('href', deleteUrl);
         });
 });
 
