@@ -3,6 +3,7 @@
     "",
     "\\application",
     "\\application\\config",
+    "\\application\\controllers",
     "\\application\\views",
     "\\application\\views\\content",
     "\\application\\views\\content\\pengguna",
@@ -10,6 +11,6 @@
     "\\application\\views\\content\\suplier\\js",
     "\\application\\views\\register"
   ],
-  "SelectedNode": "\\application\\config\\constants.php",
+  "SelectedNode": "\\application\\controllers\\Jadwalpotong.php",
   "PreviewInSolutionExplorer": false
 }

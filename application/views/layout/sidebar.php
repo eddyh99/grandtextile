@@ -57,7 +57,7 @@
 
                                 <!-- Start Menu Reseller -->
                             <div class="menu-item">
-                                <a class="menu-link <?= @$side26 ?>" href="<?= base_url('pesanan'); ?>">
+                                <a class="menu-link <?= @$side26 ?>" href="<?= base_url('buatpesanan'); ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -67,7 +67,7 @@
                             <!-- End Menu Reseller -->
                                 <!-- Start Menu Reseller -->
                             <div class="menu-item">
-                                <a class="menu-link <?= @$side27 ?>" href="<?= base_url('lproduk'); ?>">
+                                <a class="menu-link <?= @$side27 ?>" href="<?= base_url('lihatproduk'); ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -77,7 +77,7 @@
                             <!-- End Menu Reseller -->
                                 <!-- Start Menu Reseller -->
                             <div class="menu-item">
-                                <a class="menu-link <?= @$side28 ?>" href="<?= base_url('linvoice'); ?>">
+                                <a class="menu-link <?= @$side28 ?>" href="<?= base_url('lihatinvoice'); ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>
@@ -87,7 +87,7 @@
                             <!-- End Menu Reseller -->
                                 <!-- Start Menu Reseller -->
                             <div class="menu-item">
-                                <a class="menu-link <?= @$side29 ?>" href="<?= base_url('lprogress'); ?>">
+                                <a class="menu-link <?= @$side29 ?>" href="<?= base_url('lihatprogress'); ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>

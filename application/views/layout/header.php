@@ -21,7 +21,7 @@
 	
 	<link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css">
 	
-	<link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap/plugins/datatables-bs4/css/dataTables.bootstrap4.css">
+	<link rel="stylesheet" href="<?= base_url() ?>assets/css/datatables/css/dataTables.Bootstrap5.css">
 	<link href="<?= base_url() ?>assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url() ?>assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
 	<link href="<?= base_url() ?>assets/css/custom.css" rel="stylesheet" type="text/css" />
