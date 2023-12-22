@@ -97,11 +97,11 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="fas fa-text">P</i></span>
                                             </div>
-                                            <input type="text" class="form-control" value="<?php echo $row['ukuran_p']; ?>" >
+                                            <input type="text" class="form-control" value="<?php echo $row['ukuran_p']; ?>" readonly>
                                             <span class="input-group-text"><i class="fas fa-text">L</i></span>
-                                            <input type="text" class="form-control" value="<?php echo $row['ukuran_l']; ?>" >
+                                            <input type="text" class="form-control" value="<?php echo $row['ukuran_l']; ?>" readonly>
                                             <span class="input-group-text"><i class="fas fa-text">T</i></span>
-                                            <input type="text" class="form-control" value="<?php echo $row['ukuran_t']; ?>" >
+                                            <input type="text" class="form-control" value="<?php echo $row['ukuran_t']; ?>" readonly>
                                         </div>
                                     </td>
                                     <th>Warna</th>
@@ -170,3 +170,4 @@
         </div>
     </div>
 </div>
+

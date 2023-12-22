@@ -1,6 +1,7 @@
 <script>
 $(document).ready(function() {
     $('#salesTable').DataTable();
+    $('#area').select2();
 });
 $(document).ready(function() {
     //Datepicker

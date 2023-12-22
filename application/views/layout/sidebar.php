@@ -97,7 +97,7 @@
                             <!-- End Menu Reseller -->
                                 <!-- Start Menu Reseller -->
                             <div class="menu-item">
-                                <a class="menu-link <?= @$side30 ?>" href="<?= base_url('pengaturan'); ?>">
+                                <a class="menu-link <?= @$side30 ?>" href="<?= base_url('dashboard/pengaturan'); ?>">
                                     <span class="menu-bullet">
                                         <span class="bullet bullet-dot"></span>
                                     </span>

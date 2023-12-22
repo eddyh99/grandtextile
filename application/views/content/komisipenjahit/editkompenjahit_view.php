@@ -9,7 +9,7 @@
             <div class="form-group row mb-3 align-items-center">
                 <label for="fee" class="col-md-2 col-form-label-lg">Jenis</label>
                 <div class="col-md-9">
-                    <input type="text" class="form-control form-control-lg" id="jenis" name="jenis" readonly value="<?php echo htmlspecialchars($kompenjahit_data->message->jenis); ?>">
+                    <input type="text" class="form-control form-control-lg" id="jenis2" name="jenis" readonly value="<?php echo htmlspecialchars($kompenjahit_data->message->jenis); ?>">
                 </div>
             </div>
 

@@ -47,5 +47,18 @@ $(document).ready(function() {
             $('#deleteButton').attr('href', deleteUrl);
         });
 });
+function copyForm() {
+    var clonedForm = $("#form-asli").clone();
 
+    // Add a remove button with Bootstrap styling
+    clonedForm.append('<button type="button" class="btn btn-danger remove-form mt-2">Hapus</button>');
+
+    // Append the cloned form with the remove button to the dynamic form container
+    $("#form-dinamis").append(clonedForm);
+}
+
+    // Handle removal of cloned forms
+    $("#form-dinamis").on("click", ".remove-form", function() {
+        $(this).closest("#form-asli").remove();
+    });
 </script>

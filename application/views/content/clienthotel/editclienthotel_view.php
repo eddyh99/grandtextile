@@ -43,7 +43,7 @@
                 <label for="cp1" class="col-md-2 col-form-label-lg">CP 1</label>
                 <div class="col-md-9">
                     <select class="form-control form-control-lg" id="cphotel" name="cphotel[0][cp_id]" required>
-                        <option value="" disabled selected>Pilih CP</option>
+                        <option value="" disabled selected><?php echo htmlspecialchars($clienthotel_data->message->cphotel[0]->nama); ?></option>
                         <?php foreach ($cp_data->message as $cp) : ?>
                             <option value="<?= $cp->id; ?>"><?= $cp->nama; ?></option>
                         <?php endforeach; ?>

@@ -124,10 +124,12 @@ class kompenjahit extends CI_Controller
             $apiUrl = API_URL . '/v1/penjahit/deletefee_penjahit?jenis='. $jenis .'&'. 'id_kategori=' . $id;
             
             $apiResponse = bedapi($apiUrl);
+            print_r($apiResponse);
+            die;
             if ($apiResponse && isset($apiResponse->code) && $apiResponse->code === '200') {
-                $this->session->set_flashdata('message', 'kompenjahit berhasil di hapus.');
+                $this->session->set_flashdata('message', 'komisi penjahit berhasil di hapus.');
             } else {
-                $this->session->set_flashdata('message', 'gagal menghapus kompenjahit');
+                $this->session->set_flashdata('message', 'gagal menghapus kompisi enjahit');
             }
 
             redirect('kompenjahit');

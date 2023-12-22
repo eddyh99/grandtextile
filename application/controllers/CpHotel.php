@@ -57,7 +57,7 @@ class cphotel extends CI_Controller
                     redirect('cphotel');
                 } else {
                     $this->session->set_flashdata('message', 'gagal menambah CP.');
-                    redirect('cphotel/editcphotel/');
+                    redirect('cphotel/addcphotel/');
                 }
             } else {
                 $data = array(

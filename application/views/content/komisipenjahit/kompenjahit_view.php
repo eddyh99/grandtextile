@@ -60,7 +60,7 @@
                                 data-bs-toggle="modal"
                                 data-bs-target="#myModal"
                                 data-jenis="<?= $row->jenis ?>"
-                                data-id="<?= $row->jenis?>"
+                                data-id="<?= $row->id_kategori?>"
                             >
                                 <img src="<?= base_url('assets/img/trash.png') ?>" alt="Delete" class="img-fluid" />
                             </button>

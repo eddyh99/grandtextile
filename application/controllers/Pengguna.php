@@ -20,7 +20,6 @@ class pengguna extends CI_Controller
             'colmas'        => 'show',
             'menmas'        => 'active',
             'side8'         => 'active',
-    );
         );
         $this->load->view('layout/wrapper', $data);
     }

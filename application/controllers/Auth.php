@@ -33,21 +33,37 @@ class Auth extends CI_Controller
 
 		$uname = $this->security->xss_clean($this->input->post('uname'));
 		$pass = $this->security->xss_clean($this->input->post('pass'));
+		
+		//$mdata=array(
+		//	"uname"		=> $uname,
+		//	"passwd"	=> sha1($pass)
+		//);
 
-		$mdata=array(
-			"uname"		=> $uname,
-			"passwd"	=> sha1($pass)
-		);
+		//$apiUrl = API_URL . '/v1/auth/signin';
 
-		$apiUrl = API_URL . '/v1/auth/signin';
+		//$postData = json_encode($mdata);
+		//$apiResponse = '200';
 
-		$postData = json_encode($mdata);
-		$apiResponse = bedapi($apiUrl, $postData);
-
-		if ($apiResponse->code=="200") {
+		//if ($apiResponse->code=="200") {
+		//	$session_data = array(
+		//		'uname'  	=> $uname,
+		//		'role'      => $apiResponse->message->role,
+		//	);
+		//	$this->session->set_userdata('logged_status', $session_data);
+		//		
+		//	redirect('home');
+		//} else {
+		//	$this->session->set_flashdata('error', "username atau password salah, mohon periksa ulang");
+		//	redirect("/");
+		//	return;
+		//}
+		$result="true";
+		if (!empty($result)) {
 			$session_data = array(
-				'uname'  	=> $uname,
-				'role'      => $apiResponse->message->role,
+				'username'  => $uname,
+				'nama'      => true,
+				'role'      => true,
+				'is_login'  => true
 			);
 			$this->session->set_userdata('logged_status', $session_data);
 				

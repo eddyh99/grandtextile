@@ -5,8 +5,8 @@
         </div>
         <form action="<?php echo base_url('stok'); ?>" method="post">
                     <div class="form-group row mt-5 mb-3 align-items-center">
-                    <label for="nambahan" class="col-md-2 col-form-label-lg">Nama Bahan</label>
-                        <div class="col-md-9 input-group">
+                    <label for="nambahan" class="col-md-3 col-form-label-lg">Nama Bahan</label>
+                        <div class="col-md-8 input-group">
                             <select class="form-control form-control-lg" id="nambahan" name="nambahan" required>
                                 <option value="" disabled selected>Pilih barang</option>
                                 <option value="1">barang 1</option>
@@ -15,19 +15,15 @@
                          </div>
                      </div> 
                     <div class="form-group row mb-3 align-items-center">
-                    <label for="satuan" class="col-md-2 col-form-label-lg">Satuan</label>
-                        <div class="col-md-9 input-group">
-                            <select class="form-control form-control-lg" id="satuan" name="satuan" required>
-                                <option value="" disabled selected>Pilih barang</option>
-                                <option value="1">21</option>
-                                <option value="2">22</option>
-                            </select>
-                         </div>
-                     </div>
+                        <label for="stok" class="col-md-3 col-form-label-lg">Stok Awal Bahan Baku</label>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control form-control-lg" id="stok" name="stok" required>
+                        </div>
+                    </div>
                      
                     <div class="form-group row mb-3 align-items-center">
-                        <label for="jumlah" class="col-md-2 col-form-label-lg">Jumlah</label>
-                        <div class="col-md-9">
+                        <label for="jumlah" class="col-md-3 col-form-label-lg">Jumlah</label>
+                        <div class="col-md-8">
                             <input type="text" class="form-control form-control-lg" id="jumlah" name="jumlah" required>
                         </div>
                     </div>

@@ -34,13 +34,59 @@ class quotation extends CI_Controller
     }
     public function addquotation()
     {
-
+         $sample_barang_data = array(
+            array(
+                'kategori' => 'Cuya',
+                'namabarang' => 'barang 1',
+                'minorder' => '50',
+                'jumlah' => '70',
+                'diskon' => '20',
+                'GSM' => 'Cungkuk',
+                'pcs' => '10',
+                'ukuran' => 'XL',
+                'cons' => '100',
+                'consdll' => '111',
+                'addOn' => 'bordir',
+                'keterangan' => 'Lampu',
+                'harga'=>'80.000',
+                'warna'=>'merah',
+                'ukuran_p'=>'60',
+                'ukuran_l'=>'40',
+                'ukuran_t'=>'90',
+                'desain'=>'abc',
+                'kain'=>'linen',
+                
+                
+            ),
+            array(
+                'kategori' => 'Aldi',
+                'namabarang' => 'barang 2',
+                'minorder' => '20',
+                'jumlah' => '40',
+                'diskon' => '10',
+                'GSM' => 'GSA',
+                'pcs' => '10',
+                'ukuran' => 'M',
+                'cons' => '110',
+                'consdll' => '112',
+                'addOn' => 'bordir',
+                'keterangan' => 'Lampu',
+                'harga'=>'30.000',
+                'warna'=>'merah',
+                'ukuran_p'=>'60',
+                'ukuran_l'=>'40',
+                'ukuran_t'=>'90',
+                'desain'=>'abc',
+                'kain'=>'linen',
+            ),
+        );
         $data = array(
             'title'     => NAMETITLE . ' - sales',
             'is_login'  => false,
             'content'   => 'content/quotation/addquotation_view',
             'extra'     => 'content/quotation/js/js_index',
             'coltrans'        => 'show',
+            'barang_data' => $sample_barang_data,
             'mentrans'        => 'active',
             'side22'         => 'active',
         );

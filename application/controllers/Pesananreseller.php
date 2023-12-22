@@ -34,12 +34,26 @@ class pesananreseller extends CI_Controller
     }
     public function addpesananreseller()
     {
-
+         $sample_pesananreseller_data = array(
+            array(
+                'kategori' => 'Katun',
+                'namabarang' => 'shirt',
+                'jumlah' =>'2',
+                'harga'  =>'15000'
+            ),
+            array(
+                'kategori' => 'Silk',
+                'namabarang' => 'pants',
+                'jumlah' =>'3',
+                'harga'  =>'45000'
+            ),
+        );
         $data = array(
             'title'     => NAMETITLE . ' - pesananreseller',
             'is_login'  => false,
             'content'   => 'content/pesananreseller/addpesananreseller_view',
             'extra'     => 'content/pesananreseller/js/js_index',
+            'pesananreseller_data' => $sample_pesananreseller_data,
             'coltrans'        => 'show',
             'mentrans'        => 'active',
             'side20'         => 'active',

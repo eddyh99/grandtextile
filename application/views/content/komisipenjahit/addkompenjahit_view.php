@@ -19,7 +19,7 @@
             <div class="form-group row mb-3 align-items-center">
                 <label for="area" class="col-md-2 col-form-label-lg">Kategori</label>
                 <div class="col-md-9">
-                <select class="form-control form-control-lg" id="id_kategori" name="id_kategori" required>
+                <select class="form-control form-control-lg" id="kategori" name="id_kategori" required>
                     <option value="" disabled selected>Pilih Kategori</option>
                     <?php foreach ($katbarang->message as $barang) : ?>
                             <option value="<?= $barang->id; ?>"><?= $barang->namakategori; ?></option>

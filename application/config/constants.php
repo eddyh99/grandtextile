@@ -1,6 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
+defined('API_URL') || define('API_URL', 'https://api-grandtextile.softwarebali.com');
 /*
 |--------------------------------------------------------------------------
 | Display Debug backtrace
@@ -87,10 +87,10 @@ defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest auto
 define('NAMETITLE','Bed and Bath');
 
 // API
-if (stripos($_SERVER['HTTP_HOST'], 'localhost') > 0) {
-    define('API_URL', 'https://api-grandtextile.softwarebali.com');
-}elseif (stripos($_SERVER['HTTP_HOST'], 'local') > 0) {
-    define('API_URL', 'http://api-grandtextile.local');
-}else{
-    define('API_URL', 'https://api.softwarebali.com');
-}
+//if (stripos($_SERVER['HTTP_HOST'], 'localhost') > 0) {
+//define('API_URL', 'https://api-grandtextile.softwarebali.com');
+//}elseif (stripos($_SERVER['HTTP_HOST'], 'local') > 0) {
+//define('API_URL', 'http://api-grandtextile.local');
+//}else{
+//define('API_URL', 'https://api-softwarebali.com');
+//}

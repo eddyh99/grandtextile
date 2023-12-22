@@ -177,40 +177,55 @@
                     </tbody>
                     </table>
                 </div>
-                            <div class="row row-cols-3">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="bahan">Bahan yang digunakan</label>
-                                        <div class="form-group">
-                                            <select class="form-control form-control-md" id="bahan" name="bahan" required>
-                                                <option value="" disabled selected>Pilih Jenis</option>
-                                            </select>
+                    <div class="row">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="form-asli" class="mb-3">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="bahan">Bahan yang digunakan</label>
+                                                <div class="form-group">
+                                                    <select class="form-control form-control-md" id="bahan" name="bahan" required>
+                                                        <option value="" disabled selected>Pilih Jenis</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="supplier">Supplier</label>
-                                        <div class="form-group">
-                                            <select class="form-control form-control-md" id="supplier" name="supplier" required>
-                                                <option value="" disabled selected>Pilih Jenis</option>
-                                            </select>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="supplier">Supplier</label>
+                                                <div class="form-group">
+                                                    <select class="form-control form-control-md" id="supplier" name="supplier" required>
+                                                        <option value="" disabled selected>Pilih Jenis</option>
+                                                    </select>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-group">
-                                        <label for="jumlah">Jumlah</label>
-                                        <input type="text" class="form-control" id="jumlah" name="jumlah">
-                                    </div>
-                                </div>
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <label for="keterangan">Keterangan</label>
-                                        <input type="text" class="form-control" id="keterangan" name="keterangan">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label for="jumlah">Jumlah</label>
+                                                <input type="text" class="form-control" id="jumlah" name="jumlah">
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-md-12">
+                                <div id="form-dinamis"></div>
+                            </div>
+                            <div class="col-md-12 text-center">
+                                <div id="form-dinamis"></div>
+                                <button type="button" class="btn btn-primary mt-3 col-2" onclick="copyForm()">Tambah Form</button>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form-group">
+                                <label for="keterangan">Keterangan</label>
+                                <input type="text" class="form-control" id="keterangan" name="keterangan">
+                            </div>
+                        </div>
+                    </div>
                             
 
                 <div class="d-flex justify-content-end mt-2">

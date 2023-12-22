@@ -52,16 +52,16 @@
             </div>
 
             <div class="form-group row mb-3 align-items-center">
-                    <label for="cp3" class="col-md-2 col-form-label-lg">Area</label>
-                    <div class="col-md-9">
-                        <select class="form-control form-control-lg" id="area" name="area" required>
-                            <option value="" disabled selected>Pilih Area</option>
-                            <?php foreach ($area_data->message as $area) : ?>
-                                <option value="<?= $area->id; ?>"><?= $area->area; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
+                <label for="cp3" class="col-md-2 col-form-label-lg">Area</label>
+                <div class="col-md-9">
+                    <select class="form-control form-control-lg" id="area" name="area" required>
+                        <option value="" disabled selected>Pilih Area</option>
+                        <?php foreach ($area_data->message as $area) : ?>
+                            <option value="<?= $area->id; ?>"><?= $area->area; ?></option>
+                        <?php endforeach; ?>
+                    </select>
                 </div>
+            </div>
 
             <div class="form-group row mb-3 align-items-center">
                 <label for="komisi" class="col-md-2 col-form-label-lg">Komisi</label>

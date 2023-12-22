@@ -3,26 +3,33 @@
         <div class="card-header bg-white d-flex justify-content-center">
             <h1>Edit Barang</h1>
         </div>
-        <form class="card-body" action="<?php echo base_url('barang'); ?>" method="post">
+         <?php if (!empty($_SESSION["message"])): ?>
+                <div class="alert alert-success">
+                    <?= $_SESSION["message"]; ?>
+                </div>
+                <?php unset($_SESSION["message"]); ?>
+            <?php endif; ?>
+        <form class="card-body" action="<?php echo base_url('barang/editbarang/' . ($barang_data->message->id)); ?>" method="post">
                     <div class="form-group row mb-3 align-items-center">
-                    <label for="kategori" class="col-md-2 col-form-label-lg">Kategori</label>
+                        <label for="kategori" class="col-md-2 col-form-label-lg">Kategori</label>
                         <div class="col-md-9 input-group">
-                            <select class="form-control form-control-lg" id="kategori" name="kategori" readonly>
-                                <option value="" disabled selected>Pilih barang</option>
-                                <option value="1">barang 1</option>
-                                <option value="2">barang 2</option>
+                            <select class="form-control form-control-lg" id="kategori2" name="kategori">
+                            <option value="" disabled selected><?php echo htmlspecialchars($barang_data->message->kategori_id); ?></option>
+                            <?php foreach ($kat_data->message as $kat) : ?>
+                                    <option value="<?= $kat->id; ?>"><?= $kat->namakategori; ?></option>
+                                <?php endforeach; ?>
                             </select>
-                            <div class="input-group-append">
-                                <button class="btn btn btn-secondary me-2" type="button" data-bs-toggle="modal" data-bs-target="#katModal">
-                                    <i class="fas fa-plus"></i>
-                                </button>
-                            </div>
-                         </div>
-                     </div>
+                        </div>
+                        <div class="col-md-1">
+                            <button class="btn btn btn-secondary" type="button" data-bs-toggle="modal" data-bs-target="#katModal">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
                     <div class="form-group row mb-3 align-items-center">
                         <label for="nambarang" class="col-md-2 col-form-label-lg">Nama Barang</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control form-control-lg" id="nambarang" name="nambarang" readonly>
+                            <input type="text" class="form-control form-control-lg" id="nambarang" name="namabarang" value="<?php echo htmlspecialchars($barang_data->message->namabarang); ?>" required readonly>
                         </div>
                     </div>
                     <div class="form-group row mb-3 align-items-center">
@@ -33,7 +40,7 @@
                                     <img src="" alt="Image" class="img-fluid">
                                 </div>
                                 <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="foto" name="foto" accept="image/*" required>
+                                    <input type="file" class="custom-file-input" id="foto" name="foto" accept="image/*">
                                     <label class="custom-file-label" for="foto">Choose file</label>
                                 </div>
                             </div>
@@ -42,13 +49,13 @@
                     <div class="form-group row mb-3 align-items-center">
                         <label for="design" class="col-md-2 col-form-label-lg">Design</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control form-control-lg" id="design" name="design" required>
+                            <input type="text" class="form-control form-control-lg" id="design" name="design" value="<?php echo htmlspecialchars($barang_data->message->design); ?>" required>
                         </div>
                     </div>
                     <div class="form-group row mb-3 align-items-center">
                         <label for="minorder" class="col-md-2 col-form-label-lg">Min Order</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control form-control-lg" id="minorder" name="minorder" required>
+                            <input type="text" class="form-control form-control-lg" id="minorder" name="minorder" value="<?php echo htmlspecialchars($barang_data->message->minorder); ?>" required>
                         </div>
                     </div>
                     <div class="form-group row mb-3 align-items-center">
@@ -60,7 +67,7 @@
                                         <i class="fas fa-p"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control form-control-lg" id="ukuran_p" name="ukuran_p" required>
+                                <input type="text" class="form-control form-control-lg" id="ukuran_p" name="panjang" value="<?php echo htmlspecialchars($barang_data->message->pjg); ?>" required>
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -70,7 +77,7 @@
                                         <i class="fas fa-l"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control form-control-lg" id="ukuran_l" name="ukuran_l" required>
+                                <input type="text" class="form-control form-control-lg" id="ukuran_l" name="lebar" value="<?php echo htmlspecialchars($barang_data->message->lbr); ?>" required>
                             </div>
                         </div><div class="col-md-3">
                             <div class="input-group">
@@ -79,7 +86,7 @@
                                         <i class="fas fa-t"></i>
                                     </span>
                                 </div>
-                                <input type="text" class="form-control form-control-lg" id="ukuran_t" name="ukuran_t" required>
+                                <input type="text" class="form-control form-control-lg" id="ukuran_t" name="tinggi" value="<?php echo htmlspecialchars($barang_data->message->tgi); ?>" required>
                             </div>
                         </div>
                     </div>
@@ -87,40 +94,39 @@
                     <div class="form-group row mb-3 align-items-center">
                         <label for="gsm" class="col-md-2 col-form-label-lg">GSM</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control form-control-lg" id="gsm" name="gsm" required>
+                            <input type="text" class="form-control form-control-lg" id="gsm" name="gsm" value="<?php echo htmlspecialchars($barang_data->message->gsm); ?>" required>
                         </div>
                     </div>
 
                     <div class="form-group row mb-3 align-items-center">
                         <label for="gr" class="col-md-2 col-form-label-lg">Gr/Pcs</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control form-control-lg" id="gr" name="gr" required>
+                            <input type="text" class="form-control form-control-lg" id="gr" name="gr" value="<?php echo htmlspecialchars($barang_data->message->gr); ?>" required>
                         </div>
                     </div>
 
                     <div class="form-group row mb-3 align-items-center">
                         <label for="quality" class="col-md-2 col-form-label-lg">Quality</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control form-control-lg" id="quality" name="quality" required>
+                            <input type="text" class="form-control form-control-lg" id="quality" name="quality" value="<?php echo htmlspecialchars($barang_data->message->quality); ?>" required>
                         </div>
                     </div>
                     <div class="form-group row mb-3 align-items-center">
                         <label for="color" class="col-md-2 col-form-label-lg">Color</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control form-control-lg" id="color" name="color" required>
+                            <input type="text" class="form-control form-control-lg" id="color" name="color" value="<?php echo htmlspecialchars($barang_data->message->color); ?>" required>
                         </div>
                     </div>
                     <div class="form-group row mb-3 align-items-center">
-                        <label for="cons" class="col-md-2 col-form-label-lg">Cons</label>
+                        <label for="harga" class="col-md-2 col-form-label-lg">Harga</label>
                         <div class="col-md-9">
-                            <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#consModal">
-                                    <img src="<?= base_url('assets/img/plus.png') ?>" alt="Delete" class="img-fluid" />
-                            </button>
-                        </div> 
+                            <input type="text" class="form-control form-control-lg" id="harga" name="harga" required>
+                        </div>
                     </div>
                     <div class="form-group row mb-3 align-items-center">
                         <label for="addOn" class="col-md-2 col-form-label-lg">Add On</label>
                         <div class="col-md-9">
+                       <div id="addonContainer"></div>
                             <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#addOnModal">
                                     <img src="<?= base_url('assets/img/plus.png') ?>" alt="Delete" class="img-fluid" />
                             </button>
@@ -129,7 +135,7 @@
                     <div class="form-group row mb-3 align-items-center">
                         <label for="keterangan" class="col-md-2 col-form-label-lg">Keterangan</label>
                         <div class="col-md-9">
-                            <input type="text" class="form-control form-control-lg" id="keterangan" name="keterangan" required>
+                            <input type="text" class="form-control form-control-lg" id="keterangan" name="keterangan" value="<?php echo htmlspecialchars($barang_data->message->keterangan); ?>"required>
                         </div>
                     </div>
                 <div class="row mb-3">
@@ -145,135 +151,103 @@
         </form>
         </div>
     </div>
-
-    <!-- Start Modal -->
-    <div class="modal fade" id="consModal" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
-                <div class="modal-header text-center">
-                  <h4 class="modal-title">Tambah Cons</h4>
-                  <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
-                </div>
-                <div class="modal-body text-center">
-                <div class="form-group row mb-3 align-items-center">
-                    <label for="bahan" class="col-md-2 col-form-label-lg">Bahan</label>
-                    <div class="col-md-10">
-                        <select class="form-control form-control-lg" id="bahan" name="bahan" required>
-                            <option value="" disabled selected>Bahan</option>
-                            <option value="1">Kain</option>
-                            <option value="2">Batu</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row mb-3 align-items-center">
-                    <label for="jumlah" class="col-md-2 col-form-label-lg">Jumlah</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control form-control-lg" id="jumlah" name="jumlah" required>
-                    </div>
-                </div>
-                <div class="form-group row mb-3 align-items-center">
-                    <label for="satuan" class="col-md-2 col-form-label-lg">Satuan</label>
-                    <div class="col-md-10">
-                        <select class="form-control form-control-lg" id="satuan" name="satuan" required>
-                            <option value="" disabled selected>satuan</option>
-                            <option value="1">1000</option>
-                            <option value="2">2000</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group row mb-3 align-items-center">
-                    <label for="harga" class="col-md-2 col-form-label-lg">Harga</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control form-control-lg" id="harga" name="harga" required>
-                    </div>
-                </div>
-                </div>
-                <div class="modal-footer justify-content-center" >
-                  <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
-                  <i class="fas fa-times"></i> Batal
-                  </button>
-                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">
-                  <i class="fas fa-save"></i>Simpan
-                  </button>
-                </div>
-               </div>
-            </div>
-    </div>
-    <!-- End Modal Cons -->
     
     <!-- Start Modal Kategori-->
-    <div class="modal fade" id="katModal" role="dialog">
-            <div class="modal-dialog">
-              <!-- Modal content-->
-              <div class="modal-content">
+   <div class="modal fade" id="katModal" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
                 <div class="modal-header text-center">
-                  <h4 class="modal-title">Tambah Kategori</h4>
-                  <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Tambah Kategori</h4>
+                    <button type="button" class="close" data-bs-dismiss="modal">&times;</button>
                 </div>
-                <div class="modal-body text-center">
-                <div class="form-group row mb-3 align-items-center">
-                    <label for="kategori" class="col-md-2 col-form-label-lg">Kategori</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control form-control-lg" id="kategori" name="kategori" required>
+                <form class="modal-body" action="<?php echo base_url('barang/addbarang'); ?>" method="post">
+                    <div class="form-group row mb-3 align-items-center">
+                        <label for="kategori" class="col-md-2 col-form-label col-form-label-lg">
+                        Kategori</label>
+                        <div class="col-md-9 mt-2">
+                            <input type="text" class="form-control form-control-lg" id="namakategori" name="namakategori" required>
+                        </div>
                     </div>
-                </div>
-                </div>
-                <div class="modal-footer justify-content-center" >
-                  <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
-                  <i class="fas fa-times"></i> Batal
-                  </button>
-                  <button type="button " style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">
-                  <i class="fas fa-save"></i>Simpan
-                  </button>
-                </div>
-               </div>
+
+                    <div class="d-flex justify-content-center">
+                        <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
+                            <i class="fas fa-times"></i> Batal
+                        </button>
+                        <button type="submit" class="btn btn-primary" style="background-color: #624DE3;">
+                            <i class="fas fa-save"></i> Simpan
+                        </button>
+                    </div>
+                </form>
             </div>
+        </div>
     </div>
     <!-- End Modal Kategori-->
-    <!-- Start Modal Addon -->
-    <div class="modal fade" id="addOnModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <!-- Addon modal -->
+<div class="modal fade" id="addOnModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
+            <!-- Modal Header -->
             <div class="modal-header text-center">
-                <h4 class="modal-title">Tambah Kategori</h4>
+                <h4 class="modal-title">Tambah Addon</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
+            
+            <!-- Modal Body -->
             <div class="modal-body text-center">
+                <!-- Addon form elements -->
                 <div class="mb-3 row">
                     <label for="nama" class="col-md-2 col-form-label">Nama</label>
                     <div class="col-md-10">
-                        <select class="form-select form-control-lg" id="nama" name="nama" required>
-                            <option value="" disabled selected>Nama</option>
-                            <option value="1">nama 1</option>
-                            <option value="2">nama 2</option>
+                        <select class="form-select form-control-lg" id="addonNama" required>
+                        <?php foreach ($addon_data->message as $addon) : ?>
+                            <option value="<?= $addon->id; ?>"><p><?= $addon->namaaddon; ?></p></option>
+                        <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
                 <div class="mb-3 row">
                     <label for="jumlah" class="col-md-2 col-form-label">Jumlah</label>
                     <div class="col-md-10">
-                        <input type="text" class="form-control form-control-lg" id="jumlah" name="jumlah" required>
-                    </div>
-                </div>
-                <div class="mb-3 row">
-                    <label for="harga" class="col-md-2 col-form-label-lg">Harga</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control form-control-lg" id="harga" name="harga" required>
+                        <input type="text" class="form-control form-control-lg" id="addonJumlah" required>
                     </div>
                 </div>
             </div>
+            
+            <!-- Modal Footer -->
             <div class="modal-footer justify-content-center">
-                <button type="button" style="background-color: gray;" class="btn btn-danger" data-bs-dismiss="modal">
-                    <i class="fas fa-times"></i> Batal
-                </button>
-                <button type="button" style="background-color: #624DE3;" class="btn btn-primary" data-bs-dismiss="modal">
-                    <i class="fas fa-save"></i> Simpan
+                <button type="button" style="background-color: #624DE3;" class="btn btn-primary" onclick="confirmAddon()">
+                    <i class="fas fa-save"></i> Confirm
                 </button>
             </div>
         </div>
     </div>
 </div>
 
-    <!-- End Modal addOn-->
-</div>
+<script>
+    function confirmAddon() {
+        // Extract values from the modal
+        var addonid = document.getElementById('addonNama').value;
+        var addonNama = document.getElementById('addonNama').options[document.getElementById('addonNama').selectedIndex].text;
+        var addonJumlah = document.getElementById('addonJumlah').value;
+
+        // Create HTML for the addon
+        var addonHTML = `
+            <div class="mb-3 row">
+                <label class="col-md-2 col-form-label">Addon:</label>
+                <div class="col-md-10">
+                    <p>Nama: ${addonNama}, Jumlah: ${addonJumlah}</p>
+                </div>
+            </div>
+            <input type="hidden" name="addon[1][id_addon]" value="${addonid}">
+            <input type="hidden" name="addon[1][jumlah]" value="${addonJumlah}">
+        `;
+
+        // Append the addon to the main form
+        document.getElementById('addonContainer').innerHTML += addonHTML;
+
+        // Close the modal
+        $('#addOnModal').modal('hide');
+    }
+</script>
+
